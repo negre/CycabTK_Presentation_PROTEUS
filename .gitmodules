@@ -1,0 +1,6 @@
+[submodule "libs/deckjs"]
+	path = libs/deckjs
+	url = https://github.com/twitwi/deck.js.git
+[submodule "libs/deckextjs"]
+	path = libs/deckextjs
+	url = https://github.com/barraq/deck.ext.js.git
