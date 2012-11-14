@@ -1,6 +1,6 @@
-$deck_size_width: 1124px;
+$deck_size_width: 1024px;
 $deck_size_height: 768px;
-$font_size: 16px;
+$font_size: 1em;
 
 // Reset
 
@@ -69,7 +69,6 @@ $box_white_dark: rgba(253,254,255,1);
 
 
 @media screen {
-    
     body {
         background-color: rgba(0,0,0,1);
         background-image: url('media/patterns/110.gif');
@@ -77,10 +76,11 @@ $box_white_dark: rgba(253,254,255,1);
     }
     
     .deck-container {
-        position: relative;
         display: block;
         width: $deck_size_width;
-        height: $deck_size_height !important;
+        height: $deck_size_height;
+        min-height: $deck_size_height;
+        max-height: $deck_size_height;
         @include box-shadow(2px, 2px, 15px, rgba(0, 0, 0, 0.6));
         margin: auto;
         
@@ -124,6 +124,7 @@ $box_white_dark: rgba(253,254,255,1);
             }
 
             .slide-content {
+                @extend .text-padding;
                 margin-top: 10px;
             }
 
@@ -183,15 +184,7 @@ $box_white_dark: rgba(253,254,255,1);
             }
 
             p {
-                padding: 10px 0px 0px 10px;
                 font-size: $font-size*1.2;
-
-                &.h2 {
-                    padding: 0px 0px 10px 40px;
-                    margin: 0px 0px 0px 0px;
-                    font-size: 1.5em;
-                    font-weight: bold;
-                }
             }
 
             span {
@@ -355,7 +348,6 @@ $box_white_dark: rgba(253,254,255,1);
                 z-index: 5;
                 padding: 5px;
                 margin: 0px 0px 0px 0px;
-                //margin: 5px 0px 5px 0px;
                 color: white;
                 font-size: $font-size*1.5;
                 font-weight: normal;
