@@ -35,11 +35,134 @@
 ## Slides
 ##
 ###########################################################################-->
+
+<!--##########################################################################
+##    Outline :
+##
+##   Introduction to ROS
+##       What is ROS
+##       Concepts
+##       Tools
+##   Tutorial ROS /
+##       ROS C++, java, python, android
+##   Demonstration
+###########################################################################-->
+
+      
     <section class="slide hide-toc-status" id="title-slide">
         <h1>Robotic Operating System</h1>
-        <div class="centerbox info">fuck</div>
     </section>
 
+      <section class="slide">
+        <h2>ROS Introduction</h2>
+        <div class="slide-title">Robotic middleware</div>
+        <div>
+          <p> A Robot is a combination of different compnents :</p>
+          
+          <ul>
+            <li> Hardware components :
+              <ul>
+                <li> Computer </li>
+                <li> Motor controllers</li>
+                <li> Sensors </li>
+              </ul>
+            </li> 
+            <li> Software components :
+              <ul>
+                <li> OS </li>
+                <li> Hardware drivers</li>
+                <li> Robot servoing</li>
+                <li> Perception</li>
+              </ul>
+            </li>
+            <li> Problem :
+              <ul>
+                <li> Task to solve</li>
+                <li> Can be distributed (multi-robots, multi-PC)</li>
+              </ul>
+            </li>
+            <li> Integration between differents layers : middleware</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="slide-title"> What is ROS</div>
+        <div>
+          <p>ROS stands for Robot Operating System</p>
+          
+          <ul>
+            <li> Open source robotics middleware</li>
+            <li> Robotics framework organized around a common communication library</li>
+            <li> Packaging system with dependence & compilation management</li>
+            <li> Large community</li>
+            <li> Thousand of existing modules</li>
+          </ul>
+        </div>
+        
+      </section>
+
+
+      <section class="slide">
+        <div class="slide-title"> What ROS is not</div>
+        <div>
+          <ul>
+            <li> Not an operating system : use Ubuntu (official) or other experimentals platforms (MS Windows, OS X, Fedora, Android, etc.)</li>
+            <li> Not a programming language :
+              <ul>
+                <li>Official : C++, Python</li>
+                <li>Experimental : Java, Lisp, Octave, etc.</li>
+              </ul>
+            </li>
+            <li> Not a real time environment</li>
+            <li> Not designed for embedded systems (need to use rosserial bridge for this purpose)</li>
+          </ul>
+        </div>        
+      </section>
+
+      <h2> ROS Concepts</h2>
+      <h3> Structure</h3>
+
+      <section class="slide">
+        <div class="slide-title"> Structure </div>
+        <div>
+          <ul>
+            <li>Ros Application = set of communicating processes</li>
+            <li><span class="important">Node</span> = a process that used the ROS framework</li>
+            <li>Different Nodes may reside in the same or different machines transparently</li>
+            <li>Nodes get to know one another via <span class="important">rosmaster</span></li>
+          </ul>
+        </div>
+        
+      </section>
+      
+      <h3> Communication mechanism</h3>
+      <section class="slide">
+        <div class="slide-title"> Communication mechanism </div>
+        <div>
+          <p>Two main communication protocols :</p>
+          <lu>
+            <li><span class="important">Messages</span>
+              <ul>
+                <li>Data flow, message passing : asynchronous</li>
+                <li>Grouped in <span class="important">topics</span></li>
+              </ul>
+            </li>
+            <li><span class="important">Services</span>
+              <ul>
+                <li>Remote procedure call, synchronous</li>
+                <li>Request / Answer messages</li>
+              </ul>
+            </li>
+          </lu>
+
+          <p>Both are staticaly typed</p>
+        </div>
+        
+      </section>
+            
+      
+      
     <section class="slide">
         <h2>Outline</h2>
         <div class="slide-title">Outline</div>
