@@ -193,35 +193,132 @@
                 <div class="slide-content">
                     <p>Two main communication protocols :</p>
                     <ul class="normal-text">
-                        <li><span class="important">Messages</span>
+                        <li><span class="important">Topics</span>
                             <ul>
                                 <li>Data flow, message passing : asynchronous</li>
-                                <li>Grouped in <span class="important">topics</span></li>
                             </ul>
                         </li>
                         <li><span class="important">Services</span>
                             <ul>
-                                <li>Remote procedure call, synchronous</li>
+                                <li>Remote procedure call : synchronous</li>
                                 <li>Request / Answer messages</li>
                             </ul>
                         </li>
                     </ul>
-                    <p>Both are staticaly typed</p>
+                    <p>Both are staticaly typed : <span class="important">Messages & Services</span> definition</p>
                 </div>
 
             </section>
 
             <section class="slide">
-                <h2>Outline</h2>
-                <div class="slide-title">Outline</div>
+                <div class="slide-title">Topics</div>
                 <div class="slide-content">
-                    <ul class="normal-text">
-                        <li>some text</li>
-                        <li>some text</li>
+                    <img src="media/topic_protocol.png" alt="Topics protocol" width="72%"/>
+                    <ul>
+                        <li>Directory used for topics discovery : <span class="important">ROS master</span>;</li>
+                        <li>Multiple concurrent publishers / subscribers for a single topic;</li>
+                        <li>Publish / subscribe order irrelevant.</li>
+                    </ul>
+                </div>
+            </section>
+      
+            <section class="slide">
+                <div class="slide-title">Services</div>
+                <div class="slide-content">
+                    <img src="media/service_protocol.png" alt="Service protocol" width="70%"/>
+                    <ul>
+                        <li>Directory used for service discovery : <span class="important">ROS master</span>;</li>
+                        <li>Multiple simultaneous clients</li>
                     </ul>
                 </div>
             </section>
 
+            <section class="slide">
+                <div class="slide-title">ROS master</div>
+                <div class="slide-content">
+                    <ul>
+                        <li>Directory for publisher / subscribers/ services;</li>
+                        <li>XMLRPC API;</li>
+                        <li>Not a central communication node</li>
+                        <li>part of <span class="important">roscore</span></li>
+                    </ul>
+                </div>
+            </section>
+
+           <section class="slide">
+                <div class="slide-title">Roscore</div>
+                <div class="slide-content">
+                    <ul>
+                        <li>roscore :
+                        <ul>
+                            <li>rosmaster,</li>
+                            <li>parameter server,</li>
+                            <li>log aggregator.</li>
+                        </ul>
+                        </li>
+                        <li>Parameter server :
+                        <ul>
+                            <li>centralized parameter repository : provides parameter access to all nodes,</li>
+                            <li>XMLRPC data type.</li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-title">Roslaunch</div>
+                <div class="slide-content">
+                    <ul>
+                        <li>Automate startup of complex ROS applications ;
+                        <li><span class="important">Launch files</span> specify :
+                        <ul>
+                            <li>list of nodes,</li>
+                            <li>with topics / service remapping,</li>
+                            <li>parameter values,</li>
+                            <li>XML syntax.</li>
+                        </ul>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-title"> Packages and Stacks</div>
+                <div class="slide-content">
+                <ul>
+                <li><span class="important">Packages : </span>
+                    <ul>
+                    <li>atomic unit of building,</li>
+                    <li>can contain anything : nodes, messages, tools, launch files, etc.
+                    <li>in their most basic form :
+                        <ul>
+                        <li>package_name</li>
+                        <li>package_name/Makefile</li>
+                        <li>package_name/CMakeLists.txt</li>
+                        <li>package_name/manifest.xml</li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+            
+                <li><span class="important">Stacks :</span>
+                    <ul>
+                    <li>atomic unit of "releasing",</li>
+                    <li>collection of packages grouped together.</li>
+                    <li>in their most basic form :
+                        <ul>
+                        <li>stack_name</li>
+                        <li>stack_name/package_name_1</li>
+                        <li>stack_name/package_name_n</li>
+                        <li>stack_name/stack.xml</li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+                </ul>
+                </div>
+            </section>
+            
             <!--##########################################################################
             ##
             ## PART II.
