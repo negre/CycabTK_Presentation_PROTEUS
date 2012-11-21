@@ -318,7 +318,99 @@
                 </ul>
                 </div>
             </section>
-            
+      
+            <section class="slide">
+                <div class="slide-title">Transformation frames</div>
+                <div class="slide-content">
+                <p>Robot:</p>
+                <ul>
+                    <li>set of rigit bodies linked together;</li>
+                    <li>each sensor obtain measurement in its local reference.</li>
+                </ul>
+                <p>In ROS</p>
+                <ul>
+                    <li>set of transformation frames,</li>
+                    <li>linked by transformation,</li>
+                    <li>organized in a directed tree,</li>
+                    <li>published on a single topic <span class="important">/tf</span>,</li>
+                    <li>each sensor data is associated to a frame.</li>
+                </ul>
+                <img src="media/frames2.png" alt="frames" width="40%"/>
+                </div>
+            </section>
+
+            <section class="slide">
+                <h3>ROS tools</h3>
+                <div class="slide-title">Runtime inspection</div>
+                <p>Node inspection :</p>
+                <ul>
+                   <li><span class="important">rosnode</span> : list nodes and interconnections,</li>
+                   <li><span class="important">rxgraph</span> : connection graph;</li>
+                </ul>
+                <img src="media/rxgraph.png" alt="rxgraph" width="40%"/>
+                <p>Message inspection :</p>
+                <ul>
+                   <li><span class="important">rostopic</span> : list topics, print sent messages,</li>
+                   <li><span class="important">rosservice</span> : list services.</li>
+                </ul>
+            </section>
+      
+            <section class="slide">
+                <div class="slide-title">Logging</div>
+                <p>Logging API :</p>
+                <ul>
+                   <li>different verbosity levels (info, debug, error, etc.),</li>
+                   <li>published on an unique topic <span class="important">/rosout,</span></li>
+                   <li><span class="important">rxconsole</span> for online inspection,</li>
+                  <li>automatic dumping to file system for offline analysis.</li>
+                </ul>
+                <img src="media/rxconsole.png" alt="rxconsole" width="40%"/>
+            </section>
+
+            <section class="slide">
+                <div class="slide-title">Data visualization</div>
+                <p><span class="important">rviz</span></p>
+                <ul>
+                   <li>full 3D visualization,</li>
+                   <li>display almost all standard sensor messages and frames,</li>
+                   <li>plugin system to handle build-in messages.</li>
+                </ul>
+                <img src="media/rviz.png" alt="rviz" width="50%"/>
+            </section>
+
+            <section class="slide">
+                <div class="slide-title">Data recording</div>
+                <p>Recording messages :</p>
+                <ul>
+                   <li><span class="important">rosbag record</span> : generic subscriber,</li>
+                   <li>container : <span class="important">bagfile</span>,</li>
+                </ul>
+                <p>Replaying messages :</p>
+                <ul>
+                   <li><span class="important">rosbag play</span> : generic publisher,</li>
+                   <li><span class="important">rxbag</span> graphic interface.</li>
+                </ul>
+                <img src="media/rxbag.png" alt="rxbag" width="50%"/>
+            </section>
+
+            <section class="slide">
+                <div class="slide-title">Thid party modules</div>
+                <p>Hardware drivers :</p>
+                <ul>
+                   <li>sensors : almost all common used robotics sensors,</li>
+                   <li>robots : depends on constructors.</li>
+                </ul>
+                <p>Software stacks :</p>
+                <ul>
+                   <li>SLAM (localization and mapping),</li>
+                   <li>navigation,</li>
+                   <li>3D perception,</li>
+                   <li>simulation;</li>
+                </ul>
+                <p>Growing community.</p>
+            </section>
+
+      
             <!--##########################################################################
             ##
             ## PART II.
