@@ -419,8 +419,48 @@
             ###########################################################################-->
             
             <section class="slide part">
-                <h2>Part. II <span>Introduction to ROS</span></h2>
-                <div class="slide-title">Part. II <span>Introduction à ROS</span></div>
+                <h2>ROS tutorial</h2>
+                <div class="slide-title">Create new package</div>
+                <ol>
+                    <li>Create an empty package :
+                        <ul>
+                            <li>$ roscreate-pkg pkg_name</li>
+                        </ul>
+                    </li>
+                    <li>Edit pkg_name/manifest.xml :
+                        <pre>
+<!--
+<package>
+  <description brief="pkg_name">
+     My package description
+  </description>
+  <author>Amaury Negre</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pkg_name</url>
+</package>
+-->
+                        </pre>
+                    </li>
+                    <li> Edit pkg_name/CMakeLists.txt :
+                        <pre>
+<!--
+#uncomment if you have defined messages
+#rosbuild_genmsg()
+#uncomment if you have defined services
+#rosbuild_gensrv()
+
+#common commands for building c++ executables and libraries
+#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
+#target_link_libraries(${PROJECT_NAME} another_library)
+#rosbuild_add_boost_directories()
+#rosbuild_link_boost(${PROJECT_NAME} thread)
+#rosbuild_add_executable(example examples/example.cpp)
+#target_link_libraries(example ${PROJECT_NAME})
+-->
+                        </pre>
+                    </li>
+                </ol>
             </section>
             
             <!--##########################################################################
