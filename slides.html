@@ -427,37 +427,10 @@
                         </ul>
                     </li>
                     <li>Edit pkg_name/manifest.xml :
-                        <pre>
-<!--
-<package>
-  <description brief="pkg_name">
-     My package description
-  </description>
-  <author>Amaury Negre</author>
-  <license>BSD</license>
-  <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/pkg_name</url>
-</package>
--->
-                        </pre>
+                        <pre>&lt;package&gt;<br/>&nbsp;&nbsp;&lt;description&nbsp;brief=&quot;pkg_name&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My&nbsp;package&nbsp;description<br/>&nbsp;&nbsp;&lt;/description&gt;<br/>&nbsp;&nbsp;&lt;author&gt;Amaury&nbsp;Negre&lt;/author&gt;<br/>&nbsp;&nbsp;&lt;license&gt;BSD&lt;/license&gt;<br/>&nbsp;&nbsp;&lt;review&nbsp;status=&quot;unreviewed&quot;&nbsp;notes=&quot;&quot;/&gt;<br/>&nbsp;&nbsp;&lt;url&gt;http://ros.org/wiki/pkg_name&lt;/url&gt;<br/>&lt;/package&gt;</pre>
                     </li>
                     <li> Edit pkg_name/CMakeLists.txt :
-                        <pre>
-<!--
-#uncomment if you have defined messages
-#rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
-
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-#rosbuild_add_executable(example examples/example.cpp)
-#target_link_libraries(example ${PROJECT_NAME})
--->
-                        </pre>
+                        <pre>#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages<br/>#rosbuild_genmsg()<br/>#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;services<br/>#rosbuild_gensrv()<br/><br/>#common&nbsp;commands&nbsp;for&nbsp;building&nbsp;c++&nbsp;executables&nbsp;and&nbsp;libraries<br/>#rosbuild_add_library(${PROJECT_NAME}&nbsp;src/example.cpp)<br/>#target_link_libraries(${PROJECT_NAME}&nbsp;another_library)<br/>#rosbuild_add_boost_directories()<br/>#rosbuild_link_boost(${PROJECT_NAME}&nbsp;thread)<br/>#rosbuild_add_executable(example&nbsp;examples/example.cpp)<br/>#target_link_libraries(example&nbsp;${PROJECT_NAME})</pre>
                     </li>
                 </ol>
             </section>
