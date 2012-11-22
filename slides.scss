@@ -1,20 +1,28 @@
+/*******************************************************************************
+*
+* Variables
+*
+*******************************************************************************/
+
 $deck_size_width: 1024px;
 $deck_size_height: 768px;
-$font_size: 1em;
 
-// Reset
-
-* {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica Light", Helvetica, Arial, "Lucida Grande", sans-serif !important;
-  font-weight: 100;
-    text-shadow: none;
-}
+$line: 24;
+$column: 100% / 18;
+$font-size: 16;
+$em: $font-size * 1;
 
 $black_background_color_light: rgba(35,35,32,1);
 $black_background_color_dark: rgba(0,0,0,1);
 
 $box_white_light: rgba(255,255,255,1);
 $box_white_dark: rgba(253,254,255,1);
+
+/*******************************************************************************
+*
+* Mixin
+*
+*******************************************************************************/
 
 @mixin border-radius($r) {
     -webkit-border-radius:$r;
@@ -68,6 +76,135 @@ $box_white_dark: rgba(253,254,255,1);
 }
 
 
+/*******************************************************************************
+*
+* All media & Consistency fixes adopted from http://necolas.github.com/normalize.css/
+*
+*******************************************************************************/
+
+* {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica Light", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+    font-weight: 100;
+    text-shadow: none;
+}
+
+html {
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+	min-height: 100%;
+	font-size: 100%;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, audio, canvas, video {
+	display: block;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+b, strong {
+	font-weight: bold;
+}
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+input, textarea, button, select {
+	margin: 0;
+	font-size: 100%;
+	line-height: normal;
+	vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"],
+figure {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+textarea {
+	overflow: auto;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*******************************************************************************
+*
+* Typography
+*
+*******************************************************************************/
+
+body,
+input,
+textarea,
+button,
+select {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 100;
+}
+pre, code {
+  font-family: Menlo, Monaco, monospace;
+}
+article p, #content header p, #content footer p {
+  margin-bottom: 1.5em;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+article p:last-child {
+  margin-bottom: 0;
+}
+#content header p {
+  padding-bottom: 1.4375em;
+  border-bottom: 0.0625em dotted #3d3c38;
+  margin: 0;
+}
+h2 {
+  margin-bottom: 0.46153846153846156em;
+}
+h3 {
+  margin: 3em 0 1.5em;
+}
+#download h3, #guide h3 {
+  margin: 1.5em 0 0;
+}
+#colophon h3 {
+  border-bottom: 0.0625em dotted #9e9c95;
+  margin: 0 0 0.6875em;
+}
+
+
+/*******************************************************************************
+*
+* Screen media
+*
+*******************************************************************************/
 @media screen {
     body {
         background-color: rgba(0,0,0,1);
@@ -83,8 +220,6 @@ $box_white_dark: rgba(253,254,255,1);
         max-height: $deck_size_height;
         @include box-shadow(2px, 2px, 15px, rgba(0, 0, 0, 0.6));
         margin: auto;
-        
-        /********************** html tags ***************************/
         
         table {
             display: table !important;
@@ -102,9 +237,7 @@ $box_white_dark: rgba(253,254,255,1);
                 font-size: $font_size*1.2;
                 
                 td:first-child{
-                    //font-weight: bold;
                     color: white;
-                    //&:after { content: ":"; }
                     padding: 2px $font_size*0.5 2px $font_size*0.5;
                     background-color: rgba(0,0,0,0.5);
                 }
@@ -122,12 +255,12 @@ $box_white_dark: rgba(253,254,255,1);
                 @extend .center;
                 text-shadow: 0px 1px 1px rgba(0,0,0,.5);
             }
-
+            
             .slide-content {
                 @extend .text-padding;
                 margin-top: 10px;
             }
-
+            
             font-size: $font-size*1.2;
             
             ol {
@@ -144,15 +277,15 @@ $box_white_dark: rgba(253,254,255,1);
                 &.fadded, .fadded {
                     color: rgba(0,0,0,0.2);
                 }
-
+                
                 .selected {
                     color: black;
                 }
-
+                
                 li {
                     padding: 0 0 0 0;
                     margin: 0 0 0 0;
-                      
+                    
                     &:before {content: "\2022"; margin-right: $font-size*1.1;  }
                     &.empty:before {content: "\a0"; margin-right: $font-size*1.1;}
                     &.blank { &:before{ content: "";} line-height: 0px;}
@@ -163,11 +296,11 @@ $box_white_dark: rgba(253,254,255,1);
                     &.right-doublearrow:before {content: "\21d2"; margin-right: $font-size*0.45;}
                     &.right-arrow:before {content: "\2192"; margin-right: $font-size*0.5;}
                     &.separator{ height: 15px; display: block; &:before{content: "\0020 \a0";}}
-
+                    
                     &.important {
                         font-weight:900;
                     }
-
+                    
                     ul {
                         margin: 0px;
                         font-size: 0.85em;
@@ -182,17 +315,15 @@ $box_white_dark: rgba(253,254,255,1);
                     }
                 }
             }
-
+            
             p {
                 font-size: $font-size*1.2;
             }
-
+            
             span {
                 &.strike { text-decoration: line-through; }
             }
         }
-        
-        /********************** deck tags ***************************/
         
         .deck-status, .deck-toc-status {
             height: 22px;
@@ -228,58 +359,10 @@ $box_white_dark: rgba(253,254,255,1);
         .deck-toc {
             font-size: $font-size*1.2;
         }
-            
-        /********************** slides tags ***************************/
         
         section {
             &.slide {
                 padding: 40px 10px 10px 10px;
-            }
-            
-            &.workinprogress {
-                background-color: red;
-            }
-        }
-        
-        #title-slide {
-            display: table;
-            vertical-align: middle;
-            width: 100%;
-            height: 100%;
-            
-            table {
-                margin: auto;            
-                td {
-                    padding-left: 10px;
-                    vertical-align: bottom;
-                    text-align: left;
-                }
-            }
-            
-            .info {
-                margin-top: $font_size*2;
-                font-size: $font_size;
-                text-shadow: none;
-            }
-            
-            .jury {
-                margin-top: $font_size;
-                font-size: $font_size;
-                text-shadow: none;
-                table{
-                    width: 450px;
-                }
-            }
-            
-            .logo {
-                margin-top: 60px;
-                img{
-                    max-width: 180px;
-                    max-height: 100px;
-                }
-                table{
-                    width: 800px;
-                }
             }
         }
         
@@ -297,8 +380,6 @@ $box_white_dark: rgba(253,254,255,1);
                 }
             }
         }
-        
-        /********************** custom tags ***************************/
         
         .hidden { display: none !important; }
         
@@ -435,7 +516,7 @@ $box_white_dark: rgba(253,254,255,1);
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
             @include linear-gradient-background($box_white_light, $box_white_dark, 255);
-
+            
             & .splitbox-row {
                 padding: 0px;
                 display: table-row;
@@ -469,7 +550,7 @@ $box_white_dark: rgba(253,254,255,1);
                         padding: 0px;
                         width: 50%;
                     }
-
+                    
                     &.onethird {
                         display: table-cell;
                         vertical-align: top;
@@ -477,7 +558,7 @@ $box_white_dark: rgba(253,254,255,1);
                         padding: 0px;
                         width: 33.33%;
                     }
-
+                    
                     &.twothird {
                         display: table-cell;
                         vertical-align: top;
@@ -552,88 +633,6 @@ $box_white_dark: rgba(253,254,255,1);
                         margin: 0px auto 0px auto;
                     }
                 }
-            }
-        }
-        
-        .imagrid {
-            display: block;
-            width: 90%;
-            vertical-align: middle;
-            margin: 0px;
-            padding: 0px;
-            
-            &.zoomable:hover {
-                display: block;
-                position: absolute;
-                z-index: 50;
-                vertical-align: middle;
-                text-align: center;
-                top: 20px;
-                left: 0px;
-                bottom: 0px;
-                right: 0px;
-                background-color: rgba(0,0,0,0.8);
-                
-                .imagrid-cell:not(:hover) {
-                    display: none;
-                 }
-                .imagrid-cell:hover {
-                    display: inlinde-block;
-                    width: 100%;
-                    height: 100%;
-                    text-align: center;
-                    vertical-align: middle;
-                    
-                    img {
-                        min-height: 80%;
-                    }
-                }
-            }
-            
-            .imagrid-cell {
-                display: inline-block;
-                padding: 10px; 
-                text-align: center;
-                
-                span {
-                    display: block;
-                    text-align: left;
-                    width: 100%;
-                    font-size: 0.9em;
-                    
-                    padding: 0px;
-                    margin: 0px;
-                }
-                
-                img {
-                    display: inline-block;
-                    height: 120px;
-                    padding: 0px;
-                    margin: 0px;
-                    
-                    &.large {
-                        height: $deck_size_height/4;
-                    }
-                    
-                    &.small {
-                        height: $deck_size_height/4.5
-                    }
-                }
-                
-                img.big {
-                    height: 220px;
-                }
-            }
-            
-            .imagrid-separator {
-                display: inline-block;
-                vertical-align: top;
-                margin-top: 10px; 
-                height: 120px;
-                width: 1px;
-                border-left-width: 4px;
-                border-style: dotted;
-                border-color: rgba(0,0,0,0.05);
             }
         }
         
@@ -791,8 +790,6 @@ $box_white_dark: rgba(253,254,255,1);
             padding: 4px !important;
         }
         
-        /**/
-        
         .background {
             position: absolute;
             display: block;
@@ -822,8 +819,22 @@ $box_white_dark: rgba(253,254,255,1);
             }
         }
     }
+    
+    /*********************** slide specific tags ******************************/
+    #title-slide {
+        h1 {
+            
+        }
+    }
+    
 }
 
+
+/*******************************************************************************
+*
+* print media
+*
+*******************************************************************************/
 
 @media print {
     * {
@@ -854,16 +865,16 @@ $box_white_dark: rgba(253,254,255,1);
     display: block;
     width: $deck_size_width;
     height: $deck_size_height;
-
+    
     @include box-shadow(2px, 2px, 15px, rgba(0, 0, 0, 0.6));
     margin: auto;
-
+    
     background: white !important;
-
+    
     h2, h3, h4, h5 {
         display: none;
     }
-
+    
     .slide {
         .slide-title {
             font-size: 1.2em;
