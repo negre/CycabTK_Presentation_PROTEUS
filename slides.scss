@@ -823,8 +823,11 @@ h3 {
     /*********************** slide specific tags ******************************/
     #title-slide {
         h1 {
-            
+           margin-top: #{($line/2)/$em}em;
+           font-size: #{($font-size*3.5) / $em}em; 
         }
+
+        p {}
     }
     
 }
