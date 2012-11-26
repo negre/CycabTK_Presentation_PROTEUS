@@ -1,0 +1,9 @@
+<package>
+  <description brief="pkg_name">
+     My package description
+  </description>
+  <author>Amaury Negre</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pkg_name</url>
+</package>
