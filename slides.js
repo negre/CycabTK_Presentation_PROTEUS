@@ -3,5 +3,5 @@
 $(function() {
     // Deck initialization
     $.deck('.slide');
-    $(".latex").latex();  
+    hljs.initHighlightingOnLoad();
 });
