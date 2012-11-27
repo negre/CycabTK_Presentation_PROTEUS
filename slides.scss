@@ -100,6 +100,7 @@ $box_white_dark: rgba(253,254,255,1);
 *******************************************************************************/
 
 * {
+    color: #474747;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica Light", Helvetica, Arial, "Lucida Grande", sans-serif !important;
     font-weight: 100;
     text-shadow: none;
@@ -112,14 +113,14 @@ html {
 }
 body {
     min-height: 100%;
-    font-size: 100%;
+    font-size: #{($font-size*1.1)/$em}em;
+    line-height: #{$line/$em}em;
 }
 article, aside, details, figcaption, figure,
 footer, header, hgroup, nav, section, audio, canvas, video {
     display: block;
 }
 sub, sup {
-    font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -143,8 +144,6 @@ abbr[title] {
 }
 input, textarea, button, select {
     margin: 0;
-    font-size: 100%;
-    line-height: normal;
     vertical-align: baseline;
 }
 button,
@@ -188,34 +187,6 @@ select {
 pre, code {
   font-family: Menlo, Monaco, monospace;
 }
-article p, #content header p, #content footer p {
-  margin-bottom: 1.5em;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-}
-article p:last-child {
-  margin-bottom: 0;
-}
-#content header p {
-  padding-bottom: 1.4375em;
-  border-bottom: 0.0625em dotted #3d3c38;
-  margin: 0;
-}
-h2 {
-  margin-bottom: 0.46153846153846156em;
-}
-h3 {
-  margin: 3em 0 1.5em;
-}
-#download h3, #guide h3 {
-  margin: 1.5em 0 0;
-}
-#colophon h3 {
-  border-bottom: 0.0625em dotted #9e9c95;
-  margin: 0 0 0.6875em;
-}
-
 
 /*******************************************************************************
 *
@@ -226,7 +197,6 @@ h3 {
     body {
         background-color: rgba(0,0,0,1);
         background-image: url('media/patterns/110.gif');
-        font-size: $font_size !important;
     }
     
     .deck-container {
@@ -235,8 +205,8 @@ h3 {
         height: #{$deck_size_height}px;
         min-height: #{$deck_size_height}px;
         max-height: #{$deck_size_height}px;
-        @include box-shadow(2px, 2px, 15px, rgba(0, 0, 0, 0.6));
         margin: auto;
+        @include box-shadow(2px, 2px, 15px, rgba(0, 0, 0, 0.6));
         
         table {
             display: table !important;
@@ -265,7 +235,11 @@ h3 {
             }
         }
         
+        /******************************* Deck Slide ***************************/
+        
         .slide {
+            padding: 40px 10px 10px 10px;
+            
             .slide-title {
                 @extend .emphasis;
                 @extend .strip;
@@ -278,26 +252,40 @@ h3 {
                 margin-top: 10px;
             }
             
-            font-size: $font-size*1.2;
-            
-            ol {
-                padding: 0 0 0 0.2em;
+            figure {
+                img { display: inline-block;}
             }
             
             ul {
-                list-style: none;
-                margin: 0 0 0 -$font-size*1.4;
-                padding: 0 0 0 $font-size*1.4;
-                text-indent: -$font-size*1.7;
-                font-weight: 500;
+                margin: 0 0 0 #{($line/2)/$em}em;
+                
+                li {
+                    padding: 0;
+                    font-weight: 500;
+                    
+                }
+                
+                & > li {
+                    font-weight: bold;
+                    
+                    li {
+                        font-weight: normal;
+                    }
+                }
                 
                 &.fadded, .fadded {
                     color: rgba(0,0,0,0.2);
                 }
                 
                 .selected {
-                    color: black;
+                    color: #575757;
                 }
+                
+                /*
+                list-style: none;
+                margin: 0 0 0 -$font-size*1.4;
+                padding: 0 0 0 $font-size*1.4;
+                text-indent: -$font-size*1.7;
                 
                 li {
                     padding: 0 0 0 0;
@@ -330,71 +318,11 @@ h3 {
                             font-size: 0.95em;
                         }
                     }
-                }
-            }
-            
-            p {
-                font-size: $font-size*1.2;
+                }*/
             }
             
             span {
                 &.strike { text-decoration: line-through; }
-            }
-        }
-        
-        .deck-status, .deck-toc-status {
-            height: 22px;
-            td {
-                padding-left: 5px;
-                padding-right: 5px;
-                padding-top: 3px;
-                padding-bottom: 3px;
-            }
-        }
-        
-        .deck-status {
-            z-index: 12;
-            td {
-                width: 33%;
-                text-shadow: 0px 1px 3px rgba(1,1,1,1);
-            }
-        }
-        
-        .deck-toc-status {    
-            .deck-toc-h2 { width: 50%; font-weight:bold;}
-            .deck-toc-h3 { width: 50%}    
-        }
-        
-        .deck-svg {
-            display: table;
-            width: auto !important;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        
-        .deck-toc {
-            font-size: $font-size*1.2;
-        }
-        
-        section {
-            &.slide {
-                padding: 40px 10px 10px 10px;
-            }
-        }
-        
-        .main-transition {
-            .stubbox {
-                @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
-                
-                .title {
-                    vertical-align: middle;
-                }
-                .content {
-                    font-size: 2em;
-                    padding: 20px 20px 20px 20px;
-                    margin: 0px 0px 40px 0px;
-                }
             }
         }
         
@@ -403,6 +331,10 @@ h3 {
         .whiteOnBlack {
             color: white;
             @include linear-gradient-background($black_background_color_light, $black_background_color_dark, 0);
+        }
+        
+        .large {
+            font-size: #{($font-size*1.5)/$em}em;
         }
         
         .tabular {
@@ -545,9 +477,9 @@ h3 {
                 }
                 
                 & ul {
-                    margin: 0px 0px 0px 10px;
-                }
-                
+                    margin: 0 0 0 #{($line/2)/$em}em;
+                } 
+               
                 & > div {
                     
                     /* splitting policy */
@@ -836,6 +768,62 @@ h3 {
             }
         }
     }
+        
+        /******************************* Deck Status and TOC ******************/
+        
+        .deck-status, .deck-toc-status {
+            * { color: white; }
+            height: 22px;
+            td {
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+        }
+        
+        .deck-status {
+            z-index: 12;
+            td {
+                width: 33%;
+                text-shadow: 0px 1px 3px rgba(1,1,1,1);
+            }
+        }
+        
+        .deck-toc-status {    
+            .deck-toc-h2 { width: 50%; font-weight:bold;}
+            .deck-toc-h3 { width: 50%}    
+        }
+        
+        .deck-svg {
+            display: table;
+            width: auto !important;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        .deck-toc {
+            font-size: $font-size*1.2;
+        }
+        
+        /******************************* Deck Transitions *********************/
+        
+        
+        .main-transition {
+            .stubbox {
+                @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
+                
+                .title {
+                    vertical-align: middle;
+                }
+                .content {
+                    font-size: 2em;
+                    padding: 20px 20px 20px 20px;
+                    margin: 0px 0px 40px 0px;
+                }
+            }
+        }
     
     /*********************** slide specific tags ******************************/
     
@@ -843,6 +831,7 @@ h3 {
         h1 {
            margin-top: #{($line/2)/$em}em;
            font-size: #{($font-size*3.5) / $em}em;
+           line-height: #{$line/1.5/$em}em;
            text-shadow: 0px 1px 1px rgba(0,0,0,.5);
            
             em { 
@@ -860,7 +849,7 @@ h3 {
         
         p.info {
             @extend .center;
-            margin-top: #{($line*4)/$em}em;
+            margin-top: #{($line*2)/$em}em;
             font-size: #{($font-size*1.1) / $em}em;
             
             a[href='http://imakewebthings.com/deck.js/'] { font-family: "UltraRegular", Georgia, sans-serif; }

@@ -71,7 +71,7 @@
             ###########################################################################-->
             
             
-            <section class="slide hide-toc-status main-transition">
+            <section class="slide">
                 <h2 class="hidden">Presentation Overview</h2>
                 <div class="splitbox">
                     <div class="stubbox">
@@ -84,8 +84,8 @@
                                 <li class="selected">Introduction to ROS
                                     <ul>
                                         <li>What is (not) ROS</li>
-                                        <li>Concept</li>
-                                        <li>Tools</li>
+                                        <li>ROS Concept</li>
+                                        <li>ROS Tools</li>
                                     </ul>
                                 </li>
                                 <li class="selected">Getting Started with ROS
@@ -98,11 +98,13 @@
                                 </li>
                                 <li class="selected">Show Cases
                                     <ul>
-                                        <li>...</li>
+                                        <li>Personally Assisted Living</li>
+                                        <li>Self Driving Cars</li>
+                                        <li>Robot Prototyping</li>
                                     </ul>
                                 </li>
                                 <li class="selected">Demo</li>
-                                <li class="selected">Conclusion</li>
+                                <li class="selected">Conclusion and Perspectives</li>
                             </ul>
                        </div>
                     </div>
@@ -119,38 +121,72 @@
             ###########################################################################-->
 
             <section class="slide">
-                <h2>Part I. ROS Presentation</h2>
-                <div class="slide-title">Robotic Middleware</div>
+                <h2>Introduction to ROS</h2>
+                <div class="slide-title">Motivation for Robotic Middleware</div>
                 <div class="slide-content">
-                    <p>A Robot is a combination of different components :</p>
+                    <p class="large">A <strong>Robot</strong> is a <em>composed</em> of different components</p>
                     <ul class="normal-text">
-                        <li>Hardware components :
+                        <li>Hardware components
                             <ul>
-                                <li>Computer</li>
-                                <li>Motor controllers</li>
-                                <li>Sensors</li>
+                                <li>Computational Units (FPGA, PC, Microcontroller, &#8230;)</li>
+                                <li>Actuators (Motor, &#8230;)</li>
+                                <li>Sensors (Camera, IR, Telemeter, &#8230;)</li>
                             </ul>
                         </li> 
-                        <li>Software components :
+                        <li>Software components
                             <ul>
-                                <li>OS </li>
                                 <li>Hardware drivers</li>
                                 <li>Robot servoing</li>
                                 <li>Perception</li>
                             </ul>
                         </li>
-                        <li>Problem :
+                    </ul>
+                    <br/>
+                    <figure class="center">
+                        <img src="media/bioloid_robot_parts.jpg" height="250px"/>
+                        <img src="media/bioloid_robot_humanoid.jpg" height="250px" />
+                    </figure>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">Motivation for Robotic Middleware</div>
+                <div class="slide-content">
+                    <p class="large">A <strong>Robotic application</strong> is an <em>interconnection</em> of components</p>
+                    <ul class="normal-text">
+                        <li>Heterogenous components
                             <ul>
-                                <li>Task to solve</li>
-                                <li>Can be distributed (multi-robots, multi-PC)</li>
+                                <li>Cross-language</li>
+                                <li>Cross-platform</li>
                             </ul>
                         </li>
-                        <li> Integration between differents layers : middleware</li>
+                        <li>Distributed components
+                            <ul>
+                                <li>Multi-robots</li>
+                                <li>Multi-PC</li>
+                                <li>Multi-network</li>
+                            </ul>
+                        </li>
+                        <li>Dynamic components
+                            <ul>
+                                <li>Appear, Disappear (mobility)</li>
+                                <li>Crash, Evolve</li>
+                            </ul>
+                        </li>
                     </ul>
+                    <br/>
+                    <p class="large">Both <strong>Robots</strong> and a <strong>Robotic Applications</strong> are assemblage of many other people's components</p>
                 </div>
+            </section>
+            
+            <section class="slide tabular vcenter">
+                <p class="emphasis large">
+                    We need a Robotic Operating System
+                </p>
             </section>
 
             <section class="slide">
+                <h3>What is (not) ROS</h3>
                 <div class="slide-title"> What is ROS</div>
                 <div class="slide-content">
                     <p>ROS stands for Robot Operating System</p>
@@ -182,8 +218,8 @@
             </section>
 
             <section class="slide">
-                <h2>ROS Concepts</h2>
-                <h3>Structure</h3>
+                <h3>ROS Concepts</h3>
+                <h4>Structure</h4>
                 <div class="slide-title"> Structure </div>
                 <div class="slide-content">
                     <ul class="normal-text">
@@ -197,7 +233,7 @@
             </section>
 
             <section class="slide">
-                <h3> Communication mechanism</h3>
+                <h4> Communication mechanism</h4>
                 <div class="slide-title">Communication mechanism</div>
                 <div class="slide-content">
                     <p>Two main communication protocols :</p>
@@ -427,7 +463,7 @@
             ###########################################################################-->
             
             <section class="slide part">
-                <h2>ROS tutorial</h2>
+                <h2>Getting Started with ROS</h2>
                 <div class="slide-title">Create new package</div>
                 <ol>
                     <li>Create an empty package :
@@ -451,7 +487,19 @@
             ###########################################################################-->
 
             <section class="slide part">
-                <h2>Part. III</h2>
+                <h2>Showcases</h2>
+                <div class="slide-title">Part. II <span>Introduction à ROS</span></div>
+                <div>some other text...</div>
+            </section>
+            
+            <!--##########################################################################
+            ##
+            ## PART IV.
+            ##
+            ###########################################################################-->
+
+            <section class="slide part">
+                <h2>Conclusion and Perspectives</h2>
                 <div class="slide-title">Part. II <span>Introduction à ROS</span></div>
                 <div>some other text...</div>
             </section>
@@ -475,7 +523,7 @@
 
             <table class="deck-status">
                 <tr>
-                    <td class="left">Rémi Barraquand & Amaury Negre</td>
+                    <td class="left"><a href="http://remibarraquand.com">Rémi Barraquand</a> & <a href="https://team.inria.fr/e-motion/amaury-negre/">Amaury Negre</a></td>
                     <td class="center deck-toc-h1">fOSSa 2012, ROS Framework</td>
                     <td class="right">Dec 4, 2012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="deck-status-current"></span>/<span class="deck-status-total"></span></td>
                 </tr>
