@@ -124,7 +124,7 @@
                 <h2>Introduction to ROS</h2>
                 <div class="slide-title">Motivation for Robotic Middleware</div>
                 <div class="slide-content">
-                    <p class="large">A <strong>Robot</strong> is a <em>composed</em> of different components</p>
+                    <p class="large">A <strong>Robot</strong> is a <em>composition</em> of different components</p>
                     <ul class="normal-text">
                         <li>Hardware components
                             <ul>
@@ -150,6 +150,7 @@
             </section>
             
             <section class="slide">
+                <h3>Motivation for Robotic Middleware</h3>
                 <div class="slide-title">Motivation for Robotic Middleware</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robotic application</strong> is an <em>interconnection</em> of components</p>
@@ -181,7 +182,8 @@
             
             <section class="slide tabular vcenter">
                 <p class="emphasis large">
-                    We need a Robotic Operating System
+                    Need for a <em>R</em>obotic <em>O</em>perating <em>S</em>ystem<br/>
+                    <img class="slide" src="media/ROS.png" alt="Robotic Operating System" height="100px"/>
                 </p>
             </section>
 
@@ -189,13 +191,30 @@
                 <h3>What is (not) ROS</h3>
                 <div class="slide-title"> What is ROS</div>
                 <div class="slide-content">
-                    <p>ROS stands for Robot Operating System</p>
+                    <p class="large"><em>ROS</em> is a 'Meta' Operating System for Robotics Applications</p>
                     <ul class="normal-text">
-                        <li> Open source robotics middleware</li>
-                        <li> Robotics framework organized around a common communication library</li>
-                        <li> Packaging system with dependence & compilation management</li>
-                        <li> Large community</li>
-                        <li> Thousand of existing modules</li>
+                        <li>An open source robotics framework
+                            <ul>
+                                <li>Maintained by <a href="www.willowgarage.com/">Willow Garage</a> (PR2, TutrleBot, ROS, OpenCV, PCL, &#8230;)</li>
+                                <li>Cross-platform (<em>Ubuntu</em>, OSx, Windows, Android, &#8230;)</li>
+                                <li>Cross-language (<em>C/C++, Python</em>, Java, &#8230;)</li>
+                            </ul>
+                        </li>
+                        <li>An architecture for distributed inter-process/inter-machine communication and configuration
+                            <ul>
+                                <li>Object like message wrapping/unwrapping</li>
+                                <li>Message passing (Publisher/Subscriber, RPC)</li>
+                                <li>Graph node communication with master node</li>
+                                <li>Centralized configuration</li>
+                            </ul>
+                        </li>
+                        <li>A collection of tools
+                            <ul>
+                                <li>packaging, dependency/build management, shell introspection, &#8230</li>
+                                <li>runtime tools, data analysis, graphic user interfaces, &#8230</li>
+                            </ul>
+                        </li>
+                        <li>A Large community with thousand (and counting) of existing modules</li>
                     </ul>
                 </div>
             </section>
@@ -462,6 +481,49 @@
             ##
             ###########################################################################-->
             
+            <section class="slide">
+                <h2 class="hidden">Presentation Overview</h2>
+                <div class="splitbox">
+                    <div class="stubbox">
+                        <span class="title">Plan</span>
+                        <div class="content">Presentation Overview</div>
+                    </div>
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li>Introduction to ROS
+                                    <ul>
+                                        <li>What is (not) ROS</li>
+                                        <li>ROS Concept</li>
+                                        <li>ROS Tools</li>
+                                    </ul>
+                                </li>
+                                <li class="selected">Getting Started with ROS
+                                    <ul>
+                                        <li>C++</li>
+                                        <li>Python</li>
+                                        <li>Java</li>
+                                        <li>Android</li>
+                                    </ul>
+                                </li>
+                                <li>Show Cases
+                                    <ul>
+                                        <li>Personally Assisted Living</li>
+                                        <li>Self Driving Cars</li>
+                                        <li>Robot Prototyping</li>
+                                    </ul>
+                                </li>
+                                <li>Demo</li>
+                                <li>Conclusion and Perspectives</li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+                <div class="background bottom-right">
+                    <img src="media/overview_path.jpg">
+                </div>
+            </section>
+            
             <section class="slide part">
                 <h2>Getting Started with ROS</h2>
                 <div class="slide-title">Create new package</div>
@@ -500,8 +562,19 @@
 
             <section class="slide part">
                 <h2>Conclusion and Perspectives</h2>
-                <div class="slide-title">Part. II <span>Introduction à ROS</span></div>
+                <div class="slide-title">Conclusion and Perspective</div>
                 <div>some other text...</div>
+            </section>
+            
+            <section class="slide part">
+                <h3>Useful Links</h3>
+                <div class="slide-title">Conclusion and Perspective</div>
+                <div class="slide-content">
+                    <p class="large">Introduction to ROS (Slides)</p>
+                    <ul>
+                        <li><a href="http://ias.cs.tum.edu/_media/teaching/ss2012/techcogsys/ros-intro.pdf">Introduction to ROS - Intelligent Autonomous Systems</a></li>
+                    </ul>
+                </div>
             </section>
 
             <!--##########################################################################

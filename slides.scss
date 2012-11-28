@@ -12,11 +12,12 @@ $column: 100% / 18;
 $font-size: 16;
 $em: $font-size * 1;
 
-$black_background_color_light: rgba(35,35,32,1);
-$black_background_color_dark: rgba(0,0,0,1);
+$color_ros_blue: #324263;
+$color_black_background_light: rgba(35,35,32,1);
+$color_black_background_dark: rgba(0,0,0,1);
 
-$box_white_light: rgba(255,255,255,1);
-$box_white_dark: rgba(253,254,255,1);
+$color_box_white_light: rgba(255,255,255,1);
+$color_box_white_dark: rgba(253,254,255,1);
 
 
 /*******************************************************************************
@@ -256,6 +257,11 @@ pre, code {
                 img { display: inline-block;}
             }
             
+            em {
+                color: $color_ros_blue;
+                font-weight: bold; 
+           }
+            
             ul {
                 margin: 0 0 0 #{($line/2)/$em}em;
                 
@@ -275,6 +281,7 @@ pre, code {
                 
                 &.fadded, .fadded {
                     color: rgba(0,0,0,0.2);
+                    * { color: inherit; }
                 }
                 
                 .selected {
@@ -330,7 +337,7 @@ pre, code {
         
         .whiteOnBlack {
             color: white;
-            @include linear-gradient-background($black_background_color_light, $black_background_color_dark, 0);
+            @include linear-gradient-background($color_black_background_light, $color_black_background_dark, 0);
         }
         
         .large {
@@ -356,7 +363,10 @@ pre, code {
                 text-align: center;
                 vertical-align: middle;
                 font-size: $font-size*2.5;
-                background: transparent;                       
+                background: transparent;
+                
+                    img { display: inline; }
+                
             }
             
             &.medium {
@@ -464,7 +474,7 @@ pre, code {
             @include border-radius(4px);
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
-            @include linear-gradient-background($box_white_light, $box_white_dark, 255);
+            @include linear-gradient-background($color_box_white_light, $color_box_white_dark, 255);
             
             & .splitbox-row {
                 padding: 0px;
@@ -835,7 +845,7 @@ pre, code {
            text-shadow: 0px 1px 1px rgba(0,0,0,.5);
            
             em { 
-                color: #324263;
+                color: $color_ros_blue;
                 font-style: normal;
                 font-weight: bolder;
                 font-size: #{($font-size*1.2) / $em}em;
