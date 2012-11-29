@@ -482,7 +482,7 @@
             ###########################################################################-->
             
             <section class="slide">
-                <h2 class="hidden">Presentation Overview</h2>
+                <h2>Getting Started with ROS</h2>
                 <div class="splitbox">
                     <div class="stubbox">
                         <span class="title">Plan</span>
@@ -500,10 +500,12 @@
                                 </li>
                                 <li class="selected">Getting Started with ROS
                                     <ul>
-                                        <li>C++</li>
-                                        <li>Python</li>
-                                        <li>Java</li>
-                                        <li>Android</li>
+                                        <li>Create a New Package</li>
+                                        <li>Publisher/Subscriber in C++</li>
+                                        <li>Publisher/Subscriber in Python</li>
+                                        <li>Publisher/Subscriber in Java</li>
+                                        <li>Publisher/Subscriber on Android</li>
+                                        <li>Final Words</li>
                                     </ul>
                                 </li>
                                 <li>Show Cases
@@ -525,8 +527,24 @@
             </section>
             
             <section class="slide part">
+                <h3>Create a New Package</h3>
+                <div class="slide-title">Create a new package</div>
+                <ol>
+                    <li>Head to your ROS workspace
+                        <pre><code class="bash">$ roscd</code></pre>
+                    </li>
+                    <li>Create an empty package :
+                        <pre><code class="bash">$ roscreate-pkg pkg_name</code></pre>
+                    </li>
+                    <li>Edit pkg_name/manifest.xml :
+                        <pre><code class="xml">&lt;package&gt;<br/>&nbsp;&nbsp;&lt;description&nbsp;brief=&quot;pkg_name&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My&nbsp;package&nbsp;description<br/>&nbsp;&nbsp;&lt;/description&gt;<br/>&nbsp;&nbsp;&lt;author&gt;Mr&nbsp;Bob&lt;/author&gt;<br/>&nbsp;&nbsp;&lt;license&gt;BSD&lt;/license&gt;<br/>&nbsp;&nbsp;&lt;review&nbsp;status=&quot;unreviewed&quot;&nbsp;notes=&quot;&quot;/&gt;<br/>&nbsp;&nbsp;&lt;url&gt;http://ros.org/wiki/pkg_name&lt;/url&gt;<br/>&lt;/package&gt;</code></pre>
+                    </li>
+                </ol>
+            </section>
+            
+            <section class="slide part">
                 <h2>Getting Started with ROS</h2>
-                <div class="slide-title">Create new package</div>
+                <div class="slide-title">Create a new package</div>
                 <ol>
                     <li>Create an empty package :
                         <ul>
