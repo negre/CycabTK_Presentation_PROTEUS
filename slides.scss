@@ -246,6 +246,11 @@ pre, code {
                 @extend .strip;
                 @extend .center;
                 text-shadow: 0px 1px 1px rgba(0,0,0,.5);
+                
+                em {
+                    color: inherit;
+                    font-weight: bold;
+                }
             }
             
             .slide-content {
@@ -268,69 +273,36 @@ pre, code {
                 font-weight: bold; 
            }
             
+            ul, ol {
+                margin-left: #{($line)/$em}em;
+            }
+           
             ul {
-                margin: 0 0 0 #{($line/2)/$em}em;
-                
                 li {
                     padding: 0;
                     font-weight: 500;
                 }
-                
+
                 & > li {
                     font-weight: bold;
-                    
+
                     li {
                         font-weight: normal;
                     }
                 }
-                
+
                 &.fadded, .fadded {
                     color: rgba(0,0,0,0.2);
                     * { color: inherit; }
                 }
-                
+
                 .selected {
                     color: #575757;
                 }
                 
-                /*
-                list-style: none;
-                margin: 0 0 0 -$font-size*1.4;
-                padding: 0 0 0 $font-size*1.4;
-                text-indent: -$font-size*1.7;
-                
-                li {
-                    padding: 0 0 0 0;
-                    margin: 0 0 0 0;
-                    
-                    &:before {content: "\2022"; margin-right: $font-size*1.1;  }
-                    &.empty:before {content: "\a0"; margin-right: $font-size*1.1;}
-                    &.blank { &:before{ content: "";} line-height: 0px;}
-                    &.plus:before {content: "\2B \a0 \a0";}
-                    &.minus:before {content: "\2013 \a0 \a0";}
-                    &.downward-right-arrow:before {content: "\21B3"; margin-right: $font-size*0.6;}
-                    &.curved-right-arrow:before {content: "\27A5"; margin-right: $font-size*0.3;}
-                    &.right-doublearrow:before {content: "\21d2"; margin-right: $font-size*0.45;}
-                    &.right-arrow:before {content: "\2192"; margin-right: $font-size*0.5;}
-                    &.separator{ height: 15px; display: block; &:before{content: "\0020 \a0";}}
-                    
-                    &.important {
-                        font-weight:900;
-                    }
-                    
-                    ul {
-                        margin: 0px;
-                        font-size: 0.85em;
-                        @include opacity(85);
-                        font-weight: 300;
-                        text-shadow: none;
-                        
-                        ul {
-                            margin: 0px;
-                            font-size: 0.95em;
-                        }
-                    }
-                }*/
+                &.normal {
+                    * { font-weight: normal; }
+                }
             }
             
             span {
