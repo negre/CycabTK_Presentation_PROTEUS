@@ -264,8 +264,13 @@ pre, code {
             
             pre {
                 margin: #{($line/4)/$em}em 0 0 0;
-                padding: #{($line/4)/$em}em;
+                //padding: #{($line/4)/$em}em;
+                padding: 0px;
                 background-color: #F0F0F0;
+            }
+            
+            code {
+                padding: #{($line/4)/$em}em;
             }
             
             em {
@@ -300,7 +305,8 @@ pre, code {
                     color: #575757;
                 }
                 
-                &.normal {
+                .normal {
+                    font-weight: normal;
                     * { font-weight: normal; }
                 }
             }
@@ -846,6 +852,15 @@ pre, code {
         }
     }
     
+    
+    a.gradle {
+        background: url('media/gradle_logo.gif');
+        background-size: contain;
+        text-indent: -9000px;
+        display: inline-block;
+        width: #{($font-size*6) / $em}em;
+        background-repeat: no-repeat;
+    }
 }
 
 
