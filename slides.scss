@@ -463,10 +463,6 @@ pre, code {
                     @include border-radius(0px);
                 }
                 
-                & ul {
-                    margin: 0 0 0 #{($line/2)/$em}em;
-                } 
-               
                 & > div {
                     
                     /* splitting policy */
@@ -482,25 +478,22 @@ pre, code {
                     &.onehalf {
                         display: table-cell;
                         vertical-align: top;
-                        margin: 0px;
-                        padding: 0px;
                         width: 50%;
+                        @extend .text-padding;
                     }
                     
                     &.onethird {
                         display: table-cell;
                         vertical-align: top;
-                        margin: 0px;
-                        padding: 0px;
                         width: 33.33%;
+                        @extend .text-padding;
                     }
                     
                     &.twothird {
                         display: table-cell;
                         vertical-align: top;
-                        margin: 0px;
-                        padding: 0px;
                         width: 66.66%;
+                        @extend .text-padding;
                     }
                     
                     &.onequarter {
