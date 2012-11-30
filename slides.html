@@ -597,14 +597,15 @@ geometry_msgs/Twist[]   someTwistArray
             
             <section class="slide part">
                 <h3>Publisher/Subscriber in C++</h3>
-                <div class="slide-title">Publisher/Subscriber in C++</div><br/>
-                <p>ROS uses <em>CMake</em> and provides a <em>rosmake</em> command utility</p>
-                <ol>                 
-                    <li>Add roscpp dependency in the manifest.xml :
-                        <pre><code class="xml">&lt;depend package="roscpp" /&gt</code></pre>
-                    </li>
-                    <li>Edit pkg_name/CMakeLists.txt
-                        <pre><code class="python">#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages
+                <div class="slide-title">Publisher/Subscriber in C++</div>
+                <div class="slide-content">
+                    <p>ROS uses <em>CMake</em> and provides a <em>rosmake</em> command utility</p>
+                    <ol>                 
+                        <li>Add roscpp dependency in the manifest.xml :
+                            <pre><code class="xml">&lt;depend package="roscpp" /&gt</code></pre>
+                        </li>
+                        <li>Edit pkg_name/CMakeLists.txt
+                            <pre><code class="python">#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages
 rosbuild_genmsg()
 #uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;services
 #rosbuild_gensrv()
@@ -612,14 +613,16 @@ rosbuild_genmsg()
 #common&nbsp;commands&nbsp;for&nbsp;building&nbsp;c++&nbsp;executables&nbsp;and&nbsp;libraries
 rosbuild_add_executable(my_publisher src/my_publisher.cpp)
 rosbuild_add_executable(my_subscriber src/my_subscriber.cpp)</code></pre>
-                    </li>
-                </ol>
+                        </li>
+                    </ol>
+                </div>
             </section>
+            
             <section class="slide part">
                 <h3>Publisher/Subscriber in C++</h3>
-                <div class="slide-title">Publisher/Subscriber in C++</div><br/>
-                <p>Publisher code :</p>
-                <pre><code class="cpp">#include "ros/ros.h"
+                <div class="slide-title"><em>Publisher</em>/Subscriber in C++</div>
+                <div class="slide-content">
+                    <pre><code class="cpp">#include "ros/ros.h"
 #include "pkg_name/Custom.h"
 
 int main(int argc, char **argv)
@@ -639,13 +642,14 @@ int main(int argc, char **argv)
   }
   return 0;
 }</code></pre>
+                </div>
             </section>
             
             <section class="slide part">
                 <h3>Publisher/Subscriber in C++</h3>
-                <div class="slide-title">Publisher/Subscriber in C++</div><br/>
-                <p>Subscriber code :</p>
-                <pre><code class="cpp">#include "ros/ros.h"
+                <div class="slide-title">Publisher/<em>Subscriber</em> in C++</div>
+                <div class="slide-content">
+                    <pre><code class="cpp">#include "ros/ros.h"
 #include "pkg_name/Custom.h"
 
 void msgCallback(const pkg_name::Custom::ConstPtr& msg)
@@ -663,9 +667,9 @@ int main(int argc, char **argv)
   ros::spin(); // ROS spin loop
   return 0;
 }</code></pre>
+                </div>
             </section>
          
-            
             <section class="slide part">
                 <h3>Publisher/Subscriber in Python</h3>
                 <div class="slide-title"><em>Publisher</em>/Subscriber in Python</div>
