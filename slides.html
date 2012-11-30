@@ -141,10 +141,9 @@
                             </ul>
                         </li>
                     </ul>
-                    <br/>
                     <figure class="center">
-                        <img src="media/bioloid_robot_parts.jpg" height="250px"/>
-                        <img src="media/bioloid_robot_humanoid.jpg" height="250px" />
+                        <img src="media/bioloid_robot_parts.jpg" height="200px"/>
+                        <img src="media/bioloid_robot_humanoid.jpg" height="200px" />
                     </figure>
                 </div>
             </section>
@@ -562,7 +561,7 @@ geometry_msgs/Twist[]   someTwistArray
                         <div class="splitbox-row">
                             <div class="onehalf">
                                 <p>Basic data types are:
-                                    <ul class="normal">
+                                    <ul class="normal text-padding">
                                         <li>int{8,16,32,64}</li>
                                         <li>ﬂoat{32,64}</li>
                                         <li>string</li>
@@ -574,7 +573,7 @@ geometry_msgs/Twist[]   someTwistArray
                             </div>
                             <div class="onehalf">
                                 <p>Packages type:
-                                    <ul class="normal">
+                                    <ul class="normal text-padding">
                                         <li>pkg_name/type_name</li>
                                         <li>pkg_name/type_name[]</li>
                                     </ul>
@@ -599,13 +598,12 @@ geometry_msgs/Twist[]   someTwistArray
             
             <section class="slide part">
                 <h3>Publisher/Subscriber in Python</h3>
-                <div class="slide-title"><em>Publisher</em>/Subscriber in Python</div><br/>
-                <ol>                 
-                    <li>Create a directory to put your nodes in
-                        <pre><code class="bash">$ mkdir nodes</code></pre>
-                    </li>
-                    <li>Create the nodes/publisher.py file
-                        <pre><code>#!/usr/bin/env python
+                <div class="slide-title"><em>Publisher</em>/Subscriber in Python</div>
+                <div class="slide-content">
+                    <ol>                 
+                        <li>Create a directory in <em>pkg_name</em> to put your nodes in e.g. <em>pkg_name/nodes</em></li>
+                        <li>Create the <em>nodes/publisher.py</em> file
+                            <pre><code>#!/usr/bin/env python
 import rospy; roslib; roslib.load_manifest('pkg_name')
 from pkg_name.msg import Custom
 
@@ -622,8 +620,37 @@ if __name__ == '__main__':
         publisher()
     except rospy.ROSInterruptException:
         pass</code></pre>
-                    </li>
-                </ol>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <div class="slide-title">Publisher/<em>Subscriber</em> in Python</div>
+                <div class="slide-content">
+                    <ol>                 
+                        <li>Create the <em>nodes/subscriber.py</em> file
+                            <pre><code>#!/usr/bin/env python
+    import rospy; roslib; roslib.load_manifest('pkg_name')
+    from pkg_name.msg import Custom
+
+    def callback(data):
+        rospy.loginfo(rospy.get_name() + ": I heard %s" % data.someText)
+
+    def listener():
+        rospy.init_node('listener', anonymous=True)
+        rospy.Subscriber("my/custom/topic", Custom, callback)
+        rospy.spin()
+
+    if __name__ == '__main__':
+        listener()</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <div class="slide-title"><em>Publisher/Subscriber</em> in Python</div><br/>
             </section>
             
             <!--##########################################################################
