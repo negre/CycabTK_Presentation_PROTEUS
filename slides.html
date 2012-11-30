@@ -12,7 +12,7 @@
 
         <meta name="description" content="ROS Framework presentation for fOSSa 2012" />
         <meta name="author" content="Rémi Barraquand & Amaury Negre" />
-        <meta name="viewport" content="width=1024, user-scalable=no">
+        <meta name="viewport" content="width=1024, user-scalable=no"/>
 
         <!-- Core and extension CSS files -->
         <link rel="stylesheet" href="libs/deckjs/core/deck.core.css" />
@@ -510,7 +510,7 @@
                                 <li>Show Cases
                                     <ul>
                                         <li>Personally Assisted Living</li>
-                                        <li>Self Driving Cars</li>
+                                        <li>Perception for on road vehicle</li>
                                         <li>Robot Prototyping</li>
                                     </ul>
                                 </li>
@@ -537,7 +537,18 @@
                             <pre><code class="bash">$ roscreate-pkg pkg_name</code></pre>
                         </li>
                         <li>Edit pkg_name/manifest.xml :
-                            <pre><code class="xml">&lt;package&gt;<br/>&nbsp;&nbsp;&lt;description&nbsp;brief=&quot;pkg_name&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My&nbsp;package&nbsp;description<br/>&nbsp;&nbsp;&lt;/description&gt;<br/>&nbsp;&nbsp;&lt;author&gt;Mr&nbsp;Bob&lt;/author&gt;<br/>&nbsp;&nbsp;&lt;license&gt;BSD&lt;/license&gt;<br/>&nbsp;&nbsp;&lt;review&nbsp;status=&quot;unreviewed&quot;&nbsp;notes=&quot;&quot;/&gt;<br/>&nbsp;&nbsp;&lt;url&gt;http://ros.org/wiki/pkg_name&lt;/url&gt;<br/>&nbsp;&nbsp;&lt;depend package="geometry_msgs/Twist"&gt;<br/>&lt;/package&gt;</code></pre>
+                            <pre><code class="xml">&lt;package&gt;
+&nbsp;&nbsp;&lt;description&nbsp;brief=&quot;pkg_name&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My&nbsp;package&nbsp;description
+&nbsp;&nbsp;&lt;/description&gt;
+&nbsp;&nbsp;&lt;author&gt;Mr&nbsp;Bob&lt;/author&gt;
+&nbsp;&nbsp;&lt;license&gt;BSD&lt;/license&gt;
+&nbsp;&nbsp;&lt;review&nbsp;status=&quot;unreviewed&quot;&nbsp;notes=&quot;&quot;/&gt;
+&nbsp;&nbsp;&lt;url&gt;http://ros.org/wiki/pkg_name&lt;/url&gt;
+
+<em>&nbsp;&nbsp;&lt;depend package="geometry_msgs/Twist" /&gt;</em>
+
+&lt;/package&gt;</code></pre>
                         </li>
                     </ol>
                 </div>
@@ -581,7 +592,6 @@ geometry_msgs/Twist[]   someTwistArray
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </section>
             
@@ -590,11 +600,71 @@ geometry_msgs/Twist[]   someTwistArray
                 <div class="slide-title">Publisher/Subscriber in C++</div><br/>
                 <p>ROS uses <em>CMake</em> and provides a <em>rosmake</em> command utility</p>
                 <ol>                 
+                    <li>Add roscpp dependency in the manifest.xml :
+                        <pre><code class="xml">&lt;depend package="roscpp" /&gt</code></pre>
+                    </li>
                     <li>Edit pkg_name/CMakeLists.txt
-                        <pre><code class="python">#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages<br/>rosbuild_genmsg()<br/>#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;services<br/>#rosbuild_gensrv()<br/><br/>#common&nbsp;commands&nbsp;for&nbsp;building&nbsp;c++&nbsp;executables&nbsp;and&nbsp;libraries<br/>#rosbuild_add_library(${PROJECT_NAME}&nbsp;src/example.cpp)<br/>#target_link_libraries(${PROJECT_NAME}&nbsp;another_library)<br/>#rosbuild_add_boost_directories()<br/>#rosbuild_link_boost(${PROJECT_NAME}&nbsp;thread)<br/>#rosbuild_add_executable(example&nbsp;examples/example.cpp)<br/>#target_link_libraries(example&nbsp;${PROJECT_NAME})</code></pre>
+                        <pre><code class="python">#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages
+rosbuild_genmsg()
+#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;services
+#rosbuild_gensrv()
+
+#common&nbsp;commands&nbsp;for&nbsp;building&nbsp;c++&nbsp;executables&nbsp;and&nbsp;libraries
+rosbuild_add_executable(my_publisher src/my_publisher.cpp)
+rosbuild_add_executable(my_subscriber src/my_subscriber.cpp)</code></pre>
                     </li>
                 </ol>
             </section>
+            <section class="slide part">
+                <h3>Publisher/Subscriber in C++</h3>
+                <div class="slide-title">Publisher/Subscriber in C++</div><br/>
+                <p>Publisher code :</p>
+                <pre><code class="cpp">#include "ros/ros.h"
+#include "pkg_name/Custom.h"
+
+int main(int argc, char **argv)
+{
+  ros::init(argc, argv, "my_publisher"); // init ROS
+  ros::NodeHandle n; // handle to create publisher, subscriber, services, etc.
+  ros::Publisher pub = n.advertise<pkg_name::Custom>("my/custom/topic", 1000); // create publisher
+
+  pkg_name::Custom custom_msg; // Message to be sent
+  ros::Rate loop_rate(10); // synchronization rate (set at 10 Hz)
+  while (ros::ok()){
+    custom_msg.someText="some text"; 
+    point_pub.publish(custom_msg); // send the message
+    
+    ros::spinOnce(); // manage ros events
+    loop_rate.sleep();
+  }
+  return 0;
+}</code></pre>
+            </section>
+            
+            <section class="slide part">
+                <h3>Publisher/Subscriber in C++</h3>
+                <div class="slide-title">Publisher/Subscriber in C++</div><br/>
+                <p>Subscriber code :</p>
+                <pre><code class="cpp">#include "ros/ros.h"
+#include "pkg_name/Custom.h"
+
+void msgCallback(const pkg_name::Custom::ConstPtr& msg)
+{
+  ROS_INFO("My custom text : %s", msg->someText.c_str() );  
+}
+
+int main(int argc, char **argv)
+{
+  ros::init(argc, argv, "my_subscriber"); // init ROS
+  ros::NodeHandle n;
+
+  ros::Subscriber sub = n.subscribe("my/custom/topic", 1000, msgCallback); // create subscriber
+
+  ros::spin(); // ROS spin loop
+  return 0;
+}</code></pre>
+            </section>
+         
             
             <section class="slide part">
                 <h3>Publisher/Subscriber in Python</h3>
