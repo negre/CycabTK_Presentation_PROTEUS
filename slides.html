@@ -669,7 +669,30 @@ int main(int argc, char **argv)
 }</code></pre>
                 </div>
             </section>
-         
+
+            <section class="slide part">
+                <h3>Publisher/Subscriber in C++</h3>
+                <div class="slide-title">Publisher/Subscriber in C++</div>
+                <div class="slide-content">
+                    <ol>
+                        <li>Compile code :
+                            <pre><code class="shell">$ rosmake pkg_name</code></pre>
+                        </li>
+                        <li>Run roscore :
+                            <pre><code class="shell">$ roscore</code></pre>                          
+                        </li>                        
+                        <li>Run publisher :
+                            <pre><code class="shell">$ rosrun pkg_name my_publisher</code></pre>                          
+                        </li>
+                        <li>Run subscriber :
+                            <pre><code class="shell">$ rosrun pkg_name my_subscriber
+[ INFO] [1354267632.389733464]: My custom text : some text
+[ INFO] [1354267632.489738852]: My custom text : some text</code></pre>                          
+                        </li>                        
+                    </ol>
+                </div>
+            </section>
+            
             <section class="slide part">
                 <h3>Publisher/Subscriber in Python</h3>
                 <div class="slide-title"><em>Publisher</em>/Subscriber in Python</div>
