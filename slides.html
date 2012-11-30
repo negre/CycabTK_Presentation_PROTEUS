@@ -675,16 +675,16 @@ int main(int argc, char **argv)
                 <div class="slide-title">Publisher/Subscriber in C++</div>
                 <div class="slide-content">
                     <ol>
-                        <li>Compile code :
+                        <li>Build the package
                             <pre><code class="shell">$ rosmake pkg_name</code></pre>
                         </li>
-                        <li>Run roscore :
+                        <li>Run roscore
                             <pre><code class="shell">$ roscore</code></pre>                          
                         </li>                        
-                        <li>Run publisher :
+                        <li>Run publisher
                             <pre><code class="shell">$ rosrun pkg_name my_publisher</code></pre>                          
                         </li>
-                        <li>Run subscriber :
+                        <li>Run subscriber
                             <pre><code class="shell">$ rosrun pkg_name my_subscriber
 [ INFO] [1354267632.389733464]: My custom text : some text
 [ INFO] [1354267632.489738852]: My custom text : some text</code></pre>                          
@@ -754,7 +754,10 @@ if __name__ == '__main__':
                             <pre><code class="bash">$ chmod +x nodes/*.py</code></pre>
                         </li>
                         <li>Build the package (only for the msgs)
-                            <pre><code class="bash">$ make</code></pre>
+                            <pre><code class="bash">$ rosmake pkg_name</code></pre>
+                        </li>
+                        <li>Run roscore
+                            <pre><code class="shell">$ roscore</code></pre>                          
                         </li>
                         <li>Run the nodes
                             <pre><code class="bash">$ rosrun pkg_name publisher.py<br/>$ rosrun pkg_name listener.py</code></pre>
@@ -900,6 +903,9 @@ public class MyNode implements NodeMain {
                             <pre><code>$ roscd rosjava_core
 $ ./gradlew install</code></pre>
                         </li>
+                        <li>Run roscore
+                            <pre><code class="shell">$ roscore</code></pre>                          
+                        </li> 
                         <li>Run the nodes
                             <pre><code>$ rosrun pkg_name execute your.package.path.Publisher
 $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
