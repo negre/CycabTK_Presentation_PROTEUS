@@ -557,7 +557,7 @@
             </section>
             
             <section class="slide part">
-                <h3>Create a New Message type</h3>
+                <h3>Create a New Message Type</h3>
                 <div class="slide-title">Create a new message type</div>
                 <div class="slide-content">
                     <p>In ROS <em>msg</em> and <em>srv</em> types definition are stored respectively in <em>pkg_name/msg</em> and <em>pkg_name/srv</em></p>
@@ -621,7 +621,6 @@ rosbuild_add_executable(my_subscriber src/my_subscriber.cpp)</code></pre>
             </section>
             
             <section class="slide part">
-                <h3>Publisher/Subscriber in C++</h3>
                 <div class="slide-title"><em>Publisher</em>/Subscriber in C++</div>
                 <div class="slide-content">
                     <pre><code class="cpp">#include "ros/ros.h"
@@ -648,7 +647,6 @@ int main(int argc, char **argv)
             </section>
             
             <section class="slide part">
-                <h3>Publisher/Subscriber in C++</h3>
                 <div class="slide-title">Publisher/<em>Subscriber</em> in C++</div>
                 <div class="slide-content">
                     <pre><code class="cpp">#include "ros/ros.h"
@@ -707,19 +705,19 @@ if __name__ == '__main__':
                     <ol>                 
                         <li>Create the <em>nodes/subscriber.py</em> file
                             <pre><code>#!/usr/bin/env python
-    import rospy; roslib; roslib.load_manifest('pkg_name')
-    from pkg_name.msg import Custom
+import rospy; roslib; roslib.load_manifest('pkg_name')
+from pkg_name.msg import Custom
 
-    def callback(data):
-        rospy.loginfo(rospy.get_name() + ": I heard %s" % data.someText)
+def callback(data):
+    rospy.loginfo(rospy.get_name() + ": I heard %s" % data.someText)
 
-    def listener():
-        rospy.init_node('listener', anonymous=True)
-        rospy.Subscriber("my/custom/topic", Custom, callback)
-        rospy.spin()
+def subscriber():
+    rospy.init_node('listener', anonymous=True)
+    rospy.Subscriber("my/custom/topic", Custom, callback)
+    rospy.spin()
 
-    if __name__ == '__main__':
-        listener()</code></pre>
+if __name__ == '__main__':
+    subscriber()</code></pre>
                         </li>
                     </ol>
                 </div>
@@ -728,11 +726,162 @@ if __name__ == '__main__':
             <section class="slide part">
                 <div class="slide-title"><em>Publisher/Subscriber</em> in Python</div>
                 <div class="slide-content">
-                    <ul>
+                    <ol class="normal text-padding">
                         <li>Make both nodes executable
-                            <pre><code class="shell">$ chmod +x nodes/*.py</code></pre>
+                            <pre><code class="bash">$ chmod +x nodes/*.py</code></pre>
+                        </li>
+                        <li>Build the package (only for the msgs)
+                            <pre><code class="bash">$ make</code></pre>
+                        </li>
+                        <li>Run the nodes
+                            <pre><code class="bash">$ rosrun pkg_name publisher.py<br/>$ rosrun pkg_name listener.py</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <h3>Publisher/Subscriber in Java</h3>
+                <div class="slide-title">Publisher/Subscriber in Java</div>
+                <div class="slide-content">
+                    <p class="large">ROS for Java is <em>not yet officially supported</em></p>
+                    <ul>
+                        <li class="normal">Old JNI API <a href="http://www.ros.org/wiki/rosjava_jni">http://www.ros.org/wiki/rosjava_jni</a> (deprecated)</li>
+                        <li>New Java only implementation <a href="http://rosjava.googlecode.com">http://rosjava.googlecode.com</a><br/>
+                            <span class="normal">Developed at Google in cooperation with Willow Garage</span>
                         </li>
                     </ul>
+                    <p class="large">ROS for Java is <em>slightly different</em>
+                        <ul>
+                            <li class="normal">Uses an alternative build system <a href="http://www.gradle.org/" class="gradle">Gradle</a></li>
+                            <li class="normal">Revisited API (take benefit of Java language, asynchronous)</li>
+                            <li class="normal">Android Friendly</li>
+                            <li class="normal">More threads, fewer processes (Java Node  &equiv; C++ Nodelets)</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <div class="slide-title">Publisher/Subscriber in Java</div>
+                <div class="slide-content">
+                    <ol>                 
+                        <li>Create a build.gradle file (see <a href="http://docs.rosjava.googlecode.com/hg/rosjava_core/html/getting_started.html#build-gradle-example">build.gradle example</a>).</li>
+                        <li>Add a custom task in <em>build.gradle</em> for better integration with <em>rosrun</em>
+                            <pre><code>...
+
+// create a standard binary in /bin for rosrun                                                                                                         
+task deployApp(dependsOn: 'installApp') << {
+    File binDir = new File(project.projectDir, '/bin')                                                                                              
+    if (!binDir.isDirectory()) {                                                                                                                   
+        println "Creating $binDir directory"
+        binDir.mkdirs()
+    }
+    File link = new File(binDir,"execute")
+    File target = new File(project.projectDir, "build/install/$project.name/bin/$project.name")
+    println "Creating symlink from $link.absolutePath to $target.absolutePath"
+    ant.symlink(link: link.absolutePath, resource: target.absolutePath)
+}
+
+...</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <div class="slide-title">Publisher/Subscriber in Java</div>
+                <div class="slide-content">
+                    <ol>
+                        <li>Put your your Java sources in <em>src/main/java</em> and your tests in <em>src/test/java</em></li>
+                        <li>Implement a Node
+                            <pre><code>import org.ros.namespace.GraphName;
+import org.ros.node.Node;
+import org.ros.node.NodeMain;
+
+public class MyNode implements NodeMain {
+
+    public GraphName getDefaultNodeName() {
+        return new GraphName("my_node");
+    }
+
+    public void onStart(ConnectedNode node) {}
+    public void onShutdown(Node node) {}
+    public void onShutdownComplete(Node node) {}
+    public void onError(Node node, Throwable throwable) {}
+}</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <div class="slide-title"><em>Publisher</em>/Subscriber in Java</div>
+                <div class="slide-content">
+                    <pre><code class="java">public class Publisher extends AbstractNodeMain {
+
+    public GraphName getDefaultNodeName() {
+        return new GraphName("publisher");
+    }
+
+    public void onStart(final ConnectedNode connectedNode) {
+        final Publisher&lt;pkg_name.Custom&gt; publisher = connectedNode.newPublisher(
+            "my/custom/topic", pkg_name.Custom._TYPE);
+
+        connectedNode.executeCancellableLoop(new CancellableLoop() {
+            protected void setup() {}
+            protected void loop() throws InterruptedException {
+                pkg_name.Custom msg = publisher.newMessage();
+                msg.setSomeText("Hello world!");
+                publisher.publish(msg);
+                Thread.sleep(1000);
+            }
+        });
+    }
+}
+</code></pre>
+                </div>
+            </section>
+            
+             <section class="slide part">
+                <div class="slide-title">Publisher/<em>Subscriber</em> in Java</div>
+                <div class="slide-content">
+                    <pre><code class="java">public class Subscriber extends AbstractNodeMain {
+
+    public GraphName getDefaultNodeName() {
+        return new GraphName("listener");
+    }
+
+    public void onStart(ConnectedNode connectedNode) {
+        final Log log = connectedNode.getLog();
+        Subscriber&lt;pkg_name.Custom&gt; subscriber = connectedNode.newSubscriber(
+            "my/custom/topic", pkg_name.Custom._TYPE);
+        subscriber.addMessageListener(new MessageListener&lt;pkg_name.Custom&gt;() {
+            public void onNewMessage(pkg_name.Custom message) {
+                log.info("I heard: \"" + message.getSomeText() + "\"");
+            }
+        });
+    }
+}</code></pre>
+                </div>
+             </section>
+            
+            <section class="slide part">
+                <div class="slide-title"><em>Publisher/Subscriber</em> in Java</div>
+                <div class="slide-content">
+                    <ol class="normal text-padding">
+                        <li>Build the package (only for the msgs)
+                            <pre><code>$ make</code></pre>
+                        </li>
+                        <li>Rebuild and redeploy <em>rosjava</em> (to build java interface for msgs)
+                            <pre><code>$ roscd rosjava_core
+$ ./gradlew install</code></pre>
+                        </li>
+                        <li>Run the nodes
+                            <pre><code>$ rosrun pkg_name execute your.package.path.Publisher
+$ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
+                        </li>
+                    </ol>
                 </div>
             </section>
             

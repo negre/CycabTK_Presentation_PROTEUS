@@ -305,7 +305,8 @@ pre, code {
                     color: #575757;
                 }
                 
-                &.normal {
+                .normal {
+                    font-weight: normal;
                     * { font-weight: normal; }
                 }
             }
@@ -851,6 +852,15 @@ pre, code {
         }
     }
     
+    
+    a.gradle {
+        background: url('media/gradle_logo.gif');
+        background-size: contain;
+        text-indent: -9000px;
+        display: inline-block;
+        width: #{($font-size*6) / $em}em;
+        background-repeat: no-repeat;
+    }
 }
 
 
