@@ -26,8 +26,10 @@
         <link rel="stylesheet" href="libs/deckextjs/extensions/notes/deck.notes.css">
         
         <!-- HighlightJS -->
-        <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
-        <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+        <link rel="alternate stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/default.css">
+        <link rel="alternate stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
+        <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/github.css">
+        <script src="http://softwaremaniacs.org/media/soft/highlight/highlight.pack.js"></script>
 
         <!-- Style theme. More available in /themes/style/ or create your own. -->
         <link rel="stylesheet" href="libs/deckextjs/themes/style/beamer.css" />
@@ -605,7 +607,7 @@ geometry_msgs/Twist[]   someTwistArray
                             <pre><code class="xml">&lt;depend package="roscpp" /&gt</code></pre>
                         </li>
                         <li>Edit pkg_name/CMakeLists.txt
-                            <pre><code class="python">#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages
+                            <pre><code class="cmake">#uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;messages
 rosbuild_genmsg()
 #uncomment&nbsp;if&nbsp;you&nbsp;have&nbsp;defined&nbsp;services
 #rosbuild_gensrv()
@@ -724,7 +726,14 @@ if __name__ == '__main__':
             </section>
             
             <section class="slide part">
-                <div class="slide-title"><em>Publisher/Subscriber</em> in Python</div><br/>
+                <div class="slide-title"><em>Publisher/Subscriber</em> in Python</div>
+                <div class="slide-content">
+                    <ul>
+                        <li>Make both nodes executable
+                            <pre><code class="shell">$ chmod +x nodes/*.py</code></pre>
+                        </li>
+                    </ul>
+                </div>
             </section>
             
             <!--##########################################################################
