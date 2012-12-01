@@ -292,6 +292,7 @@ pre, code {
                     font-weight: bold;
 
                     li {
+                        font-size: #{($font-size*0.85)/$em}em;
                         font-weight: normal;
                     }
                 }
@@ -871,6 +872,19 @@ pre, code {
         font-size: #{($font-size*0.9) / $em}em;
         font-weight: normal;
         figure { display: inline;  img { float: left; clear: both; padding-right: #{($line/2)/$em}em;}}
+    }
+    
+    div.demo {
+        display: table-row;
+        vertical-align: middle;
+        text-align: center;
+        height: 100%;
+        
+        figure, p {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        img { height: 120px; margin: 0px; padding: 0px; }
     }
 }
 

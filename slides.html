@@ -85,13 +85,14 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="splitbox">
                     <div class="stubbox">
                         <span class="title">Plan</span>
-                        <div class="content">Presentation Overview</div>
+                        <div class="content large">Presentation Overview</div>
                     </div>
                     <div class="splitbox-row">
                         <div class="full text-padding normal-text">
                             <ul class="fadded">
                                 <li class="selected">Introduction to ROS
                                     <ul>
+                                        <li>Motivation for a Common Robotic Solution</li>
                                         <li>What is (not) ROS</li>
                                         <li>ROS Concept</li>
                                         <li>ROS Tools</li>
@@ -127,11 +128,15 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             ## PART I.
             ##
             ###########################################################################-->
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">What are the <em>motivations</em> for a common robotic solution?</p>
+            </section>
 
             <section class="slide">
                 <h2>Introduction to ROS</h2>
-                <h3>Motivation for Robotic Middleware</h3>
-                <div class="slide-title">Motivation for Robotic Middleware</div>
+                <h3>Motivation for a Common Robotic Solution</h3>
+                <div class="slide-title">Motivation for a Common Robotic Solution</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robot</strong> is a <em>composition</em> of different components</p>
                     <ul class="normal-text">
@@ -158,7 +163,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             </section>
             
             <section class="slide">
-                <div class="slide-title">Motivation for Robotic Middleware</div>
+                <div class="slide-title">Motivation for a Common Robotic Solution</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robotic application</strong> is an <em>interconnection</em> of components</p>
                     <ul class="normal-text">
@@ -182,20 +187,28 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                             </ul>
                         </li>
                     </ul>
-                    <br/>
-                    <p class="large">Both <strong>Robots</strong> and a <strong>Robotic Applications</strong> are assemblage of many other people's components</p>
+                    <p class="large">Both <strong>Robots</strong> and a <strong>Robotic Applications</strong> are an <em>assemblage of many other people's components</em></p>
                 </div>
             </section>
             
             <section class="slide tabular vcenter">
                 <p class="emphasis large">
-                    Need for a <em>R</em>obotic <em>O</em>perating <em>S</em>ystem<br/>
-                    <img class="slide" src="media/ROS.png" alt="Robotic Operating System" height="100px"/>
+                    &DoubleRightArrow; Need for a common <em>R</em>obotic <em>O</em>perating <em>S</em>ystem<br/>
                 </p>
+            </section>
+            
+            <section class="slide tabular vcenter">
+                <figure class="emphasis large">
+                    <img src="media/ROS.png" alt="Robotic Operating System"/>
+                </figure>
+            </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">What is ROS?</p>
             </section>
 
             <section class="slide">
-                <h3>What is (not) ROS</h3>
+                <h3><em>What is</em> (not) <em>ROS</em></h3>
                 <div class="slide-title"> What is ROS</div>
                 <div class="slide-content">
                     <p class="large"><em>ROS</em> is a 'Meta' Operating System for Robotics Applications</p>
@@ -225,6 +238,10 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                     </ul>
                 </div>
             </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">What ROS is not?</p>
+            </section>
 
             <section class="slide">
                 <div class="slide-title">What ROS is not</div>
@@ -242,11 +259,15 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                     </ul>
                 </div>        
             </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">ROS Concepts</p>
+            </section>
 
             <section class="slide">
                 <h3>ROS Concepts</h3>
-                <h4>Structure</h4>
-                <div class="slide-title"> Structure </div>
+                <h4>Node Graph</h4>
+                <div class="slide-title">Node Graph</div>
                 <div class="slide-content">
                     <ul class="normal-text">
                         <li>Ros Application = set of communicating processes</li>
@@ -259,8 +280,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             </section>
 
             <section class="slide">
-                <h4> Communication mechanism</h4>
-                <div class="slide-title">Communication mechanism</div>
+                <h4>Node Communication Mechanisms</h4>
+                <div class="slide-title">Node Communication Mechanisms</div>
                 <div class="slide-content">
                     <p>Two main communication protocols :</p>
                     <ul class="normal-text">
@@ -305,7 +326,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             </section>
 
             <section class="slide">
-                <div class="slide-title">ROS master</div>
+                <div class="slide-title">ROS Master</div>
                 <div class="slide-content">
                     <ul>
                         <li>Directory for publisher / subscribers/ services;</li>
@@ -354,76 +375,60 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             </section>
 
             <section class="slide">
-                <div class="slide-title"> Packages and Stacks</div>
+                <div class="slide-title">Packages and Stacks</div>
                 <div class="slide-content">
-                <ul>
-                <li><span class="important">Packages : </span>
                     <ul>
-                    <li>atomic unit of building,</li>
-                    <li>can contain anything : nodes, messages, tools, launch files, etc.
-                    <li>in their most basic form :
-                        <ul>
-                        <li>package_name</li>
-                        <li>package_name/Makefile</li>
-                        <li>package_name/CMakeLists.txt</li>
-                        <li>package_name/manifest.xml</li>
-                        </ul>
-                    </li>
+                        <li><em>Packages</em>
+                            <ul>
+                                <li>atomic unit of building,</li>
+                                <li>can contain anything : nodes, messages, tools, launch files, etc.
+                                <li>in their most basic form :
+                                    <ul>
+                                        <li>package_name</li>
+                                        <li>package_name/Makefile</li>
+                                        <li>package_name/CMakeLists.txt</li>
+                                        <li>package_name/manifest.xml</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><em>Stacks</em>
+                            <ul>
+                                <li>atomic unit of "releasing",</li>
+                                <li>collection of packages grouped together.</li>
+                                <li>in their most basic form
+                                    <ul>
+                                        <li>stack_name</li>
+                                        <li>stack_name/package_name_1</li>
+                                        <li>stack_name/package_name_n</li>
+                                        <li>stack_name/stack.xml</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            
-                <li><span class="important">Stacks :</span>
-                    <ul>
-                    <li>atomic unit of "releasing",</li>
-                    <li>collection of packages grouped together.</li>
-                    <li>in their most basic form :
-                        <ul>
-                        <li>stack_name</li>
-                        <li>stack_name/package_name_1</li>
-                        <li>stack_name/package_name_n</li>
-                        <li>stack_name/stack.xml</li>
-                        </ul>
-                    </li>
-                    </ul>
-                </li>
-                </ul>
                 </div>
             </section>
       
-            <section class="slide">
-                <div class="slide-title">Transformation frames</div>
-                <div class="slide-content">
-                <p class="large">Robot:</p>
-                <ul>
-                    <li>set of rigit bodies linked together;</li>
-                    <li>each sensor obtain measurement in its local reference.</li>
-                </ul>
-                <p class="large">In ROS</p>
-                <ul>
-                    <li>set of transformation frames,</li>
-                    <li>linked by transformation,</li>
-                    <li>organized in a directed tree,</li>
-                    <li>published on a single topic <span class="important">/tf</span>,</li>
-                    <li>each sensor data is associated to a frame.</li>
-                </ul>
-                <img src="media/frames2.png" alt="frames" width="30%"/>
-                </div>
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">ROS Tools</p>
             </section>
 
             <section class="slide">
                 <h3>ROS tools</h3>
-                <div class="slide-title">Runtime inspection</div>
+                <div class="slide-title">Runtime Introspection</div>
                 <div class="slide-content">
-                    <p class="large">Node inspection :</p>
+                    <em class="emphasis large">Node Introspection</em>
                     <ul>
-                        <li><span class="important">rosnode</span> : list nodes and interconnections,</li>
-                        <li><span class="important">rxgraph</span> : connection graph;</li>
+                        <li><em>rosnode</em> list nodes and interconnections,</li>
+                        <li><em>rxgraph</em> display connection graph</li>
                     </ul>
                     <img src="media/rxgraph.png" alt="rxgraph" width="40%"/>
-                    <p class="large">Message inspection :</p>
+                    <em class="emphasis large">Message Introspection</em>
                     <ul>
-                        <li><span class="important">rostopic</span> : list topics, print sent messages,</li>
-                        <li><span class="important">rosservice</span> : list services.</li>
+                        <li><em>rostopic</em> list topics, print messages type, echo messages</li>
+                        <li><em>rosservice</em> list services, call services, print services type</li>
                     </ul>
                 </div>
             </section>
@@ -431,7 +436,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             <section class="slide">
                 <div class="slide-title">Logging</div>
                 <div class="slide-content">
-                    <p class="large">Logging API :</p>
+                    <em class="emphasis large">Logging API</em>
                     <ul>
                         <li>different verbosity levels (info, debug, error, etc.),</li>
                         <li>published on an unique topic <span class="important">/rosout,</span></li>
@@ -445,7 +450,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             <section class="slide">
                 <div class="slide-title">Data visualization</div>
                 <div class="slide-content">
-                    <p class="large"><span class="important">rviz</span></p>
+                    <em class="emphasis large">rviz</em>
                     <ul>
                         <li>full 3D visualization,</li>
                         <li>display almost all standard sensor messages and frames,</li>
@@ -458,15 +463,15 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             <section class="slide">
                 <div class="slide-title">Data recording</div>
                 <div class="slide-content">
-                    <p class="large">Recording messages :</p>
+                    <em class="emphasis large">Recording messages</em>
                     <ul>
-                        <li><span class="important">rosbag record</span> : generic subscriber,</li>
-                        <li>container : <span class="important">bagfile</span>,</li>
+                        <li><em>rosbag record</em> : generic subscriber,</li>
+                        <li>container : <em>bagfile</em>,</li>
                     </ul>
-                    <p class="large">Replaying messages :</p>
+                    <em class="emphasis large">Replaying messages</em>
                     <ul>
-                        <li><span class="important">rosbag play</span> : generic publisher,</li>
-                        <li><span class="important">rxbag</span> graphic interface.</li>
+                        <li><em>rosbag play</em> : generic publisher,</li>
+                        <li><em>rxbag</em> graphic interface.</li>
                     </ul>
                     <img src="media/rxbag.png" alt="rxbag" width="50%"/>
                 </div>
@@ -475,19 +480,19 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             <section class="slide">
                 <div class="slide-title">Thid party modules</div>
                 <div class="slide-content">
-                    <p class="large">Hardware drivers :</p>
+                    <em class="emphasis large">Hardware drivers</em>
                     <ul>
                         <li>sensors : almost all common used robotics sensors,</li>
                         <li>robots : depends on constructors.</li>
                     </ul>
-                    <p class="large">Software stacks :</p>
+                    <em class="emphasis large">Software stacks</em>
                     <ul>
                         <li>SLAM (localization and mapping),</li>
                         <li>navigation,</li>
                         <li>3D perception,</li>
                         <li>simulation;</li>
                     </ul>
-                    <p class="large">Growing community.</p>
+                    <em class="emphasis large">Growing community.</em>
                 </div>
             </section>
 
@@ -498,12 +503,12 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             ##
             ###########################################################################-->
             
-            <section class="slide">
+            <section class="slide hide-toc-status">
                 <h2>Getting Started with ROS</h2>
                 <div class="splitbox">
                     <div class="stubbox">
                         <span class="title">Plan</span>
-                        <div class="content">Presentation Overview</div>
+                        <div class="content large">Presentation Overview</div>
                     </div>
                     <div class="splitbox-row">
                         <div class="full text-padding normal-text">
@@ -536,6 +541,10 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 </div>
             </section>
             
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Create a <em>New Package</em></p>
+            </section>
+            
             <section class="slide">
                 <h3>Create a New Package</h3>
                 <div class="slide-title">Create a new package</div>
@@ -563,6 +572,10 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                         </li>
                     </ol>
                 </div>
+            </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Create a <em>New Message Type</em></p>
             </section>
             
             <section class="slide">
@@ -606,7 +619,12 @@ geometry_msgs/Twist[]   someTwistArray
                 </div>
             </section>
             
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Publisher/Subscriber in <em>C++</em></p>
+            </section>
+            
             <section class="slide">
+                <h3>Publisher/Subscriber in C++</h3>
                 <div class="slide-title">Publisher/Subscriber in <em>C++</em></div>
                 <div class="slide-content">
                     <p>ROS uses <em>CMake</em> and provides a <em>rosmake</em> command utility</p>
@@ -676,7 +694,6 @@ int main(int argc, char **argv) {
             </section>
 
             <section class="slide">
-                <h3>Publisher/Subscriber in C++</h3>
                 <div class="slide-title"><em>Publisher/Subscriber</em> in C++</div>
                 <div class="slide-content">
                     <ol>
@@ -696,6 +713,10 @@ int main(int argc, char **argv) {
                         </li>                        
                     </ol>
                 </div>
+            </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Publisher/Subscriber in <em>Python</em></p>
             </section>
             
             <section class="slide">
@@ -769,6 +790,10 @@ if __name__ == '__main__':
                         </li>
                     </ol>
                 </div>
+            </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Publisher/Subscriber in <em>Java</em></p>
             </section>
             
             <section class="slide">
@@ -936,7 +961,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                 <div class="splitbox">
                     <div class="stubbox">
                         <span class="title">Plan</span>
-                        <div class="content">Presentation Overview</div>
+                        <div class="content large">Presentation Overview</div>
                     </div>
                     <div class="splitbox-row">
                         <div class="full text-padding normal-text">
@@ -945,9 +970,9 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                                 <li>Getting Started with ROS</li>
                                 <li class="selected">Showcases
                                     <ul>
-                                        <li>Personally Assisted Living</li>
-                                        <li>Perception for on road vehicle</li>
-                                        <li>Robot Prototyping</li>
+                                        <li>Using ROS for Personally Assisted Living Application</li>
+                                        <li>Using ROS for On Road Vehicle Application</li>
+                                        <li>Using ROS for Prototyping Robots</li>
                                     </ul>
                                 </li>
                                 <li>Demo</li>
@@ -960,12 +985,20 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                     <img src="media/overview_path.jpg">
                 </div>
             </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Using ROS for <em>Personally Assisted Living</em> Applications</p>
+            </section>
 
             <section class="slide">
                 <h3>Personally Assisted Living</h3>
                 <div class="slide-title">Personally Assisted Living</div>
                 <div class="slide-content">
                 </div>
+            </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Using ROS for <em>On Road Vehicle</em> Applications</p>
             </section>
 
             <section class="slide">
@@ -987,6 +1020,26 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
              </section>
             
             <section class="slide">
+                <div class="slide-title">Transformation frames</div>
+                <div class="slide-content">
+                <p class="large">Robot:</p>
+                <ul>
+                    <li>set of rigit bodies linked together;</li>
+                    <li>each sensor obtain measurement in its local reference.</li>
+                </ul>
+                <p class="large">In ROS</p>
+                <ul>
+                    <li>set of transformation frames,</li>
+                    <li>linked by transformation,</li>
+                    <li>organized in a directed tree,</li>
+                    <li>published on a single topic <span class="important">/tf</span>,</li>
+                    <li>each sensor data is associated to a frame.</li>
+                </ul>
+                <img src="media/frames2.png" alt="frames" width="30%"/>
+                </div>
+            </section>
+            
+            <section class="slide">
                 <div class="slide-title">On Road Vehicle Perception</div>
                 <div class="slide-content">
                     <figure class="center">
@@ -1005,10 +1058,53 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                     </video>
                 </div>
             </section>
-           
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">Using ROS for <em>Prototyping Robots</em></p>
+            </section>
+            
+            
             <!--##########################################################################
             ##
             ## PART IV.
+            ##
+            ###########################################################################-->
+
+            <section class="slide hide-toc-status">
+                <h2>Demonstration</h2>
+                <div class="splitbox">
+                    <div class="stubbox">
+                        <span class="title">Plan</span>
+                        <div class="content large">Presentation Overview</div>
+                    </div>
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li>Introduction to ROS</li>
+                                <li>Getting Started with ROS</li>
+                                <li>Showcases</li>
+                                <li class="selected">Demo</li>
+                                <li>Conclusion and Perspectives</li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+                <div class="background bottom-right">
+                    <img src="media/overview_path.jpg">
+                </div>
+            </section>
+           
+            <section class="slide tabular hide-toc-status">
+                <div class="demo">
+                    <figure><img src="media/ROS.png" /></figure><p>+</p>
+                    <figure><img src="media/turtlebot_lg.png"/></figure><p>+</p>
+                    <figure><img src="media/asus_eee_pad_transformer_prime_1.jpg"/></figure>
+                </div>
+            </section>
+            
+            <!--##########################################################################
+            ##
+            ## PART V.
             ##
             ###########################################################################-->
 
