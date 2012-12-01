@@ -57,6 +57,13 @@
                 </p>
             </section>
             
+            <section class="slide hide-toc-status center tabular">
+                <div class="subbox vcenter">
+                    <div class="bio"><figure><img src="media/Barraquand.png" /></figure><em>Rémi BARRAQUAND</em> is currently an Expert R&D Engineer at INRIA. He graduated from the Grenoble Institute of Technology (Grenoble INP) in 2007, with a major in Graphics, Vision and Robotics. He then received his PhD degree in computer science from the Grenoble University for his work on the design of sociable technologies. <a href="http://remibarraquand.com">http://remibarraquand.com</a></div>
+                    <div class="bio"><figure><img src="media/Negre.jpg" /></figure><em>Amaury NEGRE</em> is a Research Engineer at CNRS since 2008. He graduated from the Grenoble Institute of Technology (Grenoble INP) in 2005, with a major in image processing. Then he received his 
+PhD degree in vision and robotics from INPG in 2009 for his work on vision based obstacle detection for mobile robots. Now he is with the Grenoble Informatics Laboratory (LIG) and offers engineering support in experimental robotics and ambient intelligence.</div>
+                </div>
+            </section>
             
             <!--##########################################################################
             ##   Outline :
@@ -95,7 +102,6 @@
                                         <li>C++</li>
                                         <li>Python</li>
                                         <li>Java</li>
-                                        <li>Android</li>
                                     </ul>
                                 </li>
                                 <li class="selected">Show Cases
@@ -124,6 +130,7 @@
 
             <section class="slide">
                 <h2>Introduction to ROS</h2>
+                <h3>Motivation for Robotic Middleware</h3>
                 <div class="slide-title">Motivation for Robotic Middleware</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robot</strong> is a <em>composition</em> of different components</p>
@@ -151,7 +158,6 @@
             </section>
             
             <section class="slide">
-                <h3>Motivation for Robotic Middleware</h3>
                 <div class="slide-title">Motivation for Robotic Middleware</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robotic application</strong> is an <em>interconnection</em> of components</p>
@@ -488,7 +494,7 @@
       
             <!--##########################################################################
             ##
-            ## PART II.
+            ## PART II. Getting Started with ROS
             ##
             ###########################################################################-->
             
@@ -502,27 +508,20 @@
                     <div class="splitbox-row">
                         <div class="full text-padding normal-text">
                             <ul class="fadded">
-                                <li>Introduction to ROS
-                                    <ul>
-                                        <li>What is (not) ROS</li>
-                                        <li>ROS Concept</li>
-                                        <li>ROS Tools</li>
-                                    </ul>
-                                </li>
+                                <li>Introduction to ROS</li>
                                 <li class="selected">Getting Started with ROS
                                     <ul>
                                         <li>Create a New Package</li>
+                                        <li>Create a New Message Type</li>
                                         <li>Publisher/Subscriber in C++</li>
                                         <li>Publisher/Subscriber in Python</li>
                                         <li>Publisher/Subscriber in Java</li>
-                                        <li>Publisher/Subscriber on Android</li>
-                                        <li>Final Words</li>
                                     </ul>
                                 </li>
-                                <li>Show Cases
+                                <li>Showcases
                                     <ul>
                                         <li>Personally Assisted Living</li>
-                                        <li>Perception for on road vehicle</li>
+                                        <li>Perception for on Road Vehicle</li>
                                         <li>Robot Prototyping</li>
                                     </ul>
                                 </li>
@@ -537,7 +536,7 @@
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <h3>Create a New Package</h3>
                 <div class="slide-title">Create a new package</div>
                 <div class="slide-content">
@@ -566,7 +565,7 @@
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <h3>Create a New Message Type</h3>
                 <div class="slide-title">Create a new message type</div>
                 <div class="slide-content">
@@ -607,8 +606,8 @@ geometry_msgs/Twist[]   someTwistArray
                 </div>
             </section>
             
-            <section class="slide part">
-                <div class="slide-title">Publisher/Subscriber in C++</div>
+            <section class="slide">
+                <div class="slide-title">Publisher/Subscriber in <em>C++</em></div>
                 <div class="slide-content">
                     <p>ROS uses <em>CMake</em> and provides a <em>rosmake</em> command utility</p>
                     <ol>                 
@@ -629,59 +628,56 @@ rosbuild_add_executable(my_subscriber src/my_subscriber.cpp)</code></pre>
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title"><em>Publisher</em>/Subscriber in C++</div>
                 <div class="slide-content">
                     <pre><code class="cpp">#include "ros/ros.h"
 #include "pkg_name/Custom.h"
 
-int main(int argc, char **argv)
-{
-  ros::init(argc, argv, "my_publisher"); // init ROS
-  ros::NodeHandle n; // handle to create publisher, subscriber, services, etc.
-  ros::Publisher pub = n.advertise<pkg_name::Custom>("my/custom/topic", 1000); // create publisher
+int main(int argc, char **argv) {
+    ros::init(argc, argv, "my_publisher"); // init ROS
+    ros::NodeHandle n; // handle to create publisher, subscriber, services, etc.
+    ros::Publisher pub = n.advertise<pkg_name::Custom>("my/custom/topic", 1000); // create publisher
 
-  pkg_name::Custom custom_msg; // Message to be sent
-  ros::Rate loop_rate(10); // synchronization rate (set at 10 Hz)
-  while (ros::ok()){
-    custom_msg.someText="some text"; 
-    point_pub.publish(custom_msg); // send the message
-    
-    ros::spinOnce(); // manage ros events
-    loop_rate.sleep();
-  }
-  return 0;
+    pkg_name::Custom custom_msg; // Message to be sent
+    ros::Rate loop_rate(10); // synchronization rate (set at 10 Hz)
+    while (ros::ok()){
+        custom_msg.someText="some text"; 
+        point_pub.publish(custom_msg); // send the message
+
+        ros::spinOnce(); // manage ros events
+        loop_rate.sleep();
+    }
+    return 0;
 }</code></pre>
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title">Publisher/<em>Subscriber</em> in C++</div>
                 <div class="slide-content">
                     <pre><code class="cpp">#include "ros/ros.h"
 #include "pkg_name/Custom.h"
 
-void msgCallback(const pkg_name::Custom::ConstPtr& msg)
-{
-  ROS_INFO("My custom text : %s", msg->someText.c_str() );  
+void msgCallback(const pkg_name::Custom::ConstPtr& msg) {
+    ROS_INFO("My custom text : %s", msg->someText.c_str() );  
 }
 
-int main(int argc, char **argv)
-{
-  ros::init(argc, argv, "my_subscriber"); // init ROS
-  ros::NodeHandle n;
+int main(int argc, char **argv) {
+    ros::init(argc, argv, "my_subscriber"); // init ROS
+    ros::NodeHandle n;
 
-  ros::Subscriber sub = n.subscribe("my/custom/topic", 1000, msgCallback); // create subscriber
+    ros::Subscriber sub = n.subscribe("my/custom/topic", 1000, msgCallback);
 
-  ros::spin(); // ROS spin loop
-  return 0;
+    ros::spin(); // ROS spin loop
+    return 0;
 }</code></pre>
                 </div>
             </section>
 
-            <section class="slide part">
+            <section class="slide">
                 <h3>Publisher/Subscriber in C++</h3>
-                <div class="slide-title">Publisher/Subscriber in C++</div>
+                <div class="slide-title"><em>Publisher/Subscriber</em> in C++</div>
                 <div class="slide-content">
                     <ol>
                         <li>Build the package
@@ -702,7 +698,7 @@ int main(int argc, char **argv)
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <h3>Publisher/Subscriber in Python</h3>
                 <div class="slide-title"><em>Publisher</em>/Subscriber in Python</div>
                 <div class="slide-content">
@@ -731,7 +727,7 @@ if __name__ == '__main__':
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title">Publisher/<em>Subscriber</em> in Python</div>
                 <div class="slide-content">
                     <ol>                 
@@ -755,7 +751,7 @@ if __name__ == '__main__':
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title"><em>Publisher/Subscriber</em> in Python</div>
                 <div class="slide-content">
                     <ol class="normal text-padding">
@@ -775,9 +771,9 @@ if __name__ == '__main__':
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <h3>Publisher/Subscriber in Java</h3>
-                <div class="slide-title">Publisher/Subscriber in Java</div>
+                <div class="slide-title">Publisher/Subscriber in <em>Java</em></div>
                 <div class="slide-content">
                     <p class="large">ROS for Java is <em>not yet officially supported</em></p>
                     <ul>
@@ -794,19 +790,20 @@ if __name__ == '__main__':
                         </ul>
                     </p>
                     <p class="large">ROS for Java is <em>android friendly</em>
-                        <figure class="center">
-                            <img src="media/wheelchair_2.png" height="180px"/>
-                            <img src="media/webview.png" height="180px" />
-                        </figure>
+                        <ul>
+                            <li class="normal">Uses the same API</li>
+                            <li class="normal">Provides additional classes (ROSActivity, Views, &#8230;)</li>
+                            <li class="normal">&#8230; but still in an alpha mode</li>
+                        </ul>
                     </p>
                 </div>
             </section>
             
-            <section class="slide part">
-                <div class="slide-title">Publisher/Subscriber in Java</div>
+            <section class="slide">
+                <div class="slide-title">Publisher/Subscriber in <em>Java</em></div>
                 <div class="slide-content">
                     <ol>                 
-                        <li>Create a build.gradle file (see <a href="http://docs.rosjava.googlecode.com/hg/rosjava_core/html/getting_started.html#build-gradle-example">build.gradle example</a>).</li>
+                        <li>Create a <em>build.gradle</em> file (see <a href="http://docs.rosjava.googlecode.com/hg/rosjava_core/html/getting_started.html#build-gradle-example">build.gradle example</a>) in <em>pkg_name</em> directory</li>
                         <li>Add a custom task in <em>build.gradle</em> for better integration with <em>rosrun</em>
                             <pre><code>...
 
@@ -829,7 +826,7 @@ task deployApp(dependsOn: 'installApp') << {
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title">Publisher/Subscriber in Java</div>
                 <div class="slide-content">
                     <ol>
@@ -855,7 +852,7 @@ public class MyNode implements NodeMain {
                 </div>
             </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title"><em>Publisher</em>/Subscriber in Java</div>
                 <div class="slide-content">
                     <pre><code class="java">public class Publisher extends AbstractNodeMain {
@@ -883,7 +880,7 @@ public class MyNode implements NodeMain {
                 </div>
             </section>
             
-             <section class="slide part">
+             <section class="slide">
                 <div class="slide-title">Publisher/<em>Subscriber</em> in Java</div>
                 <div class="slide-content">
                     <pre><code class="java">public class Subscriber extends AbstractNodeMain {
@@ -906,16 +903,16 @@ public class MyNode implements NodeMain {
                 </div>
              </section>
             
-            <section class="slide part">
+            <section class="slide">
                 <div class="slide-title"><em>Publisher/Subscriber</em> in Java</div>
                 <div class="slide-content">
                     <ol class="normal text-padding">
-                        <li>Build the package (only for the msgs)
-                            <pre><code>$ make</code></pre>
-                        </li>
-                        <li>Rebuild and redeploy <em>rosjava</em> (to build java interface for msgs)
+                        <li>Rebuild and redeploy <em>rosjava</em> (to build java classes/interfaces for msgs and srvs)
                             <pre><code>$ roscd rosjava_core
 $ ./gradlew install</code></pre>
+                        </li>
+                        <li>Head back to you package and build it
+                            <pre><code>$ roscd pkg_name<br/>$ rosmake pkg_name<br/>$ gradle build</code></pre>
                         </li>
                         <li>Run roscore
                             <pre><code class="shell">$ roscore</code></pre>                          
@@ -934,7 +931,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             ##
             ###########################################################################-->
 
-            <section class="slide">
+            <section class="slide hide-toc-status">
                 <h2>Showcases</h2>
                 <div class="splitbox">
                     <div class="stubbox">
@@ -946,7 +943,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                             <ul class="fadded">
                                 <li>Introduction to ROS</li>
                                 <li>Getting Started with ROS</li>
-                                <li class="selected">Show Cases
+                                <li class="selected">Showcases
                                     <ul>
                                         <li>Personally Assisted Living</li>
                                         <li>Perception for on road vehicle</li>
@@ -964,7 +961,12 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                 </div>
             </section>
 
-
+            <section class="slide">
+                <h3>Personally Assisted Living</h3>
+                <div class="slide-title">Personally Assisted Living</div>
+                <div class="slide-content">
+                </div>
+            </section>
 
             <section class="slide">
                 <h3>On Road Vehicle Perception</h3>
