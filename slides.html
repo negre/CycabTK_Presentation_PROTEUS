@@ -92,7 +92,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                             <ul class="fadded">
                                 <li class="selected">Introduction to ROS
                                     <ul>
-                                        <li>Motivation for a Common Robotic Solution</li>
+                                        <li>Motivation for ROS</li>
                                         <li>What is (not) ROS</li>
                                         <li>ROS Concept</li>
                                         <li>ROS Tools</li>
@@ -135,7 +135,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
 
             <section class="slide">
                 <h2>Introduction to ROS</h2>
-                <h3>Motivation for a Common Robotic Solution</h3>
+                <h3>Motivation for ROS</h3>
                 <div class="slide-title">Motivation for a Common Robotic Solution</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robot</strong> is a <em>composition</em> of different components</p>
@@ -203,6 +203,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 </figure>
             </section>
             
+            <!--#############################################################-->
+            
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">What is ROS?</p>
             </section>
@@ -239,6 +241,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 </div>
             </section>
             
+            <!--#############################################################-->
+            
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">What ROS is not?</p>
             </section>
@@ -260,13 +264,14 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 </div>        
             </section>
             
+            <!--#############################################################-->
+            
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">ROS Concepts</p>
             </section>
 
             <section class="slide">
                 <h3>ROS Concepts</h3>
-                <h4>Node Graph</h4>
                 <div class="slide-title">Node Graph</div>
                 <div class="slide-content">
                     <ul class="normal-text">
@@ -280,7 +285,6 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
             </section>
 
             <section class="slide">
-                <h4>Node Communication Mechanisms</h4>
                 <div class="slide-title">Node Communication Mechanisms</div>
                 <div class="slide-content">
                     <p>Two main communication protocols :</p>
@@ -410,6 +414,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                     </ul>
                 </div>
             </section>
+            
+            <!--#############################################################-->
       
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">ROS Tools</p>
@@ -541,6 +547,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 </div>
             </section>
             
+            <!--#############################################################-->
+            
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Create a <em>New Package</em></p>
             </section>
@@ -573,6 +581,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                     </ol>
                 </div>
             </section>
+            
+            <!--#############################################################-->
             
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Create a <em>New Message Type</em></p>
@@ -618,6 +628,8 @@ geometry_msgs/Twist[]   someTwistArray
                     </div>
                 </div>
             </section>
+            
+            <!--#############################################################-->
             
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Publisher/Subscriber in <em>C++</em></p>
@@ -715,6 +727,8 @@ int main(int argc, char **argv) {
                 </div>
             </section>
             
+            <!--#############################################################-->
+            
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Publisher/Subscriber in <em>Python</em></p>
             </section>
@@ -791,6 +805,8 @@ if __name__ == '__main__':
                     </ol>
                 </div>
             </section>
+            
+            <!--#############################################################-->
             
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Publisher/Subscriber in <em>Java</em></p>
@@ -986,16 +1002,120 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                 </div>
             </section>
             
+            <!--#############################################################-->
+            
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Using ROS for <em>Personally Assisted Living</em> Applications</p>
             </section>
+            
+            <section class="slide tabular vcenter hide-toc-status">
+                <h3>Personally Assisted Living Application</h3>
+                <p class="emphasis large">focusing on the <em>INRIA Large Scale Initiative Action</em> on <em>P</em>ersonally <em>A</em>ssisted <em>L</em>iving (<a href="http://pal.inria.fr">http://pal.inria.fr</a>)</p>
+            </section>
 
             <section class="slide">
-                <h3>Personally Assisted Living</h3>
-                <div class="slide-title">Personally Assisted Living</div>
+                <div class="slide-title">PAL <em>Application</em></div>
                 <div class="slide-content">
+                    <p class="large">Development of technologies that can provide <em>services for improving the quality of life</em> for elderly and fragile persons, as well as their immediate family, caregivers and social groups</p>
+                    <ul class="normal-text">
+                        <li><em>Heterogenous, distributed</em> and <em>mobile platforms</em> and technologies
+                            <ul>
+                                <li>Multi-site (medical team, families, caregivers, &#8230);
+                                <li>Smart spaces (Sensors/Actuators, KNX, Zigbee, Bluetooth, Wireless, &#8230;)</li>
+                                <li>Medical and healthcare devices (diagnostic, mobility, assistance, &#8230;)</li>
+                                <li>Personal and assistance robots (social interaction, physical and cognitive entertainment)</li>
+                            </ul>
+                        </li>
+                        <li><em>Realtime</em> and <em>distributed processing</em></li>
+                        <li><em>Dynamic</em> and constantly <em>evolving technologies</em></li>
+                        <li><em>Recording</em> Terabytes of data for medical and scientific experimentations/diagnostics</li>
+                        <li><em>Collaborative initiative</em></li>
+                        <li><em>Experimental infrastructure</em></li>
+                    </ul>
                 </div>
             </section>
+            
+            <section class="slide">
+                <div class="slide-title">PAL <em>Context</em></div>
+                <div class="slide-content center">
+                    <figure>
+                        <img src="media/pal_context1.jpg" height="650px"/>
+                    </figure>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">PAL <em>Context</em></div>
+                <div class="slide-content center">
+                    <figure>
+                        <img src="media/pal_context2.jpg" height="550px"/>
+                    </figure>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">PAL <em>Challenge</em></div>
+                <div class="slide-content">
+                    <p class="large">Each team/partner is an <em>ecosystem</em> characterized by</p>
+                    <ul class="normal-text">
+                        <li>its <em>knowledge</em> <span class="normal">e.g. "software culture"</span></li>
+                        <li>its <em>resources</em> and <em>tools</em> <span class="normal">e.g. engineers, experimental platforms, etc&#8230;</span></li>
+                        <li>its <em>competences</em> and <em>approaches</em> <span class="normal">e.g. fields/themes for research, etc&#8230;</span></li>
+                        <li>its <em>habits</em> <span class="normal">Windows/Linux, Java/C++, etc&#8230;</span></li>
+                        <li>its <em>needs</em> and <em>constraints</em> <span class="normal">e.g. Real Time, Reliability, Mobility, Heterogeneity, etc&#8230;</span></li>
+                    </ul>
+                    <p class="large">Find an <em>ecologic</em> and a <em>pragmatic</em> solution</p>
+                    <ul class="normal-text">
+                        <li>easy to use <span class="normal">e.g. minimum configuration, use friendly API, &#8230;</span></li>
+                        <li>non intrusive <span class="normal">e.g. few lines of code, &#8230;</span></li>
+                        <li>cross platforms/language</li>
+                        <li>reliable, efficient and maintained</li>
+                        <li>widely accepted <span class="normal">e.g. used by each partners, with exiting community &#8230;</span></li>
+                        <li>target for PAL <span class="normal">i.e. not more not less</span></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">Introducing the Concept of <em>Software Gate</em></div>
+                <div class="slide-content">
+                    <p class="large">A <em>Gate</em> is a <em>concept</em></p>
+                    <ul class="normal-text">
+                        <li>is an <em>ecologic</em> <span class="normal">and</span> <em>hermetic interface</em> <span class="normal">between different ecosystems</span></li>
+                        <li>is a <em>view</em> <span class="normal">of an ecosystem</span></li>
+                        <li>is characterized <span class="normal">by a </span><em>set of functionalities</em></li>
+                        <li>is provided/deployed <span class="normal">by each partners</span></li>
+                        <li><em>publishes/subscribes</em> <span class="normal">information</span> <em>to/from other gates</em></li>
+                        <li><em>propagates</em> <span class="normal">information</span> <em>to/from its ecosystem</em></li>
+                        <li><em>provides types and means</em> <span class="normal">used for its communication</span></li>
+                    </ul>
+                    <figure class="center">
+                        <img src="media/solution.jpg" height="300px" />
+                    </figure>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title"><em>PAL{Gate} Solution</em></div>
+                <div class="slide-content">
+                    <p class="large"><a class="palgate" href="https://github.com/PALGate">PALGate</a> is an implementation of <em>gate</em> for <em>PAL</em> based on <em>ROS</em></span></p>
+                    <ul class="normal-text">
+                        <li>is a <em>ROS Stack</em></li>
+                        <li>provides a <em>set of conventions</em> <span class="normal">(stack organization, package/node/topic/service names, namespaces, &#8230;)</span></li>
+                        <li>composed of <em>Gate's types</em> ROS package</li>
+                        <li>provides dedicated <em>command line utilities</em></li>
+                        <li>provides dedicated <em>web interface</em></li>
+                    </ul>
+                    <p class="large">a <em>Gate</em> in <a class="palgate" href="https://github.com/PALGate">PALGate</a></p>
+                    <ul class="normal-text">
+                        <li>provides a <em>msg package</em></li>
+                        <li>provides a <em>srv package</em></li>
+                        <li>starts ROS nodes <span class="normal">which subscribe/publish to ROS topics, register/provide ROS services in a normalized namespace</span></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!--#############################################################-->
             
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Using ROS for <em>On Road Vehicle</em> Applications</p>
@@ -1022,20 +1142,22 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             <section class="slide">
                 <div class="slide-title">Transformation frames</div>
                 <div class="slide-content">
-                <p class="large">Robot:</p>
-                <ul>
-                    <li>set of rigit bodies linked together;</li>
-                    <li>each sensor obtain measurement in its local reference.</li>
-                </ul>
-                <p class="large">In ROS</p>
-                <ul>
-                    <li>set of transformation frames,</li>
-                    <li>linked by transformation,</li>
-                    <li>organized in a directed tree,</li>
-                    <li>published on a single topic <span class="important">/tf</span>,</li>
-                    <li>each sensor data is associated to a frame.</li>
-                </ul>
-                <img src="media/frames2.png" alt="frames" width="30%"/>
+                    <p class="large">Robot:</p>
+                    <ul>
+                        <li>set of rigit bodies linked together;</li>
+                        <li>each sensor obtain measurement in its local reference.</li>
+                    </ul>
+                    <p class="large">In ROS</p>
+                    <ul>
+                        <li>set of transformation frames,</li>
+                        <li>linked by transformation,</li>
+                        <li>organized in a directed tree,</li>
+                        <li>published on a single topic <span class="important">/tf</span>,</li>
+                        <li>each sensor data is associated to a frame.</li>
+                    </ul>
+                    <figure>
+                        <img src="media/frames2.png" alt="frames" width="30%"/>
+                    </figure>
                 </div>
             </section>
             
@@ -1108,10 +1230,33 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             ##
             ###########################################################################-->
 
-            <section class="slide part">
+            <section class="slide hide-toc-status">
                 <h2>Conclusion and Perspectives</h2>
+                <div class="splitbox">
+                    <div class="stubbox">
+                        <span class="title">Plan</span>
+                        <div class="content large">Presentation Overview</div>
+                    </div>
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li>Introduction to ROS</li>
+                                <li>Getting Started with ROS</li>
+                                <li>Showcases</li>
+                                <li>Demo</li>
+                                <li class="selected">Conclusion and Perspectives</li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+                <div class="background bottom-right">
+                    <img src="media/overview_path.jpg">
+                </div>
+            </section>
+            
+            <section class="slide part">
                 <div class="slide-title">Conclusion and Perspective</div>
-                <div>some other text...</div>
+                <div class="slide-content">some other text...</div>
             </section>
             
             <section class="slide part">

@@ -262,6 +262,10 @@ pre, code {
                 img { display: inline-block;}
             }
             
+            P {
+                margin-bottom: #{($line/3)/$em}em;
+            }
+    
             pre {
                 margin: #{($line/4)/$em}em 0 0 0;
                 //padding: #{($line/4)/$em}em;
@@ -861,6 +865,15 @@ pre, code {
         text-indent: -9000px;
         display: inline-block;
         width: #{($font-size*6) / $em}em;
+        background-repeat: no-repeat;
+    }
+    
+    a.palgate {
+        background: url('media/palgate.jpg');
+        background-size: contain;
+        text-indent: -9000px;
+        display: inline-block;
+        width: #{($font-size*3.5)/$em}em;
         background-repeat: no-repeat;
     }
     
