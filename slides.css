@@ -27,6 +27,7 @@
 *
 *******************************************************************************/
 * {
+  color: #474747;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica Light", Helvetica, Arial, "Lucida Grande", sans-serif !important;
   font-weight: 100;
   text-shadow: none; }
@@ -38,14 +39,14 @@ html {
 
 body {
   min-height: 100%;
-  font-size: 100%; }
+  font-size: 1.1em;
+  line-height: 1.5em; }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, nav, section, audio, canvas, video {
   display: block; }
 
 sub, sup {
-  font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline; }
@@ -69,8 +70,6 @@ abbr[title] {
 
 input, textarea, button, select {
   margin: 0;
-  font-size: 100%;
-  line-height: normal;
   vertical-align: baseline; }
 
 button,
@@ -112,33 +111,6 @@ select {
 pre, code {
   font-family: Menlo, Monaco, monospace; }
 
-article p, #content header p, #content footer p {
-  margin-bottom: 1.5em;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto; }
-
-article p:last-child {
-  margin-bottom: 0; }
-
-#content header p {
-  padding-bottom: 1.4375em;
-  border-bottom: 0.0625em dotted #3d3c38;
-  margin: 0; }
-
-h2 {
-  margin-bottom: 0.46153846153846156em; }
-
-h3 {
-  margin: 3em 0 1.5em; }
-
-#download h3, #guide h3 {
-  margin: 1.5em 0 0; }
-
-#colophon h3 {
-  border-bottom: 0.0625em dotted #9e9c95;
-  margin: 0 0 0.6875em; }
-
 /*******************************************************************************
 *
 * Screen media
@@ -147,8 +119,7 @@ h3 {
 @media screen {
   body {
     background-color: black;
-    background-image: url("media/patterns/110.gif");
-    font-size: 16 !important; }
+    background-image: url("media/patterns/110.gif"); }
 
   .deck-container {
     display: block;
@@ -156,10 +127,11 @@ h3 {
     height: 768px;
     min-height: 768px;
     max-height: 768px;
+    margin: auto;
     -webkit-box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
-    margin: auto;
+    /******************************* Deck Slide ***************************/
     /* placement */
     /* color */
     /* character & font */ }
@@ -179,110 +151,49 @@ h3 {
         .deck-container table.part-overview td:not(:first-child) {
           padding-left: 8; }
     .deck-container .slide {
-      font-size: 19.2; }
+      padding: 40px 10px 10px 10px; }
       .deck-container .slide .slide-title {
         text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); }
+        .deck-container .slide .slide-title em {
+          color: inherit;
+          font-weight: bold; }
       .deck-container .slide .slide-content {
         margin-top: 10px; }
-      .deck-container .slide ol {
-        padding: 0 0 0 0.2em; }
-      .deck-container .slide ul {
-        list-style: none;
-        margin: 0 0 -22.4;
-        padding: 0 0 0 22.4;
-        text-indent: -27.2;
+      .deck-container .slide figure img {
+        display: inline-block; }
+      .deck-container .slide P {
+        margin-bottom: 0.5em; }
+      .deck-container .slide pre {
+        margin: 0.375em 0 0 0;
+        padding: 0px;
+        background-color: #F0F0F0; }
+      .deck-container .slide code {
+        padding: 0.375em; }
+      .deck-container .slide em {
+        color: #324263;
+        font-weight: bold; }
+      .deck-container .slide ul, .deck-container .slide ol {
+        margin-left: 1.5em; }
+      .deck-container .slide ul li {
+        padding: 0;
         font-weight: 500; }
-        .deck-container .slide ul.fadded, .deck-container .slide ul .fadded {
-          color: rgba(0, 0, 0, 0.2); }
-        .deck-container .slide ul .selected {
-          color: black; }
-        .deck-container .slide ul li {
-          padding: 0 0 0 0;
-          margin: 0 0 0 0; }
-          .deck-container .slide ul li:before {
-            content: "\2022";
-            margin-right: 17.6; }
-          .deck-container .slide ul li.empty:before {
-            content: "\a0";
-            margin-right: 17.6; }
-          .deck-container .slide ul li.blank {
-            line-height: 0px; }
-            .deck-container .slide ul li.blank:before {
-              content: ""; }
-          .deck-container .slide ul li.plus:before {
-            content: "\2B \a0 \a0"; }
-          .deck-container .slide ul li.minus:before {
-            content: "\2013 \a0 \a0"; }
-          .deck-container .slide ul li.downward-right-arrow:before {
-            content: "\21B3";
-            margin-right: 9.6; }
-          .deck-container .slide ul li.curved-right-arrow:before {
-            content: "\27A5";
-            margin-right: 4.8; }
-          .deck-container .slide ul li.right-doublearrow:before {
-            content: "\21d2";
-            margin-right: 7.2; }
-          .deck-container .slide ul li.right-arrow:before {
-            content: "\2192";
-            margin-right: 8; }
-          .deck-container .slide ul li.separator {
-            height: 15px;
-            display: block; }
-            .deck-container .slide ul li.separator:before {
-              content: "\0020 \a0"; }
-          .deck-container .slide ul li.important {
-            font-weight: 900; }
-          .deck-container .slide ul li ul {
-            margin: 0px;
-            font-size: 0.85em;
-            filter: alpha(opacity=85);
-            opacity: 0.85;
-            font-weight: 300;
-            text-shadow: none; }
-            .deck-container .slide ul li ul ul {
-              margin: 0px;
-              font-size: 0.95em; }
-      .deck-container .slide p {
-        font-size: 19.2; }
+      .deck-container .slide ul > li {
+        font-weight: bold; }
+        .deck-container .slide ul > li li {
+          font-size: 0.85em;
+          font-weight: normal; }
+      .deck-container .slide ul.fadded, .deck-container .slide ul .fadded {
+        color: rgba(0, 0, 0, 0.2); }
+        .deck-container .slide ul.fadded *, .deck-container .slide ul .fadded * {
+          color: inherit; }
+      .deck-container .slide ul .selected {
+        color: #575757; }
+      .deck-container .slide ul .normal {
+        font-weight: normal; }
+        .deck-container .slide ul .normal * {
+          font-weight: normal; }
       .deck-container .slide span.strike {
         text-decoration: line-through; }
-    .deck-container .deck-status, .deck-container .deck-toc-status {
-      height: 22px; }
-      .deck-container .deck-status td, .deck-container .deck-toc-status td {
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-top: 3px;
-        padding-bottom: 3px; }
-    .deck-container .deck-status {
-      z-index: 12; }
-      .deck-container .deck-status td {
-        width: 33%;
-        text-shadow: 0px 1px 3px #010101; }
-    .deck-container .deck-toc-status .deck-toc-h2 {
-      width: 50%;
-      font-weight: bold; }
-    .deck-container .deck-toc-status .deck-toc-h3 {
-      width: 50%; }
-    .deck-container .deck-svg {
-      display: table;
-      width: auto !important;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center; }
-    .deck-container .deck-toc {
-      font-size: 19.2; }
-    .deck-container section.slide {
-      padding: 40px 10px 10px 10px; }
-    .deck-container .main-transition .stubbox {
-      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
-      .deck-container .main-transition .stubbox .title {
-        vertical-align: middle; }
-      .deck-container .main-transition .stubbox .content {
-        font-size: 2em;
-        padding: 20px 20px 20px 20px;
-        margin: 0px 0px 40px 0px; }
     .deck-container .hidden {
       display: none !important; }
     .deck-container .whiteOnBlack {
@@ -301,6 +212,8 @@ h3 {
       /* IE10+ */
       background: linear-gradient(top, #232320 0%, black 100%);
       /* W3C */ }
+    .deck-container .large {
+      font-size: 1.5em; }
     .deck-container .tabular {
       display: table;
       width: 100%;
@@ -320,6 +233,8 @@ h3 {
         vertical-align: middle;
         font-size: 40;
         background: transparent; }
+        .deck-container .emphasis.large img, .deck-container .slide .large.slide-title img {
+          display: inline; }
       .deck-container .emphasis.medium, .deck-container .slide .medium.slide-title {
         display: table-cell;
         height: 100%;
@@ -443,7 +358,7 @@ h3 {
           -moz-border-radius: 0px;
           border-radius: 0px; }
         .deck-container .splitbox .splitbox-row ul {
-          margin: 0px 0px 0px 10px; }
+          margin: 0 0 0 0.75em; }
         .deck-container .splitbox .splitbox-row > div {
           /* splitting policy */
           /* padding */ }
@@ -456,20 +371,14 @@ h3 {
           .deck-container .splitbox .splitbox-row > div.onehalf {
             display: table-cell;
             vertical-align: top;
-            margin: 0px;
-            padding: 0px;
             width: 50%; }
           .deck-container .splitbox .splitbox-row > div.onethird {
             display: table-cell;
             vertical-align: top;
-            margin: 0px;
-            padding: 0px;
             width: 33.33%; }
           .deck-container .splitbox .splitbox-row > div.twothird {
             display: table-cell;
             vertical-align: top;
-            margin: 0px;
-            padding: 0px;
             width: 66.66%; }
           .deck-container .splitbox .splitbox-row > div.onequarter {
             display: table-cell;
@@ -609,7 +518,7 @@ h3 {
       font-size: 1.5em !important; }
     .deck-container .bigText {
       font-size: 3em; }
-    .deck-container .text-padding, .deck-container .slide .slide-content {
+    .deck-container .text-padding, .deck-container .slide .slide-content, .deck-container .splitbox .splitbox-row > div.onehalf, .deck-container .splitbox .splitbox-row > div.onethird, .deck-container .splitbox .splitbox-row > div.twothird {
       padding: 10px !important; }
     .deck-container .title-padding {
       padding: 4px !important; }
@@ -636,10 +545,56 @@ h3 {
         height: 200px;
         bottom: 20px; }
 
+  /******************************* Deck Status and TOC ******************/
+  .deck-status, .deck-toc-status {
+    height: 22px; }
+    .deck-status *, .deck-toc-status * {
+      color: white; }
+    .deck-status td, .deck-toc-status td {
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 3px;
+      padding-bottom: 3px; }
+
+  .deck-status {
+    z-index: 12; }
+    .deck-status td {
+      width: 33%;
+      text-shadow: 0px 1px 3px #010101; }
+
+  .deck-toc-status .deck-toc-h2 {
+    width: 50%;
+    font-weight: bold; }
+  .deck-toc-status .deck-toc-h3 {
+    width: 50%; }
+
+  .deck-svg {
+    display: table;
+    width: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; }
+
+  .deck-toc {
+    font-size: 19.2; }
+
+  /******************************* Deck Transitions *********************/
+  .main-transition .stubbox {
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+    .main-transition .stubbox .title {
+      vertical-align: middle; }
+    .main-transition .stubbox .content {
+      font-size: 2em;
+      padding: 20px 20px 20px 20px;
+      margin: 0px 0px 40px 0px; }
+
   /*********************** slide specific tags ******************************/
   #title-slide h1 {
     margin-top: 0.75em;
     font-size: 3.5em;
+    line-height: 1em;
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); }
     #title-slide h1 em {
       color: #324263;
@@ -651,13 +606,57 @@ h3 {
     #title-slide figure img {
       max-width: 341.333px; }
   #title-slide p.info {
-    margin-top: 6em;
+    margin-top: 3em;
     font-size: 1.1em; }
     #title-slide p.info a[href='http://imakewebthings.com/deck.js/'] {
       font-family: "UltraRegular", Georgia, sans-serif; }
   #title-slide p.subtitle {
     margin-top: 0.75em;
-    font-size: 1.8em; } }
+    font-size: 1.8em; }
+
+  /*********************** Other tags ****************************************/
+  a.gradle {
+    background: url("media/gradle_logo.gif");
+    background-size: contain;
+    text-indent: -9000px;
+    display: inline-block;
+    width: 6em;
+    background-repeat: no-repeat; }
+
+  a.palgate {
+    background: url("media/palgate.jpg");
+    background-size: contain;
+    text-indent: -9000px;
+    display: inline-block;
+    width: 3.5em;
+    background-repeat: no-repeat; }
+
+  div.bio {
+    text-align: left;
+    text-format: justify;
+    float: left;
+    padding: 0.75em;
+    font-size: 0.9em;
+    font-weight: normal; }
+    div.bio figure {
+      display: inline; }
+      div.bio figure img {
+        float: left;
+        clear: both;
+        padding-right: 0.75em; }
+
+  div.demo {
+    display: table-row;
+    vertical-align: middle;
+    text-align: center;
+    height: 100%; }
+    div.demo figure, div.demo p {
+      display: table-cell;
+      vertical-align: middle; }
+    div.demo img {
+      height: 120px;
+      margin: 0px;
+      padding: 0px; } }
 /*******************************************************************************
 *
 * print media
