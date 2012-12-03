@@ -1248,6 +1248,15 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                 </div>
             </section>
             
+            <section class="slide">
+                <div class="slide-title">Demonstration</div>
+                <div class="slide-content">
+                    <figure class="center">
+                        <img id="img_demo" src="" height="500px"/>
+                    </figure>
+                </div>
+            </section>
+            
             <!--##########################################################################
             ##
             ## PART V.
@@ -1389,4 +1398,19 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
 
         <!-- Specific to this page -->
         <script src="slides.js"></script>
+        
+        <!--
+        <script type="text/javascript" src="http://brown-ros-pkg.googlecode.com/svn/tags/brown-ros-pkg/rosbridge/ros.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var node = new ros.Connection("ws://10.0.1.10:3131");
+            
+            node.setOnOpen(function(e) {
+                node.subscribe('/camera/rgb/image_color/compressed', 'sensor_msgs.CompressedImage', function(msg) {        
+                    $("#img_demo").src = "'data:image/jpeg;base64,/"+btoa(msg.data);
+                });
+            });
+        });
+        </script>
+        -->
     </body></html>
