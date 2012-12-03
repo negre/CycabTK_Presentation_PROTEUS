@@ -466,7 +466,7 @@ string value</code></pre>
             </section>
 
             <section class="slide">
-                <h3>ROS tools</h3>
+                <h3>ROS Tools</h3>
                 <div class="slide-title">Runtime Introspection</div>
                 <div class="slide-content">
                     <em class="emphasis large">Node Introspection</em>
@@ -521,14 +521,36 @@ string value</code></pre>
                     <em class="emphasis large">Replaying messages</em>
                     <ul>
                         <li><em>rosbag play</em> : generic publisher,</li>
-                        <li><em>rxbag</em> graphic interface.</li>
+                        <li><em>rxbag</em> : graphic interface.</li>
                     </ul>
                     <img src="media/rxbag.png" alt="rxbag" width="50%"/>
                 </div>
             </section>
 
             <section class="slide">
-                <div class="slide-title">Thid party modules</div>
+                <div class="slide-title">Transformation frames</div>
+                <div class="slide-content">
+                    <p class="large">Robot</p>
+                    <ul>
+                        <li>set of <em>rigit bodies linked together</em>;</li>
+                        <li>each sensor obtain measurements in its local reference.</li>
+                    </ul>
+                    <p class="large">In ROS</p>
+                    <ul>
+                        <li>set of <em>Transformation Frames</em>,</li>
+                        <li>linked by <em>transformations</em>,</li>
+                        <li>organized in a <em>directed tree</em>,</li>
+                        <li>published on a single topic <em>/tf</em>,</li>
+                        <li>each sensor data is associated to a frame.</li>
+                    </ul>
+                    <figure class="center">
+                        <img src="media/frames2.png" alt="frames" width="30%"/>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-title">Third party modules</div>
                 <div class="slide-content">
                     <em class="emphasis large">Hardware drivers</em>
                     <ul>
@@ -1374,27 +1396,6 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                 <p class="emphasis large">Extra slides</em></p>
             </section>
             
-            <section class="slide">
-                <div class="slide-title">Transformation frames</div>
-                <div class="slide-content">
-                    <p class="large">Robot:</p>
-                    <ul>
-                        <li>set of rigit bodies linked together;</li>
-                        <li>each sensor obtain measurement in its local reference.</li>
-                    </ul>
-                    <p class="large">In ROS</p>
-                    <ul>
-                        <li>set of transformation frames,</li>
-                        <li>linked by transformation,</li>
-                        <li>organized in a directed tree,</li>
-                        <li>published on a single topic <em>/tf</em>,</li>
-                        <li>each sensor data is associated to a frame.</li>
-                    </ul>
-                    <figure>
-                        <img src="media/frames2.png" alt="frames" width="30%"/>
-                    </figure>
-                </div>
-            </section>
             
             <!--##########################################################################
             ##
