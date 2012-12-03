@@ -326,28 +326,30 @@ pre, code {
       display: table;
       width: 100%;
       padding: 0px;
-      margin: 10px 0px 10px 0px;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
-      border-radius: 4px;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      background: white;
-      /* Old browsers */
-      background: -moz-linear-gradient(top, white 0%, #fdfeff 100%);
-      /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #fdfeff));
-      /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, white 0%, #fdfeff 100%);
-      /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, white 0%, #fdfeff 100%);
-      /* Opera11.10+ */
-      background: -ms-linear-gradient(top, white 0%, #fdfeff 100%);
-      /* IE10+ */
-      background: linear-gradient(top, white 0%, #fdfeff 100%);
-      /* W3C */ }
+      border-radius: 4px; }
+      .deck-container .splitbox.bordered {
+        margin: 10px 0px 10px 0px; }
+      .deck-container .splitbox.boxed {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        background: white;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, white 0%, #fdfeff 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #fdfeff));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, white 0%, #fdfeff 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, white 0%, #fdfeff 100%);
+        /* Opera11.10+ */
+        background: -ms-linear-gradient(top, white 0%, #fdfeff 100%);
+        /* IE10+ */
+        background: linear-gradient(top, white 0%, #fdfeff 100%);
+        /* W3C */ }
       .deck-container .splitbox .splitbox-row {
         padding: 0px;
         display: table-row;
@@ -487,6 +489,8 @@ pre, code {
       text-align: center !important;
       margin-left: auto;
       margin-right: auto; }
+    .deck-container .inline img {
+      display: inline-block; }
     .deck-container .vcenter {
       vertical-align: middle; }
     .deck-container .right {
@@ -644,6 +648,14 @@ pre, code {
         float: left;
         clear: both;
         padding-right: 0.75em; }
+
+  img#img_demo {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("media/default_demo_img.png");
+    width: 800px;
+    height: 600px;
+    border: 0px; }
 
   div.demo {
     display: table-row;
