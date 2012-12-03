@@ -47,7 +47,6 @@
             ##
             ###########################################################################-->
 
-
             <section class="slide center hide-toc-status" id="title-slide">
                 <h1>The <em>R</em>obotic <em>O</em>perating <em>S</em>ystem at a Glance</h1>
                 <p class="subtitle">Introduction, Showcases, Demonstration and Perspectives.</p>
@@ -55,6 +54,14 @@
                 <p class="info">
                     <em>&lt;HTML5&gt;</em> presentation realized with <a href="http://imakewebthings.com/deck.js/">deck.js</a> and hosted on <a href="http://barraq.github.com/fOSSa2012/slides.html">github</a>
                 </p>
+            </section>
+            
+            <section class="slide tabular center hide-toc-status">
+                <div class="subbox vcenter">
+                    <p class="large" style="font-weight: normal">this is an <em>HTML5</em> presentation realized with <a href="http://imakewebthings.com/deck.js/">deck.js</a></p>
+                    <p class="large" style="font-weight: normal">this presentation is hosted on Github at <a href="http//github.com/barraq/fOSSa2012">https://github.com/barraq/fOSSa2012</a></p>
+                    <p class="large" style="font-weight: normal">this presentation is served by Github at <a href="http://barraq.github.com/fOSSa2012/slides.html">http://barraq.github.com/fOSSa2012/slides.html</a></p>
+                </div>
             </section>
             
             <section class="slide hide-toc-status center tabular">
@@ -112,8 +119,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                                         <li>Robot Prototyping</li>
                                     </ul>
                                 </li>
-                                <li class="selected">Demo</li>
                                 <li class="selected">Conclusion and Perspectives</li>
+                                <li class="selected">Live Demonstration</li>
                             </ul>
                        </div>
                     </div>
@@ -579,9 +586,9 @@ string value</code></pre>
                                         <li>Perception for on Road Vehicle</li>
                                         <li>Robot Prototyping</li>
                                     </ul>
-                                </li>
-                                <li>Demo</li>
+                                </li> 
                                 <li>Conclusion and Perspectives</li>
+                                <li>Live Demonstration</li>
                             </ul>
                        </div>
                     </div>
@@ -1035,8 +1042,8 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                                         <li>Using ROS for Prototyping Robots</li>
                                     </ul>
                                 </li>
-                                <li>Demo</li>
                                 <li>Conclusion and Perspectives</li>
+                                <li>Live Demonstration</li>
                             </ul>
                        </div>
                     </div>
@@ -1356,53 +1363,6 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             
             <!--##########################################################################
             ##
-            ## PART IV.
-            ##
-            ###########################################################################-->
-
-            <section class="slide hide-toc-status">
-                <h2>Demonstration</h2>
-                <div class="splitbox">
-                    <div class="stubbox">
-                        <span class="title">Plan</span>
-                        <div class="content large">Presentation Overview</div>
-                    </div>
-                    <div class="splitbox-row">
-                        <div class="full text-padding normal-text">
-                            <ul class="fadded">
-                                <li>Introduction to ROS</li>
-                                <li>Getting Started with ROS</li>
-                                <li>Showcases</li>
-                                <li class="selected">Demo</li>
-                                <li>Conclusion and Perspectives</li>
-                            </ul>
-                       </div>
-                    </div>
-                </div>
-                <div class="background bottom-right">
-                    <img src="media/overview_path.jpg">
-                </div>
-            </section>
-           
-            <section class="slide tabular hide-toc-status">
-                <div class="demo">
-                    <figure><img src="media/ROS.png" /></figure><p>+</p>
-                    <figure><img src="media/turtlebot_lg.png"/></figure><p>+</p>
-                    <figure><img src="media/asus_eee_pad_transformer_prime_1.jpg"/></figure>
-                </div>
-            </section>
-            
-            <section class="slide">
-                <div class="slide-title">Demonstration</div>
-                <div class="slide-content">
-                    <figure class="center">
-                        <img id="img_demo" src="http://10.0.1.10:8080/stream?topic=/camera/rgb/image_color"/>
-                    </figure>
-                </div>
-            </section>
-            
-            <!--##########################################################################
-            ##
             ## PART V.
             ##
             ###########################################################################-->
@@ -1420,8 +1380,8 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                                 <li>Introduction to ROS</li>
                                 <li>Getting Started with ROS</li>
                                 <li>Showcases</li>
-                                <li>Demo</li>
                                 <li class="selected">Conclusion and Perspectives</li>
+                                <li>Live Demonstration</li>
                             </ul>
                        </div>
                     </div>
@@ -1432,8 +1392,67 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             </section>
             
             <section class="slide part">
-                <div class="slide-title">Conclusion and Perspective</div>
-                <div class="slide-content">some other text...</div>
+                <h3>Presentation Wrap up</h3>
+                <div class="slide-title">Presentation Wrap up</div>
+                <div class="slide-content">
+                    <p class="large">The objectives of this presentation were</p>
+                    <ul class="normal-text">
+                        <li>Introduce you to ROS
+                            <ul>
+                                <li>Node, rosmaster, roscore</li>
+                                <li>Topic, Service</li>
+                                <li>rostopic, rosmsg, rosservice, rossrv, rospack, rosstack, ...</li>
+                                <li>rosbag, rxgraph, rviz, tf</li>
+                            </ul>
+                        </li>
+                        <li>Get you started
+                            <ul>
+                                <li>create package and messages</li>
+                                <li>write publisher/subscriber in c++/python/java</li>
+                            </ul>
+                        </li>
+                        <li>Illustrate different usage of ROS
+                            <ul>
+                                <li>Personally Assisted Living Application <a href="http://pal.inria.fr">http://pal.inria.fr</a></li>
+                                <li>On Road Vehicle Application</li>
+                                <li>Quick prototyping of robot: iKio</li>
+                            </ul>
+                        </li>
+                        <li>Interact through a live demo
+                            <ul>
+                                <li>be patient...!</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="slide part">
+                <div class="slide-title">Presentation Wrap up</div>
+                <div class="slide-content">
+                    <p class="large">ROS is great but ROS community makes it awesome</p>
+                    <ul>
+                        <li class="normal">ROS provides a <em>powerful infrastructure</em> for developping {robotics} applications</li>
+                        <li class="normal">ROS community provides <em>huge variety of modules</em> (stacks, packages)</li>
+                    </ul>
+                    <p class="large">ROS is great but can be better</p>
+                    <ul>
+                        <li class="normal">"ROS is kind of the DOS of component/service oriented middleware"</li>
+                        <li class="normal">Not a state of the art middleware</li>
+                        <li class="normal">Fuzzy concepts (ROS service vs. SOA service; action)</li>
+                        <li class="normal">Missing dynamic discovery/introspection (dnssd)
+                            <ul>
+                                <li>Dynamic/distributed master (maybe no need of master)</li>
+                                <li>Dynamic discovery of topics, services</li>
+                                <li>Dynamic introspection/filtering of topics, services</li>
+                                <li>Dynamic notification/handler</li>
+                            </ul>
+                         </li>
+                        <li class="normal">Not fully cross-platform</li>
+                        <li class="normal">ROS is growing really fast => challenges??</li>
+                    </ul>
+                    <p class="large center"><em>ROS is about YOU, so get ROS and get dirty!</em></p>
+                </div>
             </section>
             
             <section class="slide part">
@@ -1444,6 +1463,57 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                     <ul>
                         <li><a href="http://ias.cs.tum.edu/_media/teaching/ss2012/techcogsys/ros-intro.pdf">Introduction to ROS - Intelligent Autonomous Systems</a></li>
                     </ul>
+                    <p class="large">Main ROS Link</p>
+                    <ul>
+                        <li><a href="http://ros.org/wiki">http://ros.org/wiki</a></li>
+                        <li><a href="http://answer.ros.org">http://answer.ros.org</a></li>
+                        <li><a href="http://rosjava.googlecode.com">http://rosjava.googlecode.com</a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!--##########################################################################
+            ##
+            ## PART IV.
+            ##
+            ###########################################################################-->
+
+            <section class="slide hide-toc-status">
+                <h2>Demonstration</h2>
+                <div class="splitbox">
+                    <div class="stubbox">
+                        <span class="title">Plan</span>
+                        <div class="content large">Presentation Overview</div>
+                    </div>
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li>Introduction to ROS</li>
+                                <li>Getting Started with ROS</li>
+                                <li>Showcases</li>
+                                <li>Conclusion and Perspectives</li>
+                                <li class="selected">Live Demonstration</li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+                <div class="background bottom-right">
+                    <img src="media/overview_path.jpg">
+                </div>
+            </section>
+           
+            <section class="slide tabular vcenter hide-toc-status">
+                <p class="emphasis large">
+                    <img src="media/demo_ros.png" />
+                </p>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">Live Demonstration</div>
+                <div class="slide-content">
+                    <figure class="center">
+                        <img id="img_demo" src="http://10.0.1.10:8080/stream?topic=/camera/rgb/image_color"/>
+                    </figure>
                 </div>
             </section>
             
@@ -1454,7 +1524,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             ###########################################################################-->
 
             <section class="slide tabular vcenter hide-toc-status">
-                <p class="emphasis large">Extra slides</em></p>
+                <p class="emphasis large">Thank you</em></p>
             </section>
             
             <section class="slide">
