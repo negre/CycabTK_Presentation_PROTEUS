@@ -887,6 +887,12 @@ pre, code {
         figure { display: inline;  img { float: left; clear: both; padding-right: #{($line/2)/$em}em;}}
     }
     
+    img#img_demo {
+        background-image: url('media/default_demo_img.png');
+        width: 600px;
+        border: 1px solid red;
+    }
+    
     div.demo {
         display: table-row;
         vertical-align: middle;
