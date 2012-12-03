@@ -888,9 +888,12 @@ pre, code {
     }
     
     img#img_demo {
+        background-size: contain;
+        background-repeat: no-repeat;
         background-image: url('media/default_demo_img.png');
-        width: 600px;
-        border: 1px solid red;
+        width: 800px;
+        height: 600px;
+        border: 0px;
     }
     
     div.demo {
