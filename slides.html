@@ -404,6 +404,20 @@ string value</code></pre>
                             <li>XML syntax.</li>
                         </ul>
                     </ul>
+                    
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <pre><code class="xml">&lt;launch&gt;
+    &lt;include file=&quot;$(find ikio)/launch/ikio.launch&quot;/&gt;
+    &lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot;
+            name=&quot;base_link_to_cam&quot; 
+            args=&quot;1 0 1.3 3.14 0 0 base_link camera_link 10&quot; /&gt;
+    &lt;arg name=&quot;marker_size&quot; default=&quot;8&quot; /&gt;
+    &lt;node name=&quot;ar_track_alvar&quot; pkg=&quot;ar_track_alvar&quot; type=&quot;individualMarkers&quot; respawn=&quot;false&quot; output=&quot;screen&quot; args=&quot;$(arg marker_size) &quot; /&gt;
+    &lt;node name=&quot;ar_to_pose&quot; pkg=&quot;ikio&quot; type=&quot;ar_to_pose&quot; output=&quot;screen&quot;/&gt;
+&lt;/launch&gt;</code></pre>
+                        </div>
+                    </div>
                 </div>
             </section>
 
