@@ -276,9 +276,9 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="slide-content">
                     <ul class="normal-text">
                         <li>Ros Application = set of communicating processes</li>
-                        <li><span class="important">Node</span> = a process that used the ROS framework</li>
+                        <li><em>Node</em> = a process that used the ROS framework</li>
                         <li>Different Nodes may reside in the same or different machines transparently</li>
-                        <li>Nodes get to know one another via <span class="important">rosmaster</span></li>
+                        <li>Nodes get to know one another via <em>rosmaster</em></li>
                     </ul>
                 </div>
 
@@ -289,19 +289,19 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="slide-content">
                     <p>Two main communication protocols :</p>
                     <ul class="normal-text">
-                        <li><span class="important">Topics</span>
+                        <li><em>Topics</em>
                             <ul>
                                 <li>Data flow, message passing : asynchronous</li>
                             </ul>
                         </li>
-                        <li><span class="important">Services</span>
+                        <li><em>Services</em>
                             <ul>
                                 <li>Remote procedure call : synchronous</li>
                                 <li>Request / Answer messages</li>
                             </ul>
                         </li>
                     </ul>
-                    <p>Both are staticaly typed : <span class="important">Messages & Services</span> definition</p>
+                    <p>Both are staticaly typed : <em>Messages & Services</em> definition</p>
                 </div>
 
             </section>
@@ -311,7 +311,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="slide-content">
                     <img src="media/topic_protocol.png" alt="Topics protocol" width="72%"/>
                     <ul>
-                        <li>Directory used for topics discovery : <span class="important">ROS master</span>;</li>
+                        <li>Directory used for topics discovery : <em>ROS master</em>;</li>
                         <li>Multiple concurrent publishers / subscribers for a single topic;</li>
                         <li>Publish / subscribe order irrelevant.</li>
                     </ul>
@@ -323,7 +323,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="slide-content">
                     <img src="media/service_protocol.png" alt="Service protocol" width="70%"/>
                     <ul>
-                        <li>Directory used for service discovery : <span class="important">ROS master</span>;</li>
+                        <li>Directory used for service discovery : <em>ROS master</em>;</li>
                         <li>Multiple simultaneous clients</li>
                     </ul>
                 </div>
@@ -336,7 +336,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                         <li>Directory for publisher / subscribers/ services;</li>
                         <li>XMLRPC API;</li>
                         <li>Not a central communication node</li>
-                        <li>part of <span class="important">roscore</span></li>
+                        <li>part of <em>roscore</em></li>
                     </ul>
                 </div>
             </section>
@@ -367,7 +367,7 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="slide-content">
                     <ul>
                         <li>Automate startup of complex ROS applications ;
-                        <li><span class="important">Launch files</span> specify :
+                        <li><em>Launch files</em> specify :
                         <ul>
                             <li>list of nodes,</li>
                             <li>with topics / service remapping,</li>
@@ -445,8 +445,8 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                     <em class="emphasis large">Logging API</em>
                     <ul>
                         <li>different verbosity levels (info, debug, error, etc.),</li>
-                        <li>published on an unique topic <span class="important">/rosout,</span></li>
-                        <li><span class="important">rxconsole</span> for online inspection,</li>
+                        <li>published on an unique topic <em>/rosout,</em></li>
+                        <li><em>rxconsole</em> for online inspection,</li>
                         <li>automatic dumping to file system for offline analysis.</li>
                     </ul>
                     <img src="media/rxconsole.png" alt="rxconsole" width="40%"/>
@@ -713,7 +713,7 @@ int main(int argc, char **argv) {
                             <pre><code class="shell">$ rosmake pkg_name</code></pre>
                         </li>
                         <li>Run roscore
-                            <pre><code class="shell">$ roscore</code></pre>                          
+                            <pre><code class="shell">$ roscore&AMP;</code></pre>                          
                         </li>                        
                         <li>Run publisher
                             <pre><code class="shell">$ rosrun pkg_name my_publisher</code></pre>                          
@@ -1326,7 +1326,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                         <li>set of transformation frames,</li>
                         <li>linked by transformation,</li>
                         <li>organized in a directed tree,</li>
-                        <li>published on a single topic <span class="important">/tf</span>,</li>
+                        <li>published on a single topic <em>/tf</em>,</li>
                         <li>each sensor data is associated to a frame.</li>
                     </ul>
                     <figure>
