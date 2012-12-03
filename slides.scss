@@ -458,11 +458,17 @@ pre, code {
             display: table;
             width: 100%;
             padding: 0px;
-            margin: 10px 0px 10px 0px;
             @include border-radius(4px);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
-            @include linear-gradient-background($color_box_white_light, $color_box_white_dark, 255);
+            
+            &.bordered {
+                margin: 10px 0px 10px 0px;
+            }
+            
+            &.boxed {
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
+                @include linear-gradient-background($color_box_white_light, $color_box_white_dark, 255);
+            }
             
             & .splitbox-row {
                 padding: 0px;
@@ -658,6 +664,10 @@ pre, code {
             text-align: center !important;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        .inline {
+            img { display: inline-block;}
         }
         
         .vcenter {
@@ -885,6 +895,15 @@ pre, code {
         font-size: #{($font-size*0.9) / $em}em;
         font-weight: normal;
         figure { display: inline;  img { float: left; clear: both; padding-right: #{($line/2)/$em}em;}}
+    }
+    
+    img#img_demo {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('media/default_demo_img.png');
+        width: 800px;
+        height: 600px;
+        border: 0px;
     }
     
     div.demo {
