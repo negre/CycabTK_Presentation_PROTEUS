@@ -251,20 +251,21 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
                 <div class="slide-title">What ROS is not</div>
                 <div class="slide-content">
                     <ul class="normal-text">
-                        <li>Not an operating system
+                        <li>Not an operating system, <span class="normal">instead runs on</span>
                             <ul>
                                 <li>Ubuntu (official)</li>
-                                <li>other experimentals platforms (MS Windows, OS X, Fedora, Android, etc.)
+                                <li>Windows, OS X, Fedora, Android (experimental)
                             </ul>
                         </li>
-                        <li>Not a programming language :
+                        <li>Not a programming language
                             <ul>
-                                <li>Official : C++, Python</li>
-                                <li>Experimental : Java, Lisp, Octave, etc.</li>
+                                <li>C++, Python (official)</li>
+                                <li>Java+Android, Octave, (experimental)</li>
                             </ul>
                         </li>
-                        <li>Not a real time environment</li>
-                        <li>Not designed for embedded systems (need to use rosserial bridge for this purpose)</li>
+                        <li>Not a programming environment <span class="normal">but a programming toolkit</span></li>
+                        <li>Not a hard real time architecture</li>
+                        <li>Not designed for embedded systems <span class="normal">(refer to <a href="http://www.ros.org/wiki/rosserial">rosserial</a>)</span></li>
                     </ul>
                 </div>        
             </section>
@@ -277,36 +278,59 @@ PhD degree in vision and robotics from INPG in 2009 for his work on vision based
 
             <section class="slide">
                 <h3>ROS Concepts</h3>
-                <div class="slide-title">Node Graph</div>
+                <div class="slide-title">Nodes Graph</div>
                 <div class="slide-content">
+                    <p class="large">A ROS application is a <em>graph of nodes</em></p>
                     <ul class="normal-text">
-                        <li>Ros Application = set of communicating processes</li>
                         <li><em>Node</em> = a process that used the ROS framework</li>
                         <li>Different Nodes may reside in the same or different machines transparently</li>
                         <li>Nodes get to know one another via <em>rosmaster</em></li>
                     </ul>
+                    <figure>
+                        <img src="media/graph_node.png" />
+                    </figure>
                 </div>
-
             </section>
 
             <section class="slide">
-                <div class="slide-title">Node Communication Mechanisms</div>
+                <div class="slide-title">Nodes Communication</div>
                 <div class="slide-content">
-                    <p>Two main communication protocols :</p>
+                    <p class="large"><em>Nodes</em> in this graph <em>communicate using two protocols</em></p>
                     <ul class="normal-text">
                         <li><em>Topics</em>
                             <ul>
-                                <li>Data flow, message passing : asynchronous</li>
+                                <li>asynchronous</li>
+                                <li>data flow, message passing</li>
                             </ul>
                         </li>
                         <li><em>Services</em>
                             <ul>
-                                <li>Remote procedure call : synchronous</li>
-                                <li>Request / Answer messages</li>
+                                <li>synchronous</li>
+                                <li>Remote procedure call (Request --- Answer messages)</li>
                             </ul>
                         </li>
                     </ul>
-                    <p>Both are staticaly typed : <em>Messages & Services</em> definition</p>
+                    <p class="large">Both <em>Messages & Services</em> definition are statically</p>
+                    <div class="splitbox">
+                        <div class="splitbox-row">
+                            <div class="onehalf">
+                                <pre><code class="bash"><em>$ rosmsg show knx_control/KNXDataPoint</em>
+string name
+string address
+string dptID
+string priority
+bool stateBased
+int32 mainNumber</code></pre>
+                            </div>
+                            <div class="onehalf">
+                                <pre><code class="bash"><em>$ rossrv show knx_control/SetDataPoint</em>
+string address
+string value
+---
+string value</code></pre>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </section>
@@ -1226,6 +1250,23 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             
             <section class="slide tabular vcenter hide-toc-status">
                 <p class="emphasis large">Using ROS for <em>Prototyping Robots</em></p>
+            </section>
+            
+            <section class="slide">
+                <h3>Prototyping Robots</h3>
+                <div class="slide-title">Prototyping Robots</div>
+                <div class="slide-content"></div>
+            </section>
+            
+            <section class="slide">
+                 <div class="slide-title">Prototyping Robots</div>
+                <div class="slide-content">
+                    <video controls width="640" height="480">
+                        <source src="media/videos/ikio_low.avi" type="video/avi" />
+                        <source src="media/videos/ikio_low.ogg" type="video/ogg" />
+                        Video
+                    </video>
+                </div>
             </section>
             
             
