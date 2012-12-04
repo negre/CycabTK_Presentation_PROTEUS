@@ -26,10 +26,10 @@
         <link rel="stylesheet" href="libs/deckextjs/extensions/notes/deck.notes.css">
 
         <!-- HighlightJS -->
-        <link rel="alternate stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/default.css">
-        <link rel="alternate stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/sunburst.css">
-        <link rel="stylesheet" href="http://softwaremaniacs.org/media/soft/highlight/styles/github.css">
-        <script src="http://softwaremaniacs.org/media/soft/highlight/highlight.pack.js"></script>
+        <link rel="alternate stylesheet" href="css/highlightjs/default.css">
+        <link rel="alternate stylesheet" href="css/highlightjs/sunburst.css">
+        <link rel="stylesheet" href="css/highlightjs/github.css">
+        <script src="libs/highlight.pack.js"></script>
 
         <!-- Style theme. More available in /themes/style/ or create your own. -->
         <link rel="stylesheet" href="libs/deckextjs/themes/style/beamer.css" />
@@ -50,7 +50,12 @@
             <section class="slide center hide-toc-status" id="title-slide">
                 <h1>The <em>R</em>obotic <em>O</em>perating <em>S</em>ystem at a Glance</h1>
                 <p class="subtitle">Introduction, Showcases, Demonstration and Perspectives.</p>
-                <figure><img src="media/ROS.png" alt="Robotic Operating System" /></figure>
+                <figure class="ros"><img src="media/ROS.png" alt="Robotic Operating System" /></figure>
+				<figure class="institute">
+				    <a href="http://inria.fr"><img src="media/inria_logo.jpg" /></a>
+					<a href="http://cnrs.fr"><img src="media/cnrs_logo.jpg" /></a>
+					<a href="http://liglab.fr"><img src="media/lig_logo.jpg" /></a>
+				</figure>
                 <p class="info">
                     <em>&lt;HTML5&gt;</em> presentation realized with <a href="http://imakewebthings.com/deck.js/">deck.js</a> and hosted on <a href="http://barraq.github.com/fOSSa2012/slides.html">github</a>
                 </p>
@@ -58,16 +63,16 @@
             
             <section class="slide tabular center hide-toc-status">
                 <div class="subbox vcenter">
-                    <p class="large" style="font-weight: normal">this is an <em>HTML5</em> presentation realized with the open source framework <a href="http://imakewebthings.com/deck.js/">deck.js</a> and <a href="https://github.com/barraq/deck.ext.js">deck.ext.js</a></p>
-                    <p class="large" style="font-weight: normal">this presentation is <em>hosted on Github</em> at <a href="http//github.com/barraq/fOSSa2012">https://github.com/barraq/fOSSa2012</a></p>
+                    <p class="large" style="font-weight: normal">this is an <em>HTML5</em> presentation realized with the open source framework <a href="http://imakewebthings.com/deck.js/">deck.js</a> and <a href="https://github.com/barraq/deck.ext.js">deck.ext.js</a></p></br/>
+                    <p class="large" style="font-weight: normal">this presentation is <em>hosted on Github</em> at <a href="http//github.com/barraq/fOSSa2012">https://github.com/barraq/fOSSa2012</a></p></br/>
                     <p class="large" style="font-weight: normal">this presentation is <em>served by Github</em> at <a href="http://barraq.github.com/fOSSa2012/slides.html">http://barraq.github.com/fOSSa2012/slides.html</a></p>
                 </div>
             </section>
             <section class="slide hide-toc-status center tabular">
                 <div class="subbox vcenter">
-                    <div class="bio"><figure><img src="media/Barraquand.png" /></figure><em>Rémi BARRAQUAND</em> is currently an Expert R&D Engineer at INRIA. He graduated from the Grenoble Institute of Technology (Grenoble INP) in 2007, with a major in Graphics, Vision and Robotics. He then received his PhD degree in computer science from the Grenoble University for his work on the design of sociable technologies. <a href="http://remibarraquand.com">http://remibarraquand.com</a></div>
-                    <div class="bio"><figure><img src="media/Negre.jpg" /></figure><em>Amaury NEGRE</em> is a Research Engineer at CNRS since 2008. He graduated from the Grenoble Institute of Technology (Grenoble INP) in 2005, with a major in image processing. Then he received his 
-                        PhD degree in vision and robotics from INPG in 2009 for his work on vision based obstacle detection for mobile robots. Now he is with the Grenoble Informatics Laboratory (LIG) and offers engineering support in experimental robotics and ambient intelligence.</div>
+                    <div class="bio"><figure><img src="media/Barraquand.png" /></figure><em>Rémi BARRAQUAND</em> is currently an Expert R&D Engineer at <a href="http://www.inria.fr/centre/grenoble">INRIA</a>. He graduated from the <a href="http://www.grenoble-inp.fr/">Grenoble Institute of Technology (Grenoble INP)</a> in 2007, with a major in Graphics, Vision and Robotics. He then received his PhD degree in computer science from the Grenoble University for his work on the design of sociable technologies. <a href="http://remibarraquand.com">http://remibarraquand.com</a></div>
+                    <div class="bio"><figure><img src="media/Negre.jpg" /></figure><em>Amaury NEGRE</em> is a Research Engineer at <a href="http://cnrs.fr">CNRS</a> since 2008. He graduated from the <a href="http://www.grenoble-inp.fr/">Grenoble Institute of Technology (Grenoble INP)</a> in 2005, with a major in image processing. Then he received his 
+                        PhD degree in vision and robotics from INPG in 2009 for his work on vision based obstacle detection for mobile robots. Now he is with the <a href="http://liglab.fr">Grenoble Informatics Laboratory (LIG)</a> and offers engineering support in experimental robotics and ambient intelligence.</div>
                 </div>
             </section>
 
@@ -136,13 +141,13 @@
             ###########################################################################-->
 
             <section class="slide tabular vcenter hide-toc-status">
-                <p class="emphasis large">What are the <em>motivations</em> for a common robotic solution?</p>
+                <p class="emphasis large">What are the <em>motivations</em> for a common robotic infrastructure?</p>
             </section>
 
             <section class="slide">
                 <h2>Introduction to ROS</h2>
                 <h3>Motivation for ROS</h3>
-                <div class="slide-title">Motivation for a Common Robotic Solution</div>
+                <div class="slide-title">Motivation for a Common Robotic Infrastructure</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robot</strong> is a <em>composition</em> of different components</p>
                     <ul class="normal-text">
@@ -169,7 +174,7 @@
             </section>
 
             <section class="slide">
-                <div class="slide-title">Motivation for a Common Robotic Solution</div>
+                <div class="slide-title">Motivation for a Common Robotic Infrastructure</div>
                 <div class="slide-content">
                     <p class="large">A <strong>Robotic application</strong> is an <em>interconnection</em> of components</p>
                     <ul class="normal-text">
@@ -607,9 +612,9 @@ string value</code></pre>
                                 </li>
                                 <li>Showcases
                                     <ul>
-                                        <li>Personally Assisted Living</li>
-                                        <li>Perception for on Road Vehicle</li>
-                                        <li>Robot Prototyping</li>
+                                        <li>Personally Assisted Living Application</li>
+                                        <li>On Road Vehicle Application</li>
+                                        <li>Prototyping Robots</li>
                                     </ul>
                                 </li> 
                                 <li>Conclusion and Perspectives</li>
@@ -1434,14 +1439,14 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                                 <li>write publisher/subscriber in c++/python/java</li>
                             </ul>
                         </li>
-                        <li>Illustrate different usage of ROS
+                        <li>Illustrate different usages of ROS
                             <ul>
                                 <li>Personally Assisted Living Application <a href="http://pal.inria.fr">http://pal.inria.fr</a></li>
                                 <li>On Road Vehicle Application</li>
                                 <li>Quick prototyping of robot: iKio</li>
                             </ul>
                         </li>
-                        <li>Interact through a live demo
+                        <li>Interact <span class="normal">(ask questions, ask for live actions)</span> through a live demo
                             <ul>
                                 <li>be patient...!</li>
                             </ul>
@@ -1451,7 +1456,8 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             </section>
             
             <section class="slide part">
-                <div class="slide-title">Presentation Wrap up</div>
+                <h3>Quick Conclusion & Perspectives</h3>
+                <div class="slide-title">Quick Conclusion & Perspectives</div>
                 <div class="slide-content">
                     <p class="large">ROS is great but ROS community makes it awesome</p>
                     <ul>
@@ -1462,7 +1468,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                     <ul>
                         <li class="normal">"ROS is kind of the DOS of component/service oriented middleware"</li>
                         <li class="normal">Not a state of the art middleware</li>
-                        <li class="normal">Fuzzy concepts (ROS service vs. SOA service; action)</li>
+                        <li class="normal">Fuzzy concepts (ROS service vs. SOA service? ROS service vs. ROS action, ...)</li>
                         <li class="normal">Missing dynamic discovery/introspection (dnssd)
                             <ul>
                                 <li>Dynamic/distributed master (maybe no need of master)</li>
@@ -1471,7 +1477,7 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
                                 <li>Dynamic notification/handler</li>
                             </ul>
                          </li>
-                        <li class="normal">Not fully cross-platform</li>
+                        <li class="normal">Not fully cross-platform (please contribute)</li>
                         <li class="normal">ROS is growing really fast => challenges??</li>
                     </ul>
                     <p class="large center"><em>ROS is about YOU, so get ROS and get dirty!</em></p>
@@ -1480,11 +1486,13 @@ $ rosrun pkg_name execute your.package.path.Subscriber</code></pre>
             
             <section class="slide part">
                 <h3>Useful Links</h3>
-                <div class="slide-title">Conclusion and Perspective</div>
+                <div class="slide-title">Useful Links</div>
                 <div class="slide-content">
                     <p class="large">Introduction to ROS (Slides)</p>
                     <ul>
-                        <li><a href="http://ias.cs.tum.edu/_media/teaching/ss2012/techcogsys/ros-intro.pdf">Introduction to ROS - Intelligent Autonomous Systems</a></li>
+                        <li><a href="http://ias.cs.tum.edu/_media/teaching/ss2012/techcogsys/ros-intro.pdf">Introduction to ROS - by Lorenz Mösenlechner</a></li>
+                        <li><a href="http://mediawiki.isr.ist.utl.pt/images/3/3d/Intro_to_ros.pdf">Introduction to ROS - by Rodrigo Ventura</a></li>
+                        <li><a href="http://www.ros.org/wiki/Events/CoTeSys-ROS-School?action=AttachFile&do=get&target=ros_tutorial.pdf">Introduction to ROS - by Willow Garage</a></li>
                     </ul>
                     <p class="large">Main ROS Link</p>
                     <ul>

@@ -834,7 +834,7 @@ pre, code {
     
     #title-slide {
         h1 {
-           margin-top: #{($line/2)/$em}em;
+           margin-top: #{($line/3)/$em}em;
            font-size: #{($font-size*3.5) / $em}em;
            line-height: #{$line/1.5/$em}em;
            text-shadow: 0px 1px 1px rgba(0,0,0,.5);
@@ -847,14 +847,20 @@ pre, code {
             }
         }
 
-        figure {
-            margin-top: #{($line*2)/$em}em;
-            img { max-width: #{$deck_size_width/3}px; }
+        figure.ros {
+            margin-top: #{($line*1.2)/$em}em;
+            img { max-width: #{$deck_size_width/2.5}px; }
+        }
+
+		figure.institute {
+            margin: 0px;
+			padding: 0px;
+            img { max-height: 70px; }
         }
         
         p.info {
             @extend .center;
-            margin-top: #{($line*2)/$em}em;
+            margin-top: #{($line*1)/$em}em;
             font-size: #{($font-size*1.1) / $em}em;
             
             a[href='http://imakewebthings.com/deck.js/'] { font-family: "UltraRegular", Georgia, sans-serif; }

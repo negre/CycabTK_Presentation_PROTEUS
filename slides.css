@@ -596,7 +596,7 @@ pre, code {
 
   /*********************** slide specific tags ******************************/
   #title-slide h1 {
-    margin-top: 0.75em;
+    margin-top: 0.5em;
     font-size: 3.5em;
     line-height: 1em;
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); }
@@ -605,12 +605,17 @@ pre, code {
       font-style: normal;
       font-weight: bolder;
       font-size: 1.2em; }
-  #title-slide figure {
-    margin-top: 3em; }
-    #title-slide figure img {
-      max-width: 341.333px; }
+  #title-slide figure.ros {
+    margin-top: 1.8em; }
+    #title-slide figure.ros img {
+      max-width: 409.6px; }
+  #title-slide figure.institute {
+    margin: 0px;
+    padding: 0px; }
+    #title-slide figure.institute img {
+      max-height: 70px; }
   #title-slide p.info {
-    margin-top: 3em;
+    margin-top: 1.5em;
     font-size: 1.1em; }
     #title-slide p.info a[href='http://imakewebthings.com/deck.js/'] {
       font-family: "UltraRegular", Georgia, sans-serif; }
