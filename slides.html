@@ -107,7 +107,7 @@
                                         <li>Using it</li>
                                     </ul>
                                 </li>
-                                <li class="selected">Live Demonstration</li>
+                                <li class="selected">Demonstration</li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +117,77 @@
                 </div>
             </section>
 
+            <!--##########################################################################
+            ##
+            ## PART CycabTK Simulator
+            ##
+            ###########################################################################-->
+            <section class="slide">
+                <h2>CycabTK Simulator presentation</h2>
+                <h3>Description</h3>
+                <div class="slide-title">Brief history</div>
+                <div class="slide-content">
+                    <div class="stubbox">
+                        <div class="title">
+                            Historically
+                        </div>
+                        <div class="content">    
+                            <ul>
+                                <li><strong>CycabTK</strong> was a robotic toolkit dedicated for the <em>Cycab</em> autonomous vehicle</li>
+                                <li>Contained a basic 2D simulator to move a virtual cycab and simulate a laser scanner</li>
+                                <li>Used a shared-memory based middleware</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="stubbox">
+                        <div class="title">Now</div>
+                        <div class="content">    
+                            <ul>
+                                <li>We use <em>ROS</em> &rarr; private middleware and associated sensor drivers no more relevant</li>
+                                <li><em>CycabTK Simulator</em> : generic mobile robot simulator with <em>3D</em> and <em>physics engine</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">Description</div>
+                <div class="slide-content">
+                    <p class="large">Based on <em>mgEngine</em> : <a href="http://mgengine.sourceforge.net">http://mgengine.sourceforge.net</a></p>
+                    <ul> 
+                        <li>Open source 3D engine</li>
+                        <li>Simulation oriented</li>
+                        <li>Modular</li>
+                        <li>Scriptable (mgscripts & lua)</li>
+                    </ul>
+                    </li>
+                    <figure class="center">
+                        <img src="media/mgengine1.jpg" height="300px"/>
+                        <img src="media/mgengine2.jpg" height="300px" />
+                    </figure>
+                </div>
+            </section>
 
+            <section class="slide">
+                <div class="slide-title">Description</div>
+                <div class="slide-content">
+                    <p class="large">CycabTK add a physics layer using <em>Bullet Physics Library</em> <a href="http://www.bulletphysics.com"><img src="media/bullet_logo-210-86.png"/></a></p>
+                    <ul> 
+                        <li>Colision detection</li>
+                        <li>Realistics robots motion</li>
+                        <li></li>
+                    </ul>
+                    </li>
+                    <figure class="center">
+                        <img src="media/mgengine1.jpg" height="300px"/>
+                        <img src="media/mgengine2.jpg" height="300px" />
+                    </figure>
+                </div>
+            </section>
+
+            
             <!--##########################################################################
             ##
             ## PART Extra.
