@@ -267,10 +267,10 @@ pre, code {
             }
     
             pre {
-                margin: #{($line/4)/$em}em 0 0 0;
                 //padding: #{($line/4)/$em}em;
                 padding: 0px;
                 background-color: #F0F0F0;
+                margin-bottom: 10px
             }
             
             code {
@@ -286,7 +286,7 @@ pre, code {
                 margin-left: #{($line)/$em}em;
             }
            
-            ul {
+            ul, ol {
                 li {
                     padding: 0;
                     font-weight: 500;

@@ -89,8 +89,9 @@
                             <ul class="fadded">
                                 <li class="selected">CycabTK Simulator presentation
                                     <ul>
-                                        <li>What is CycabTK Simulator</li>
+                                        <li>Description</li>
                                         <li>Features</li>
+                                        <li>Ros interfaces</li>                                        
                                     </ul>
                                 </li>
                                 <li class="selected">Getting Started with CycabTKSimulator
@@ -153,7 +154,7 @@
             </section>
             
             <section class="slide">
-                <div class="slide-title">Description</div>
+                <div class="slide-title">Graphic engine</div>
                 <div class="slide-content">
                     <p class="large">Based on <em>mgEngine</em> : <a href="http://mgengine.sourceforge.net">http://mgengine.sourceforge.net</a></p>
                     <ul> 
@@ -171,22 +172,155 @@
             </section>
 
             <section class="slide">
-                <div class="slide-title">Description</div>
+                <div class="slide-title">Physics engine</div>
                 <div class="slide-content">
                     <p class="large">CycabTK add a physics layer using <em>Bullet Physics Library</em> <a href="http://www.bulletphysics.com"><img src="media/bullet_logo-210-86.png"/></a></p>
                     <ul> 
                         <li>Colision detection</li>
                         <li>Realistics robots motion</li>
-                        <li></li>
+                        <li>Characters</li>
                     </ul>
-                    </li>
                     <figure class="center">
-                        <img src="media/mgengine1.jpg" height="300px"/>
-                        <img src="media/mgengine2.jpg" height="300px" />
+                        <img src="media/simu_relief.jpg" height="300px"/>
                     </figure>
                 </div>
             </section>
+            
+            <section class="slide">
+                <h3>Features</h3>
+                <div class="slide-title">Features</div>
+                <div class="slide-content">
+                    <p class="large">Available simulated components</p>
+                    <ul> 
+                        <li>Differential and car-like vehicle
+                            <ul>
+                                <li>With dynamics</li>
+                                <li>Simulated low level speed control</li>
+                                <li>Odometry (perfect and with sliding)</li>
+                            </ul>
+                        </li>
+                        <li>Cameras</li>
+                        <li>Multilayers LIDAR and range sensors</li>
+                        <li>GPS</li>
+                        <li>IMU</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <h3>ROS interfaces</h3>
+                <div class="slide-title">ROS interfaces</div>
+                <div class="slide-content">
+                    <p class="large">CycabTK is Integrated with <em>ROS</em><a href="http://www.ros.org"><img src="media/ROS.png" height="100px"></a></p>
+                    <ul> 
+                        <li>CycabTK = ROS <em>package</em></li>
+                        <li>Use ROS build system</li>
+                        <li>Provide simulated robots & sensors interfaces to TOS <em>topics</em></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <h3>Scripting</h3>
+                <div class="slide-title">Scripting</div>
+                <div class="slide-content">
+                    <p class="large"> Two methods to create a simulation scene in mgEngine : 
+                    <ul>
+                        <li>Native script language
+                            <ul>
+                                <li>Easy way to add simulated object & configure the engine</li>
+                                <li>Limited : no logics, no objects, etc.</li>
+                            </ul>
+                        </li>
+                        <li>Use <a href="http://www.lua.org/">Lua</a> interpreter module :
+                            <ul>
+                                <li>Very light and powerfull language</li>
+                                <li>Lua bindings for almost all mgEngine & CycabTKSimulator modules</li>
+                                <li>Configure as the default interpreter by CycabTKSimulator</li>
+                                <li>Can use luaBind <em>class</em> architecture</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="splitbox bordered boxed">
+                        <div class="splitbox-row">
+                            <div class="full">
+                                <p class="large center">We focused on the second solution</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <!--##########################################################################
+            ##
+            ## PART Getting Started.
+            ##
+            ###########################################################################-->
+            
+            <section class="slide">
+                <h2>Getting started</h2>
+                <h3>Installation</h3>
+                <div class="slide-title">Installation</div>
+                <div class="slide-content">   
+                    <ol> 
+                        <li>Install ROS :
+                            <ul>
+                                <li>Goto <a href="http://www.ros.org/wiki/ROS/Installation">http://www.ros.org/wiki/ROS/Installation</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Install CycabTKSimulator :
+                            <ul>
+                                <li> Using PROTEUS repository :
+                                <pre><code class="bash">$ apt-get install CycabTKSimulator</code></pre>
+                                </li>
+                                <li> Using source code : 
+                                    <ol>
+                                        <li>Dowload and decompress latest archive : <a href="https://gforge.inria.fr/frs/?group_id=42">https://gforge.inria.fr/frs/?group_id=42</a></li>
+                                        <li>Add the path to <em>ROS_PACKAGE_PATH</em> environment variable</li>
+                                        <li>Compile with <em>rosmake</em> : 
+                                            <pre><code class="bash">$ rosmake CycabTKSimulator</code></pre>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Test :
+                            <div class="splitbox">
+                            <div class="splitbox-row">
+                                <div class="twothird">
+                                    <pre><code class="bash">$ roslaunch CycabTKSimulator cycabtk_tutorial.launch</code></pre>
+                                </div>
+                                <div class="onethird">
+                                    <figure class="center">
+                                        <img src="media/tutorial.png" height="200px"/>
+                                    </figure>
+                                </div>
+                            </div>
+                            </div>
+                        </li>
+                    </ol>
+                 </div>
+            </section>
+            
+            <section class="slide">
+                <h3>Configuration</h3>
+                <div class="slide-title">Configuration</div>
+                <div class="slide-content">
+                    <p class="large">mgEngine requires configuration files to find ressources</p>
+                    <pre><p>Typical configuration file </p>
+                    <code class="bash">
+[data path]            "/path/to/the/scene/"
+[material path]        "$(material path);$(data path)materials"
+[mesh path]            "$(mesh path);$(data path)meshes"
+[texture path]         "$(texture path);$(data path)textures"
+[script path]          "$(script path);$(data path)scripts"
+[configuration path]   "$(configuration path);$(data path)conf"
+[lua path]             "$(lua path);$(data path)scripts/?.lua"
+[input config file]    "$(data path)input.conf"</code>
+                    </pre>
+                </div>
+            </section>
             
             <!--##########################################################################
             ##
