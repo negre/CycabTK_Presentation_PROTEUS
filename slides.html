@@ -236,7 +236,7 @@
                             <ul>
                                 <li>Very light and powerfull language</li>
                                 <li>Lua bindings for almost all mgEngine & CycabTKSimulator modules</li>
-                                <li>Configure as the default interpreter by CycabTKSimulator</li>
+                                <li>Configured as the default interpreter by CycabTKSimulator</li>
                                 <li>Can use luaBind <em>class</em> architecture</li>
                             </ul>
                         </li>
@@ -302,14 +302,16 @@
                     </ol>
                  </div>
             </section>
-            
+                        
             <section class="slide">
                 <h3>Configuration</h3>
                 <div class="slide-title">Configuration</div>
                 <div class="slide-content">
-                    <p class="large">mgEngine requires configuration files to find ressources</p>
-                    <pre><p>Typical configuration file </p>
-                    <code class="bash">
+                    <ul class="large">
+                        <li>MgEngine requires configuration files to find ressources</li>
+                        <li>Typycal configuration file :</li>
+                    </ul>
+                    <pre><code class="bash">
 [data path]            "/path/to/the/scene/"
 [material path]        "$(material path);$(data path)materials"
 [mesh path]            "$(mesh path);$(data path)meshes"
@@ -317,8 +319,92 @@
 [script path]          "$(script path);$(data path)scripts"
 [configuration path]   "$(configuration path);$(data path)conf"
 [lua path]             "$(lua path);$(data path)scripts/?.lua"
-[input config file]    "$(data path)input.conf"</code>
-                    </pre>
+[input config file]    "$(data path)input.conf"</code></pre>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <h3>Edit scene</h3>
+                <div class="slide-title">Edit scene</div>
+                <div class="slide-content">
+                    <p class="large">A simulation scene = Lua script</p>
+                    <div class="splitbox">
+                        <div class="splitbox-row">
+                            <div class="onehalf">
+                                <pre><code class="lua">require "mgLuaCameraViewport"
+require "mgLuaAccurateRenderer"
+require "LuaCycabTK"
+require "LuaStdPhysicsEngine"
+require "LuaCollisionMesh"
+
+---- Renderer
+renderer = mge.AccurateRenderer "renderer"
+---- Camera view
+cam = mge.Camera "cam"
+viewport = mge.CameraViewport "viewport"
+viewport.Camera = cam
+-- Physics Engine
+phyEng = cycabtk.StdPhysicsEngine "phyEng"
+</code></pre>
+                            </div>
+                            <div class="onehalf">
+                                <pre><code class="lua">-- Environment
+ground = mge.MeshActor "ground"
+ground:SetMesh "ground.mesh"
+phyGround = cycabtk.CollisionMesh "phyGround"
+--Light
+sun = mge.LightSource "sun"
+sun:SetLocalPosition (-10, -10, 100)
+-- robot
+require "tutorial/SimpleVehicle"
+robot = SimpleVehicle "robot"
+robot:SetPosition(-5,0,0.5)</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-title">Using class</div>
+                <div class="slide-content">
+                    <p class="large">Object programming with Luabind classes</p>
+                    <pre><code class="lua">require "LuaCycabTK"
+require "LuaDynamicCar"
+
+--Definition of class SimpleVehicle
+class 'SimpleVehicle' (cycabtk.DynamicCar)
+function SimpleVehicle:__init(name)
+        cycabtk.DynamicCar.__init(self, name)
+    
+        self:SetVehicleConfiguration "tutorial/SimpleVehicle.xml"
+        ---- initialize mesh actors ----
+        self.chassis = mge.MeshActor( name..".chassis" )
+        self.chassis:SetMesh "tutorial/chassis.mesh"
+        self:AttachTo( name..".chassis" )
+        self:SetPhysicMesh("tutorial/chassis.mesh", true);
+        --...
+        self:Start()
+end</code></pre>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <h3>Launch</h3>
+                <div class="slide-title">Launch</div>
+                <div class="slide-content">
+                    <ul class="large">
+                        <li>Command line : 
+                            <pre><code class="bash">$ [rlwrap] rosrun CycabTKSimulator cycabtksimulator &nbsp;&nbsp; &nbsp;-f [configuration file] -l [lua script]</code></pre>
+                        </li>
+                        <li>Using ros launch file:
+                            <pre><code class="xml">&lt;launch&gt;
+&nbsp;&lt;node pkg=&quot;CycabTKSimulator&quot; type=&quot;cycabtk_simulator&quot; name=&quot;Simulator&quot; args=&quot;-f configuration_file -l script.lua&quot; output=&quot;screen&quot; launch-prefix=&quot;rlwrap&quot; &gt;
+&nbsp;&lt;/node&gt;
+&lt;/launch&gt;</code></pre>
+                            <pre><code class="bash">$ roslaunch launch_file.launch</code></pre>
+                        </li>
+                    </ul>
                 </div>
             </section>
             
@@ -329,7 +415,7 @@
             ###########################################################################-->
 
             <section class="slide tabular vcenter hide-toc-status">
-                <p class="emphasis large">Questions</em></p>
+                <p class="emphasis large"><em>Questions</em></p>
             </section>
 
 
