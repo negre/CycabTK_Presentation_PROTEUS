@@ -36,7 +36,7 @@
         <link rel="stylesheet" href="slides.css" />
 
         <!-- Transition theme. More available in /themes/transition/ or create your own. -->
-        <!--link rel="stylesheet" href="themes/transition/beamer.css"-->
+        <link rel="stylesheet" href="libs/deckextjs/themes/transition/beamer.css">
     </head>
     <body>
         <article class="deck-container">
@@ -97,8 +97,9 @@
                                 <li class="selected">Getting Started with CycabTKSimulator
                                     <ul>
                                         <li>Installation</li>
-                                        <li>Scripting</li>
-                                        <li>Connection with ROS</li>
+                                        <li>Configuration</li>
+                                        <li>Edit scene</li>
+                                        <li>Launch simulation</li>
                                     </ul>
                                 </li>
                                 <li class="selected">RobotML Generator
@@ -141,9 +142,9 @@
                         </div>
                     </div>
                     <br/>
-                    <div class="stubbox">
+                    <div class="stubbox slide">
                         <div class="title">Now</div>
-                        <div class="content">    
+                        <div class="content">
                             <ul>
                                 <li>We use <em>ROS</em> &rarr; private middleware and associated sensor drivers no more relevant</li>
                                 <li><em>CycabTK Simulator</em> : generic mobile robot simulator with <em>3D</em> and <em>physics engine</em></li>
@@ -154,7 +155,7 @@
             </section>
             
             <section class="slide">
-                <div class="slide-title">Graphic engine</div>
+                <div class="slide-title">Graphics engine</div>
                 <div class="slide-content">
                     <p class="large">Based on <em>mgEngine</em> : <a href="http://mgengine.sourceforge.net">http://mgengine.sourceforge.net</a></p>
                     <ul> 
@@ -163,7 +164,6 @@
                         <li>Modular</li>
                         <li>Scriptable (mgscripts & lua)</li>
                     </ul>
-                    </li>
                     <figure class="center">
                         <img src="media/mgengine1.jpg" height="300px"/>
                         <img src="media/mgengine2.jpg" height="300px" />
@@ -226,13 +226,13 @@
                 <div class="slide-content">
                     <p class="large"> Two methods to create a simulation scene in mgEngine : 
                     <ul>
-                        <li>Native script language
+                        <li class="slide">Native mgEngine script language
                             <ul>
                                 <li>Easy way to add simulated object & configure the engine</li>
                                 <li>Limited : no logics, no objects, etc.</li>
                             </ul>
                         </li>
-                        <li>Use <a href="http://www.lua.org/">Lua</a> interpreter module :
+                        <li class="slide">Use <a href="http://www.lua.org/">Lua</a> interpreter module :
                             <ul>
                                 <li>Very light and powerfull language</li>
                                 <li>Lua bindings for almost all mgEngine & CycabTKSimulator modules</li>
@@ -241,7 +241,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="splitbox bordered boxed">
+                    <div class="splitbox bordered boxed slide">
                         <div class="splitbox-row">
                             <div class="full">
                                 <p class="large center">We focused on the second solution</p>
@@ -269,7 +269,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>Install CycabTKSimulator :
+                        <li class="slide">Install CycabTKSimulator :
                             <ul>
                                 <li> Using PROTEUS repository :
                                 <pre><code class="bash">$ apt-get install CycabTKSimulator</code></pre>
@@ -285,7 +285,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>Test :
+                        <li class="slide">Test :
                             <div class="splitbox">
                             <div class="splitbox-row">
                                 <div class="twothird">
@@ -366,7 +366,7 @@ robot:SetPosition(-5,0,0.5)</code></pre>
             </section>
             
             <section class="slide">
-                <div class="slide-title">Using class</div>
+                <div class="slide-title">Using classes</div>
                 <div class="slide-content">
                     <p class="large">Object programming with Luabind classes</p>
                     <pre><code class="lua">require "LuaCycabTK"
@@ -390,6 +390,22 @@ end</code></pre>
             </section>
             
             <section class="slide">
+                <div class="slide-title">ROS Interfaces</div>
+                <div class="slide-content">
+                    <p class="large">ROS Interface = Pre/Post processor modules</p>
+                    <pre><code class="lua">require "LuaGroundVehicleOdometryRosInterface"
+odometry_ros = cycabtk.GroundVehicleOdometryRosInterface("odometry_ros")
+odometry_ros:SetTopicName("/odom")
+robot:AddPostProcessing("odometry_ros")
+ 	
+require "LuaInputCycabControllerRosInterface"
+controller_ros = cycabtk.InputCycabControllerRosInterface("controller_ros")
+controller_ros:SetTopicName("/cmd_vel")
+robot:AddPreProcessing("controller_ros")</code></pre>
+                </div>
+            </section>
+            
+            <section class="slide">
                 <h3>Launch</h3>
                 <div class="slide-title">Launch</div>
                 <div class="slide-content">
@@ -403,6 +419,44 @@ end</code></pre>
 &nbsp;&lt;/node&gt;
 &lt;/launch&gt;</code></pre>
                             <pre><code class="bash">$ roslaunch launch_file.launch</code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--##########################################################################
+            ##
+            ## RobotML CycabTK Generator
+            ##
+            ###########################################################################-->
+
+            <section class="slide">
+                <h2>RobotML CycabTK Generator</h2>
+                <h3>Supported concepts</h3>
+                <div class="slide-title">Supported concepts</div>
+                <div class="slide-content">
+                    <ul class="large">
+                        <li class="slide">Robotics Architecture
+                            <ul>
+                                <li>Robot : Car-like / Differential</li>
+                                <li>LidarSystem</li>
+                                <li>CameraSystem</li>
+                                <li>GPSSystem</li>
+                                <li>IMU</li>
+                                <li>RoboticsSystem</li>
+                            </ul>
+                        </li>
+                        <li class="slide">Robotics Communication
+                            <ul>
+                                <li>Generate ROS interface for supported messages only</li>
+                                <li>Don't generate messages & communication protocol</li>
+                            </ul>
+                        </li>
+                        <li class="slide">Deployment
+                            <ul>
+                                <li>Generate components defined to <em>cycabTK</em> platform only</li>
+                                <li><em>Native</em> components are only instanciated (don't generate class)</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
