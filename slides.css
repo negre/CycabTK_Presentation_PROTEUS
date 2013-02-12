@@ -158,15 +158,15 @@ pre, code {
           color: inherit;
           font-weight: bold; }
       .deck-container .slide .slide-content {
-        margin-top: 10px; }
+        margin-top: 40px; }
       .deck-container .slide figure img {
         display: inline-block; }
       .deck-container .slide P {
         margin-bottom: 0.5em; }
       .deck-container .slide pre {
-        margin: 0.375em 0 0 0;
         padding: 0px;
-        background-color: #F0F0F0; }
+        background-color: #F0F0F0;
+        margin-bottom: 10px; }
       .deck-container .slide code {
         padding: 0.375em; }
       .deck-container .slide em {
@@ -174,23 +174,23 @@ pre, code {
         font-weight: bold; }
       .deck-container .slide ul, .deck-container .slide ol {
         margin-left: 1.5em; }
-      .deck-container .slide ul li {
+      .deck-container .slide ul li, .deck-container .slide ol li {
         padding: 0;
         font-weight: 500; }
-      .deck-container .slide ul > li {
+      .deck-container .slide ul > li, .deck-container .slide ol > li {
         font-weight: bold; }
-        .deck-container .slide ul > li li {
+        .deck-container .slide ul > li li, .deck-container .slide ol > li li {
           font-size: 0.85em;
           font-weight: normal; }
-      .deck-container .slide ul.fadded, .deck-container .slide ul .fadded {
+      .deck-container .slide ul.fadded, .deck-container .slide ul .fadded, .deck-container .slide ol.fadded, .deck-container .slide ol .fadded {
         color: rgba(0, 0, 0, 0.2); }
-        .deck-container .slide ul.fadded *, .deck-container .slide ul .fadded * {
+        .deck-container .slide ul.fadded *, .deck-container .slide ul .fadded *, .deck-container .slide ol.fadded *, .deck-container .slide ol .fadded * {
           color: inherit; }
-      .deck-container .slide ul .selected {
+      .deck-container .slide ul .selected, .deck-container .slide ol .selected {
         color: #575757; }
-      .deck-container .slide ul .normal {
+      .deck-container .slide ul .normal, .deck-container .slide ol .normal {
         font-weight: normal; }
-        .deck-container .slide ul .normal * {
+        .deck-container .slide ul .normal *, .deck-container .slide ol .normal * {
           font-weight: normal; }
       .deck-container .slide span.strike {
         text-decoration: line-through; }
@@ -468,7 +468,7 @@ pre, code {
           margin: 0px 0px 0px 0px;
           padding: 5px; }
         .deck-container .stubbox .content ul {
-          margin-left: 10px;
+          margin-left: 40px;
           font-size: 1.2em; }
     .deck-container .separator {
       display: block;
