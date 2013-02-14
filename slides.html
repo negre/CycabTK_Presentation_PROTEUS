@@ -92,6 +92,7 @@
                                         <li>Description</li>
                                         <li>Features</li>
                                         <li>Ros interfaces</li>                                        
+                                        <li>scripting</li>
                                     </ul>
                                 </li>
                                 <li class="selected">Getting Started with CycabTKSimulator
@@ -106,7 +107,6 @@
                                     <ul>
                                         <li>Supported features</li>
                                         <li>Generated files</li>
-                                        <li>Using it</li>
                                     </ul>
                                 </li>
                                 <li class="selected">Demonstration</li>
@@ -214,9 +214,12 @@
                     <p class="large">CycabTK is Integrated with <em>ROS</em><a href="http://www.ros.org"><img src="media/ROS.png" height="100px"></a></p>
                     <ul> 
                         <li>CycabTK = ROS <em>package</em></li>
-                        <li>Use ROS build system</li>
-                        <li>Provide simulated robots & sensors interfaces to TOS <em>topics</em></li>
+                        <li>Uses ROS build system</li>
+                        <li>Provides simulated robots & sensors interfaces to ROS <em>topics</em></li>
                     </ul>
+                    <figure class="center">
+                        <img src="media/rviz.jpg" height="300px" />
+                    </figure>
                 </div>
             </section>
             
@@ -256,14 +259,48 @@
             ## PART Getting Started.
             ##
             ###########################################################################-->
+            <section class="slide hide-toc-status">
+                <h2>Getting started</h2>
+                <div class="slide-title">Plan</div>
+                <div class="slide-content">
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li class="fadded">CycabTK Simulator presentation
+                                    <ul>
+                                        <li>Description</li>
+                                        <li>Features</li>
+                                        <li>Ros interfaces</li>                                        
+                                        <li>Scripting</li>
+                                    </ul>
+                                </li>
+                                <li class="selected">Getting Started with CycabTKSimulator
+                                    <ul>
+                                        <li>Installation</li>
+                                        <li>Configuration</li>
+                                        <li>Edit scene</li>
+                                        <li>Launch simulation</li>
+                                    </ul>
+                                </li>
+                                <li class="fadded">RobotML Generator
+                                    <ul>
+                                        <li>Supported features</li>
+                                        <li>Generated files</li>
+                                    </ul>
+                                </li>
+                                <li class="fadded">Demonstration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
             <section class="slide">
-                <h2>Getting started</h2>
                 <h3>Installation</h3>
                 <div class="slide-title">Installation</div>
                 <div class="slide-content">   
                     <ol> 
-                        <li>Install ROS :
+                        <li class="slide">Install ROS :
                             <ul>
                                 <li>Goto <a href="http://www.ros.org/wiki/ROS/Installation">http://www.ros.org/wiki/ROS/Installation</a>
                                 </li>
@@ -272,7 +309,7 @@
                         <li class="slide">Install CycabTKSimulator :
                             <ul>
                                 <li> Using PROTEUS repository :
-                                <pre><code class="bash">$ apt-get install CycabTKSimulator</code></pre>
+                                <pre><code class="bash">$ apt-get install cycabtksimulator</code></pre>
                                 </li>
                                 <li> Using source code : 
                                     <ol>
@@ -429,9 +466,44 @@ robot:AddPreProcessing("controller_ros")</code></pre>
             ## RobotML CycabTK Generator
             ##
             ###########################################################################-->
-
-            <section class="slide">
+                     
+            <section class="slide hide-toc-status">
                 <h2>RobotML CycabTK Generator</h2>
+                <div class="slide-title">Plan</div>
+                <div class="slide-content">
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li class="fadded">CycabTK Simulator presentation
+                                    <ul>
+                                        <li>Description</li>
+                                        <li>Features</li>
+                                        <li>Ros interfaces</li>                                        
+                                        <li>Scripting</li>
+                                    </ul>
+                                </li>
+                                <li class="fadded">Getting Started with CycabTKSimulator
+                                    <ul>
+                                        <li>Installation</li>
+                                        <li>Configuration</li>
+                                        <li>Edit scene</li>
+                                        <li>Launch simulation</li>
+                                    </ul>
+                                </li>
+                                <li class="selected">RobotML Generator
+                                    <ul>
+                                        <li>Supported features</li>
+                                        <li>Generated files</li>
+                                    </ul>
+                                </li>
+                                <li class="fadded">Demonstration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="slide">
                 <h3>Supported concepts</h3>
                 <div class="slide-title">Supported concepts</div>
                 <div class="slide-content">
@@ -459,6 +531,82 @@ robot:AddPreProcessing("controller_ros")</code></pre>
                             </ul>
                         </li>
                     </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <h3>Generated files</h3>
+                <div class="slide-title">Generated files</div>
+                <div class="slide-content">
+                    <table class="boxed bordered">
+                        <tr>
+                            <td><strong>scripts/model/component.lua</strong></td>
+                            <td>Component definition</td>
+                        </tr>
+                        <tr>
+                            <td><strong>scripts/model.lua</strong></td>
+                            <td>Main script
+                                <ul>
+                                    <li>Init simulation engine and viewport</li>
+                                    <li>Instanciate objects</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>model.conf</strong></td>
+                            <td>Configuration file</td>
+                        </tr>
+                        <tr>
+                            <td><strong>model.launch</strong></td>
+                            <td>Launch file to start the simulation</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </section>
+
+            <section class="slide hide-toc-status">
+                <h2>Demonstration</h2>
+                <div class="slide-title">Plan</div>
+                <div class="slide-content">
+                    <div class="splitbox-row">
+                        <div class="full text-padding normal-text">
+                            <ul class="fadded">
+                                <li class="fadded">CycabTK Simulator presentation
+                                    <ul>
+                                        <li>Description</li>
+                                        <li>Features</li>
+                                        <li>Ros interfaces</li>                                        
+                                        <li>Scripting</li>
+                                    </ul>
+                                </li>
+                                <li class="fadded">Getting Started with CycabTKSimulator
+                                    <ul>
+                                        <li>Installation</li>
+                                        <li>Configuration</li>
+                                        <li>Edit scene</li>
+                                        <li>Launch simulation</li>
+                                    </ul>
+                                </li>
+                                <li class="fadded">RobotML Generator
+                                    <ul>
+                                        <li>Supported features</li>
+                                        <li>Generated files</li>
+                                    </ul>
+                                </li>
+                                <li class="selected">Demonstration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide hide-toc-status">
+                <div class="slide-title">Demonstration</div>
+                <div class="slide-content">
+                <figure class="center">
+                        <img src="media/demo.jpg" height="550px" />
+                    </figure>
                 </div>
             </section>
             
