@@ -282,6 +282,38 @@ pre, code {
                 font-weight: bold; 
            }
             
+            table {
+                position: relative;
+                display: table;
+                width: 100%;
+                padding: 0px;
+                @include border-radius(4px);
+            
+                &.bordered {
+                    margin: 10px 0px 10px 0px;
+                }
+            
+                &.boxed {
+                    border-top: 1px solid rgba(0, 0, 0, 0.1);
+                    @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.3));
+                    @include linear-gradient-background($color_box_white_light, $color_box_white_dark, 255);
+                }
+
+                tr {
+                    td {
+                        padding: 5px;
+                        border: 1px solid rgba(0.5, 0, 0, 1);
+                        vertical-align: top;
+                        ul, ol {
+                            li {
+                                padding: 0;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
             ul, ol {
                 margin-left: #{($line)/$em}em;
             }
